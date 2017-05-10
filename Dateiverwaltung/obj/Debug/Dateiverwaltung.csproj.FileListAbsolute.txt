@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
