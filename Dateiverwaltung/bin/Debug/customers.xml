@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Customers><Customer><ID>10</ID><Vorname>Daniel</Vorname><Nachname>Kern</Nachname><Strasse>Teststr. 7</Strasse><PLZ>95043</PLZ><Ort>Frankfurt</Ort></Customer><Customer><ID>10</ID><Vorname>Lukas</Vorname><Nachname>Hempel</Nachname><Strasse>Mustergasse 4</Strasse><PLZ>83022</PLZ><Ort>Bielefeld</Ort></Customer></Customers>

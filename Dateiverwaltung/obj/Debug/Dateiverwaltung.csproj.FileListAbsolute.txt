@@ -10,3 +10,9 @@ C:\Users\user\Desktop\Dateiverwaltung\Dateiverwaltung\Dateiverwaltung\obj\Debug\
 E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
