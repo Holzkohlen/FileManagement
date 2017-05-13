@@ -12,5 +12,10 @@ namespace Dateiverwaltung
         {
             this.sTitel = sTitel;
         }
+
+        public BluRay()
+        {
+
+        }
     }
 }

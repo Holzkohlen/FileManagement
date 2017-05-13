@@ -8,8 +8,12 @@ namespace Dateiverwaltung
 {
     abstract class Media
     {
-        public string sTitel;
-        public byte byID; //automatisch zugewiesen
-        public byte byLeihdauer; //in Tagen
+        protected string sTitel;
+        protected int iID; //automatisch zugewiesen
+        protected int iIDCustomer;
+        protected bool bAusgeliehen;
+        protected string sGenre;
+
+        virtual protected void auslesen() { }
     }
 }

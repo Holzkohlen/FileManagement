@@ -34,13 +34,6 @@
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_Customers = new System.Windows.Forms.TabPage();
-            this.tab_Books = new System.Windows.Forms.TabPage();
-            this.tab_CDs = new System.Windows.Forms.TabPage();
-            this.tab_DVDs = new System.Windows.Forms.TabPage();
-            this.tab_BluRays = new System.Windows.Forms.TabPage();
-            this.tab_Ebooks = new System.Windows.Forms.TabPage();
-            this.tb_Search = new System.Windows.Forms.TextBox();
-            this.btn_Edit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nachname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +41,14 @@
             this.Strasse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PLZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_Books = new System.Windows.Forms.TabPage();
+            this.tab_CDs = new System.Windows.Forms.TabPage();
+            this.tab_DVDs = new System.Windows.Forms.TabPage();
+            this.tab_BluRays = new System.Windows.Forms.TabPage();
+            this.tab_Ebooks = new System.Windows.Forms.TabPage();
+            this.tb_Search = new System.Windows.Forms.TextBox();
+            this.btn_Edit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_Customers.SuspendLayout();
@@ -109,6 +110,60 @@
             this.tab_Customers.TabIndex = 0;
             this.tab_Customers.Text = "Kunden";
             this.tab_Customers.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Nachname,
+            this.Vorname,
+            this.Strasse,
+            this.PLZ,
+            this.Ort});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(654, 381);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Nachname
+            // 
+            this.Nachname.HeaderText = "Nachname";
+            this.Nachname.Name = "Nachname";
+            this.Nachname.ReadOnly = true;
+            // 
+            // Vorname
+            // 
+            this.Vorname.HeaderText = "Vorname";
+            this.Vorname.Name = "Vorname";
+            this.Vorname.ReadOnly = true;
+            // 
+            // Strasse
+            // 
+            this.Strasse.HeaderText = "Straße";
+            this.Strasse.Name = "Strasse";
+            this.Strasse.ReadOnly = true;
+            // 
+            // PLZ
+            // 
+            this.PLZ.HeaderText = "PLZ";
+            this.PLZ.Name = "PLZ";
+            this.PLZ.ReadOnly = true;
+            // 
+            // Ort
+            // 
+            this.Ort.HeaderText = "Ort";
+            this.Ort.Name = "Ort";
+            this.Ort.ReadOnly = true;
             // 
             // tab_Books
             // 
@@ -177,56 +232,22 @@
             this.btn_Edit.Text = "Bearbeiten";
             this.btn_Edit.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // button1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Nachname,
-            this.Vorname,
-            this.Strasse,
-            this.PLZ,
-            this.Ort});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(654, 381);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // Nachname
-            // 
-            this.Nachname.HeaderText = "Nachname";
-            this.Nachname.Name = "Nachname";
-            // 
-            // Vorname
-            // 
-            this.Vorname.HeaderText = "Vorname";
-            this.Vorname.Name = "Vorname";
-            // 
-            // Strasse
-            // 
-            this.Strasse.HeaderText = "Straße";
-            this.Strasse.Name = "Strasse";
-            // 
-            // PLZ
-            // 
-            this.PLZ.HeaderText = "PLZ";
-            this.PLZ.Name = "PLZ";
-            // 
-            // Ort
-            // 
-            this.Ort.HeaderText = "Ort";
-            this.Ort.Name = "Ort";
+            this.button1.Location = new System.Drawing.Point(109, 255);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 448);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.tb_Search);
             this.Controls.Add(this.tabControl1);
@@ -266,6 +287,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Strasse;
         private System.Windows.Forms.DataGridViewTextBoxColumn PLZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ort;
+        private System.Windows.Forms.Button button1;
     }
 }
 
