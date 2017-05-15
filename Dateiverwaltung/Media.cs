@@ -8,12 +8,20 @@ namespace Dateiverwaltung
 {
     abstract class Media
     {
-        protected string sTitel;
-        protected int iID; //automatisch zugewiesen
-        protected int iIDCustomer;
-        protected bool bAusgeliehen;
-        protected string sGenre;
+        protected int iID { get; set; } //automatisch zugewiesen
+        protected string sTitel { get; set; }
+        protected string sGenre { get; set; }
+        protected DateTime dtRelease { get; set; }
 
-        virtual protected void auslesen() { }
+        protected bool bLent { get; set; }
+        protected int iIDCustomer { get; set; }
+        protected DateTime dtLend { get; set; }
+
+
+        public virtual IDictionary<string, string> read()
+        {
+            IDictionary<string, string> Dictionary = new Dictionary<string, string>();
+            return Dictionary;
+        }
     }
 }
