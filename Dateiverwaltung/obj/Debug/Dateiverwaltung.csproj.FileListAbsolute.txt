@@ -16,3 +16,12 @@ E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAs
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
