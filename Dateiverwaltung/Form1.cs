@@ -12,14 +12,32 @@ namespace Dateiverwaltung
 {
     public partial class Form1 : Form
     {
+        Backend code;
+
         public Form1()
         {
             InitializeComponent();
+            code = new Backend();
+            printCustomers();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void printCustomers()
         {
+            try
+            {
+                foreach (Customer temp in code.Customers)
+                {
+                    string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
+                    dataGridView1.Rows.Add(row);
+                }
+            }
+            catch (Exception e)
+            { MessageBox.Show(e.ToString(), "ERROR"); }
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            code.zeug();
         }
     }
 }
