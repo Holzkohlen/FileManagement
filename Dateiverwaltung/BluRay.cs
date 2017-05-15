@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dateiverwaltung
 {
-    class BluRay : Media
+    class BluRay : DVD
     {
-        public BluRay(string sTitel)
-        {
-            this.sTitel = sTitel;
-        }
 
-        public BluRay()
+        public BluRay() :base
         {
 
         }

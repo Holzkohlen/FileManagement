@@ -8,17 +8,46 @@ namespace Dateiverwaltung
 {
     class Book : Media
     {
-        string sAutor;
 
-        public Book(string sTitel, string sAutor)
+        int iPages{ get; set; }
+        string sAutor { get; set; }
+
+        //Konstrukor beim Erstellen
+        public Book(int iPages, string sAutor, string sTitel, string sGenre, DateTime dtRelease)
         {
-            this.sTitel = sTitel;
+            this.iPages= iPages;
             this.sAutor = sAutor;
+            this.sTitel = sTitel;
+            this.sGenre = sGenre;
+            this.dtRelease = dtRelease;
         }
 
-        public Book()
+        //Konstruktor für Aulesen XMLDatei
+        public Book(int iID, int iPages, string sAutor, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCostumer)
         {
-
+            this.iPages = iPages;
+            this.sAutor = sAutor;
+            this.sTitel = sTitel;
+            this.sGenre = sGenre;
+            this.dtRelease = dtRelease;
         }
+
+        public override IDictionary<string, string> read()
+        {
+            IDictionary<string, string> Dictionary = new Dictionary<string, string>();
+            Dictionary["ID"] = Convert.ToString(iID);
+            Dictionary["Titel"] = sTitel;
+            Dictionary["Genre"] = sGenre;
+            Dictionary["Release"] = Convert.ToString(dtRelease);
+            Dictionary["Ausgeliehen"] = Convert.ToString(bLent);
+            Dictionary["Kunden-ID"] = Convert.ToString(iIDCustomer);
+            Dictionary["Ausleidatum"] = Convert.ToString(dtLend);
+
+            Dictionary["Seitenzahl"] = Convert.ToString(iPages);
+            Dictionary["Autor"] = sAutor;
+
+            return Dictionary;
+        }
+
     }
 }

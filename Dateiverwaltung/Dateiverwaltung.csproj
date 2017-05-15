@@ -52,12 +52,15 @@
     <Compile Include="CD.cs" />
     <Compile Include="DVD.cs" />
     <Compile Include="EBook.cs" />
+<<<<<<< HEAD
     <Compile Include="EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> refs/remotes/origin/master
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

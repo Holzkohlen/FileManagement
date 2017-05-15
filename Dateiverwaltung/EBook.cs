@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dateiverwaltung
 {
-    class EBook : Media
+    class EBook : Book
     {
-        string sAutor;
-
-        public EBook(string sTitel, string sAutor)
-        {
-            this.sTitel = sTitel;
-            this.sAutor = sAutor;
-        }
 
         public EBook()
         {
