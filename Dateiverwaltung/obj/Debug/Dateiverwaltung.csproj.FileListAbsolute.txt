@@ -23,3 +23,6 @@ H:\TAI12A\AE\Projekt\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.cs
 H:\TAI12A\AE\Projekt\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
 H:\TAI12A\AE\Projekt\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
 H:\TAI12A\AE\Projekt\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+D:\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+D:\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+D:\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
