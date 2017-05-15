@@ -15,5 +15,10 @@ namespace Dateiverwaltung
             this.sTitel = sTitel;
             this.sAutor = sAutor;
         }
+
+        public EBook()
+        {
+
+        }
     }
 }

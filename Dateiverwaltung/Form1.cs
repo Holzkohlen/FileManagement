@@ -13,15 +13,11 @@ namespace Dateiverwaltung
     public partial class Form1 : Form
     {
         Backend code;
-        Customer[] cs;
 
         public Form1()
         {
             InitializeComponent();
             code = new Backend();
-            cs = new Customer[2];
-            //code.save();
-            cs = code.read();
             printCustomers();
         }
 
@@ -29,7 +25,7 @@ namespace Dateiverwaltung
         {
             try
             {
-                foreach (Customer temp in cs)
+                foreach (Customer temp in code.Customers)
                 {
                     string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
                     dataGridView1.Rows.Add(row);
@@ -37,6 +33,11 @@ namespace Dateiverwaltung
             }
             catch (Exception e)
             { MessageBox.Show(e.ToString(), "ERROR"); }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            code.zeug();
         }
     }
 }
