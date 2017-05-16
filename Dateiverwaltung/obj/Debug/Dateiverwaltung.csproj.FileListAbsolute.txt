@@ -39,3 +39,6 @@ D:\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
 D:\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
 >>>>>>> refs/remotes/origin/master
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.EditForm.resources
+D:\FileManagement\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+D:\FileManagement\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+D:\FileManagement\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
