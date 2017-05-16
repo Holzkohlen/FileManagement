@@ -31,10 +31,5 @@ namespace Dateiverwaltung
             xml = new XML_IO();
             xml.readAll(ref customers, ref books, ref blurays, ref cds, ref dvds, ref ebooks);
         }
-
-        public void zeug()
-        {
-            xml.saveObjectArray(customers);
-        }
     }
 }

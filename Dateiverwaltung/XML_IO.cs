@@ -16,6 +16,7 @@ namespace Dateiverwaltung
         const string DVDS = "dvds.xml";
         const string CDS = "cds.xml";
         const string BLURAYS = "blurays.xml";
+        const string MEDIA = "media.xml";
         #endregion
 
         public void saveAll(Customer[] customers, Book[] books, BluRay[] blurays, CD[] cds, DVD[] dvds, EBook[] ebooks) //Wird beim Programmende aufgerufen, um alles abzuspeichern!
@@ -35,7 +36,7 @@ namespace Dateiverwaltung
         }
 
         private int countElement(string sPath, string sSearchterm) //Durchsucht eine XML-Datei nach einem bestimmten Elementnamen
-        { 
+        {
             int iCounter = 0;
             try
             {
@@ -54,15 +55,83 @@ namespace Dateiverwaltung
                     }
                 }
             }
-            catch(SystemException e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
+            catch (SystemException e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
             return iCounter;
         }
 
-        public void saveObjectArray(Customer[] customers) //Kundendaten abspeichern!
+        public void saveMedia(Media[] media)
         {
-            #region Customers
-            
-            #endregion
+            using (XmlWriter writer = XmlWriter.Create(MEDIA))
+            {
+                writer.WriteStartDocument();
+                writer.WriteStartElement("Media");
+                foreach (Media med in media)
+                {
+                    IDictionary<string, string> dict = med.read();
+                    writer.WriteStartElement(dict["Klasse"]);
+                    foreach (KeyValuePair<string, string> entry in dict)
+                    {
+                        writer.WriteElementString(entry.Key, entry.Value);
+                    }
+                    writer.WriteEndElement();
+                }
+                writer.WriteEndElement();
+                writer.WriteEndDocument();
+            }
+        }
+
+        public void readMedia(ref List<Book> books, ref List<BluRay> blurays, ref List<CD> cds, ref List<DVD> dvds, ref List<EBook> ebooks)
+        {
+            //books = new Book[countElement(MEDIA, "Book")];
+            //blurays = new BluRay[countElement(MEDIA, "BluRay")];
+            //cds = new CD[countElement(MEDIA, "CD")];
+            //dvds = new DVD[countElement(MEDIA, "DVD")];
+            //ebooks = new EBook[countElement(MEDIA, "EBook")];
+            Book book = new Book();
+            EBook ebook = new EBook();
+            BluRay bluray = new BluRay();
+            CD cd = new CD();
+            DVD dvd = new DVD();
+            IDictionary<string, string> dict = new Dictionary<string, string>();
+
+            try
+            {
+                using (XmlReader reader = XmlReader.Create(MEDIA))
+                {
+                    while (!reader.EOF)
+                    {
+                        switch (reader.Name)
+                        {
+                            case "Book":
+                                if (reader.IsStartElement())
+                                {
+                                    book = new Book();
+                                    reader.Read();
+                                    //typeof(KLASSE).GetMethod("METHODENNAME").Invoke(OBJEKTNAME, new object[] { "VORNAME" });
+                                    while (!reader.Name.Equals("Book"))
+                                    {
+                                        dict[reader.Name] = reader.ReadElementContentAsString();
+                                    }
+                                    //typeof(Book).GetMethod("setParameters").Invoke(book, new object[] { dict["Titel"], dict })
+                                    books.Add(book);
+                                }
+                                break;
+                            case "EBook":
+                                break;
+                            case "BluRay":
+                                break;
+                            case "DVD":
+                                break;
+                            case "CD":
+                                break;
+                            default:
+                                reader.Read();
+                                break;
+                        }
+                    }
+                }
+            }
+            catch (SystemException e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
         }
 
         #region Read/Save Customers
