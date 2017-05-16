@@ -46,7 +46,7 @@ namespace Dateiverwaltung
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            edit = new EditForm(code);
+            edit = new EditForm();
             edit.Show();
         }
     }

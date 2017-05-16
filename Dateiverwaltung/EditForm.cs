@@ -12,10 +12,12 @@ namespace Dateiverwaltung
 {
     public partial class EditForm : Form
     {
-        public EditForm(Backend code)
+        public EditForm()
         {
             InitializeComponent();
         }
+        //public EditForm(Backend code):this()
+        //{ }
 
         private void EditForm_Load(object sender, EventArgs e)
         {
@@ -38,12 +40,27 @@ namespace Dateiverwaltung
             if (btn_Edit.Text != "Speichern")
             {
                 btn_Edit.Text = "Speichern";
+                tb_Name.ReadOnly = false;     
+                tb_Vorname.ReadOnly = false;
+                tb_Strasse.ReadOnly = false;
+                tb_Ort.ReadOnly = false;
+                tb_PLZ.ReadOnly = false;
             }
             else
             {
                 btn_Edit.Text = "Bearbeiten";
+                tb_Name.ReadOnly = true;
+                tb_Vorname.ReadOnly = true;
+                tb_Strasse.ReadOnly = true;
+                tb_Ort.ReadOnly = true;
+                tb_PLZ.ReadOnly = true;
             }
             
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

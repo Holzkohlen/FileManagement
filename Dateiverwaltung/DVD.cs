@@ -11,25 +11,25 @@ namespace Dateiverwaltung
 
         int iLength { get; set; }
         string sDirector { get; set; }
-        bool bAge { get; set; }
+        byte byAge { get; set; }
 
         //Konstrukor beim Erstellen
-        public DVD(int iLength, string sDirector, bool bAge, string sTitel, string sGenre, DateTime dtRelease)
+        public DVD(int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease)
         {
             this.iLength = iLength;
             this.sDirector = sDirector;
-            this.bAge = bAge;
+            this.byAge = byAge;
             this.sTitel = sTitel;
             this.sGenre = sGenre;
             this.dtRelease = dtRelease;
         }
 
         //Konstruktor für Aulesen XMLDatei
-        public DVD(int iID, int iLength, string sDirector, bool bAge, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCostumer)
+        public DVD(int iID, int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCostumer)
         {
             this.iLength = iLength;
             this.sDirector = sDirector;
-            this.bAge = bAge;
+            this.byAge = byAge;
             this.sTitel = sTitel;
             this.sGenre = sGenre;
             this.dtRelease = dtRelease;
