@@ -35,9 +35,13 @@ namespace Dateiverwaltung
             { MessageBox.Show(e.ToString(), "ERROR"); }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void tb_Search_Click(object sender, EventArgs e)
         {
-            code.zeug();
+            if(tb_Search.Text.Equals("Suchen"))
+            {
+                tb_Search.Text = "";
+                tb_Search.ForeColor = Color.Black;
+            }
         }
     }
 }

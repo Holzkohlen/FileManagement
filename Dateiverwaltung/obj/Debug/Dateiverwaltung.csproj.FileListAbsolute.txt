@@ -16,6 +16,17 @@ E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAs
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+<<<<<<< HEAD
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+C:\Users\Lukas\Git\Ausleihverwaltung\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+=======
 H:\TAI12A\AE\Projekt\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
 H:\TAI12A\AE\Projekt\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
 H:\TAI12A\AE\Projekt\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
@@ -26,3 +37,4 @@ H:\TAI12A\AE\Projekt\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.cs
 D:\FileManagement\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
 D:\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
 D:\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+>>>>>>> refs/remotes/origin/master
