@@ -13,7 +13,7 @@ namespace Dateiverwaltung
     public partial class Form1 : Form
     {
         Backend code;
-        EditForm edit = new EditForm();
+        EditForm edit;
         public Form1()
         {
             InitializeComponent();
@@ -46,6 +46,7 @@ namespace Dateiverwaltung
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
+            edit = new EditForm(code);
             edit.Show();
         }
     }
