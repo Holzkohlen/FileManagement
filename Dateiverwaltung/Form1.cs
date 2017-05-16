@@ -13,7 +13,7 @@ namespace Dateiverwaltung
     public partial class Form1 : Form
     {
         Backend code;
-
+        EditForm edit = new EditForm();
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +42,11 @@ namespace Dateiverwaltung
                 tb_Search.Text = "";
                 tb_Search.ForeColor = Color.Black;
             }
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            edit.Show();
         }
     }
 }

@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -84,7 +85,6 @@
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tb_Search = new System.Windows.Forms.TextBox();
             this.btn_Edit = new System.Windows.Forms.Button();
-            this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_Customers.SuspendLayout();
@@ -126,6 +126,12 @@
             this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
             this.speichernToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.speichernToolStripMenuItem.Text = "Speichern";
+            // 
+            // beendenToolStripMenuItem
+            // 
+            this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.beendenToolStripMenuItem.Text = "Beenden";
             // 
             // hilfeToolStripMenuItem
             // 
@@ -564,12 +570,7 @@
             this.btn_Edit.TabIndex = 3;
             this.btn_Edit.Text = "Bearbeiten";
             this.btn_Edit.UseVisualStyleBackColor = true;
-            // 
-            // beendenToolStripMenuItem
-            // 
-            this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.beendenToolStripMenuItem.Text = "Beenden";
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // Form1
             // 

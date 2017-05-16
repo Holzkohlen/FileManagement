@@ -16,5 +16,20 @@ namespace Dateiverwaltung
         {
             InitializeComponent();
         }
+
+        private void EditForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_Search_TextChanged(object sender, EventArgs e)
+        {
+            if (!cb_Search.DroppedDown)
+            {
+                string temp = cb_Search.Text;
+                cb_Search.DroppedDown = true;
+                cb_Search.Text = temp;
+            }
+        }
     }
 }
