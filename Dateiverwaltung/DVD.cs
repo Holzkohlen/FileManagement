@@ -35,6 +35,11 @@ namespace Dateiverwaltung
             this.dtRelease = dtRelease;
         }
 
+        public DVD()
+        {
+
+        }
+
         public override IDictionary<string, string> read()
         {
             IDictionary<string, string> Dictionary = new Dictionary<string, string>();

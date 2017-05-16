@@ -9,6 +9,11 @@ namespace Dateiverwaltung
     class EBook : Book
     {
 
+        public EBook(int iPages, string sAutor, string sTitel, string sGenre, DateTime dtRelease) : base(iPages, sAutor, sTitel, sGenre, dtRelease)
+        {
+
+        }
+
         public EBook()
         {
 
