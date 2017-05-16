@@ -9,33 +9,10 @@ namespace Dateiverwaltung
 {
     class XML_IO
     {
-        #region FilePaths
         const string CUSTOMERS = "customers.xml";
-        const string BOOKS = "books.xml";
-        const string EBOOKS = "ebooks.xml";
-        const string DVDS = "dvds.xml";
-        const string CDS = "cds.xml";
-        const string BLURAYS = "blurays.xml";
         const string MEDIA = "media.xml";
-        #endregion
 
-        public void saveAll(Customer[] customers, Book[] books, BluRay[] blurays, CD[] cds, DVD[] dvds, EBook[] ebooks) //Wird beim Programmende aufgerufen, um alles abzuspeichern!
-        {
-            saveCustomers(customers);
-            saveBooks(books);
-            saveBluRays(blurays);
-            saveCDs(cds);
-            saveDVDs(dvds);
-            saveEBooks(ebooks);
-        }
-
-        public void readAll(ref Customer[] customers, ref Book[] books, ref BluRay[] blurays, ref CD[] cds, ref DVD[] dvds, ref EBook[] ebooks) //Wird beim Programmstart aufgerufen, um alles auszulesen!
-        {
-            readCustomers(out customers);
-            //readBooks(out books);
-        }
-
-        private int countElement(string sPath, string sSearchterm) //Durchsucht eine XML-Datei nach einem bestimmten Elementnamen
+        private int countElement(string sPath, string sSearchterm) //Durchsucht eine XML-Datei nach einem bestimmten Elementnamen und gibt Anzahl zurück
         {
             int iCounter = 0;
             try
@@ -59,40 +36,62 @@ namespace Dateiverwaltung
             return iCounter;
         }
 
-        public void saveMedia(Media[] media)
+        #region Read/Save Media
+        public void saveMedia(Media[] media) //Speichert sämtliche Medien ab
         {
-            using (XmlWriter writer = XmlWriter.Create(MEDIA))
+            try
             {
-                writer.WriteStartDocument();
-                writer.WriteStartElement("Media");
-                foreach (Media med in media)
+                using (XmlWriter writer = XmlWriter.Create(MEDIA))
                 {
-                    IDictionary<string, string> dict = med.read();
-                    writer.WriteStartElement(dict["Klasse"]);
-                    foreach (KeyValuePair<string, string> entry in dict)
+                    writer.WriteStartDocument();
+                    writer.WriteStartElement("Media");
+                    writer.WriteElementString("Count", Convert.ToString(media.Length));
+                    foreach (Media med in media)
                     {
-                        writer.WriteElementString(entry.Key, entry.Value);
+                        IDictionary<string, string> dict = med.read();
+                        writer.WriteStartElement(dict["Klasse"]);
+                        foreach (KeyValuePair<string, string> entry in dict)
+                        {
+                            if (entry.Key != "Klasse")
+                            {
+                                writer.WriteElementString(entry.Key, entry.Value);
+                            }
+                        }
+                        writer.WriteEndElement();
                     }
                     writer.WriteEndElement();
+                    writer.WriteEndDocument();
                 }
-                writer.WriteEndElement();
-                writer.WriteEndDocument();
             }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
         }
 
-        public void readMedia(ref List<Book> books, ref List<BluRay> blurays, ref List<CD> cds, ref List<DVD> dvds, ref List<EBook> ebooks)
+        public Media[] readMedia()
         {
-            //books = new Book[countElement(MEDIA, "Book")];
-            //blurays = new BluRay[countElement(MEDIA, "BluRay")];
-            //cds = new CD[countElement(MEDIA, "CD")];
-            //dvds = new DVD[countElement(MEDIA, "DVD")];
-            //ebooks = new EBook[countElement(MEDIA, "EBook")];
-            Book book = new Book();
-            EBook ebook = new EBook();
-            BluRay bluray = new BluRay();
-            CD cd = new CD();
-            DVD dvd = new DVD();
-            IDictionary<string, string> dict = new Dictionary<string, string>();
+            string[] sArray;
+            int iCount = 0;
+            IDictionary<string, string>[] dict;
+            Media[] medArray;
+            try
+            {
+                using (XmlReader reader = XmlReader.Create(MEDIA))
+                {
+                    while (!reader.EOF)
+                    {
+                        if (reader.IsStartElement())
+                        {
+                            if (reader.Name.Equals("Count")) { iCount = reader.ReadElementContentAsInt(); }
+                            else { reader.Read(); }
+                        }
+                        else { reader.Read(); }
+                    }
+                }
+            }
+            catch (SystemException e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
+            sArray = new string[iCount];
+            medArray = new Media[iCount];
+            int iCounter = 0;
+            dict = new Dictionary<string, string>[iCount];
 
             try
             {
@@ -103,26 +102,64 @@ namespace Dateiverwaltung
                         switch (reader.Name)
                         {
                             case "Book":
-                                if (reader.IsStartElement())
+                                dict[iCounter]["Klasse"] = reader.Name;
+                                while (reader.Name != "Book")
                                 {
-                                    book = new Book();
-                                    reader.Read();
-                                    //typeof(KLASSE).GetMethod("METHODENNAME").Invoke(OBJEKTNAME, new object[] { "VORNAME" });
-                                    while (!reader.Name.Equals("Book"))
+                                    if (reader.IsStartElement())
                                     {
-                                        dict[reader.Name] = reader.ReadElementContentAsString();
+                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
                                     }
-                                    //typeof(Book).GetMethod("setParameters").Invoke(book, new object[] { dict["Titel"], dict })
-                                    books.Add(book);
+                                    else { reader.Read(); }
                                 }
+                                iCounter++;
                                 break;
                             case "EBook":
-                                break;
-                            case "BluRay":
-                                break;
-                            case "DVD":
+                                dict[iCounter]["Klasse"] = reader.Name;
+                                while (reader.Name != "EBook")
+                                {
+                                    if (reader.IsStartElement())
+                                    {
+                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
+                                    }
+                                    else { reader.Read(); }
+                                }
+                                iCounter++;
                                 break;
                             case "CD":
+                                dict[iCounter]["Klasse"] = reader.Name;
+                                while (reader.Name != "CD")
+                                {
+                                    if (reader.IsStartElement())
+                                    {
+                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
+                                    }
+                                    else { reader.Read(); }
+                                }
+                                iCounter++;
+                                break;
+                            case "DVD":
+                                dict[iCounter]["Klasse"] = reader.Name;
+                                while (reader.Name != "DVD")
+                                {
+                                    if (reader.IsStartElement())
+                                    {
+                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
+                                    }
+                                    else { reader.Read(); }
+                                }
+                                iCounter++;
+                                break;
+                            case "BluRay":
+                                dict[iCounter]["Klasse"] = reader.Name;
+                                while (reader.Name != "BluRay")
+                                {
+                                    if (reader.IsStartElement())
+                                    {
+                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
+                                    }
+                                    else { reader.Read(); }
+                                }
+                                iCounter++;
                                 break;
                             default:
                                 reader.Read();
@@ -130,9 +167,30 @@ namespace Dateiverwaltung
                         }
                     }
                 }
+                iCounter = 0;
+                for (int i = 0; i < dict.Length; i++)
+                {
+                    switch (dict[i]["Klasse"])
+                    {
+                        case "Book":
+                            medArray[iCounter] = new Book(Convert.ToInt32(dict[i]["ID"]), Convert.ToInt32(dict[i]["Seitenanzahl"]), dict[i]["Autor"], dict[i]["Titel"], dict[i]["Genre"], DateTime.Parse(dict[i]["Release"]), DateTime.Parse(dict[i]["Ausleihdatum"]), Convert.ToBoolean(dict[i]["Ausgeliehen"]), Convert.ToInt32(dict[i]["Kunden-ID"]));
+                            iCounter++;
+                            break;
+                        case "EBook":
+                            break;
+                        case "CD":
+                            break;
+                        case "DVD":
+                            break;
+                        case "BluRay":
+                            break;
+                    }
+                }
             }
             catch (SystemException e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
+            return medArray;
         }
+        #endregion
 
         #region Read/Save Customers
         private void saveCustomers(Customer[] customers) //Kundendaten abspeichern!
@@ -144,7 +202,7 @@ namespace Dateiverwaltung
                 foreach (Customer cust in customers)
                 {
                     writer.WriteStartElement("Customer");
-                    IDictionary<string, string> dict = cust.auslesen();
+                    IDictionary<string, string> dict = cust.read();
                     foreach (KeyValuePair<string, string> entry in dict)
                     {
                         writer.WriteElementString(entry.Key, entry.Value);
@@ -156,7 +214,7 @@ namespace Dateiverwaltung
             }
         }
 
-        private void readCustomers(out Customer[] customers) //Kundendaten auslesen!
+        public void readCustomers(out Customer[] customers) //Kundendaten auslesen!
         {
             customers = new Customer[countElement(CUSTOMERS, "Customer")];
             for (int j = 0; j < customers.Length; j++)
@@ -207,180 +265,6 @@ namespace Dateiverwaltung
                     }
                     else { reader.Read(); }
                 }
-            }
-        }
-        #endregion
-
-        #region Read/Save Books
-        private void saveBooks(Book[] books) //Bücherdaten abspeichern!
-        {
-            using (XmlWriter writer = XmlWriter.Create(BOOKS))
-            {
-                writer.WriteStartDocument();
-                writer.WriteStartElement("Books");
-                foreach (Book book in books)
-                {
-                    //writer.WriteStartElement("Customer");
-                    //writer.WriteElementString("ID", cust.ID.ToString());
-                    //writer.WriteElementString("Vorname", cust.Vorname);
-                    //writer.WriteElementString("Nachname", cust.Nachname);
-                    //writer.WriteElementString("Strasse", cust.Strasse);
-                    //writer.WriteElementString("PLZ", cust.PLZ);
-                    //writer.WriteElementString("Ort", cust.Ort);
-                    writer.WriteEndElement();
-                }
-                writer.WriteEndElement();
-                writer.WriteEndDocument();
-            }
-        }
-
-        private void readBooks(out Book[] books) //Bücherdaten auslesen!
-        {
-            books = new Book[countElement(BOOKS, "Book")];
-            for (int j = 0; j < books.Length; j++)
-            {
-                books[j] = new Book();
-            }
-            int i = -1;
-
-            // Create an XML reader for this file.
-            using (XmlReader reader = XmlReader.Create(CUSTOMERS))
-            {
-                while (!reader.EOF)
-                {
-                    if (reader.IsStartElement())
-                    {
-                        if (reader.Name == "Book")
-                        {
-                            i++;
-                            reader.Read();
-                        }
-                        else
-                        {
-                            switch (reader.Name)
-                            {
-                                //case "ID":
-                                //    customers[i].ID = Convert.ToInt32(reader.ReadElementContentAsString());
-                                //    break;
-                                //case "Nachname":
-                                //    customers[i].Nachname = reader.ReadElementContentAsString();
-                                //    break;
-                                //case "Vorname":
-                                //    customers[i].Vorname = reader.ReadElementContentAsString();
-                                //    break;
-                                //case "Strasse":
-                                //    customers[i].Strasse = reader.ReadElementContentAsString();
-                                //    break;
-                                //case "PLZ":
-                                //    customers[i].PLZ = reader.ReadElementContentAsString();
-                                //    break;
-                                //case "Ort":
-                                //    customers[i].Ort = reader.ReadElementContentAsString();
-                                //    break;
-                                //default:
-                                //    reader.Read();
-                                //    break;
-                            }
-                        }
-                    }
-                    else { reader.Read(); }
-                }
-            }
-        }
-        #endregion
-
-        #region Read/Save EBooks
-        private void saveEBooks(EBook[] ebooks) //EBookdaten abspeichern!
-        {
-            using (XmlWriter writer = XmlWriter.Create(EBOOKS))
-            {
-                writer.WriteStartDocument();
-                writer.WriteStartElement("EBooks");
-                foreach (EBook ebook in ebooks)
-                {
-                    //writer.WriteStartElement("Customer");
-                    //writer.WriteElementString("ID", cust.ID.ToString());
-                    //writer.WriteElementString("Vorname", cust.Vorname);
-                    //writer.WriteElementString("Nachname", cust.Nachname);
-                    //writer.WriteElementString("Strasse", cust.Strasse);
-                    //writer.WriteElementString("PLZ", cust.PLZ);
-                    //writer.WriteElementString("Ort", cust.Ort);
-                    writer.WriteEndElement();
-                }
-                writer.WriteEndElement();
-                writer.WriteEndDocument();
-            }
-        }
-        #endregion
-
-        #region Read/Save CDs
-        private void saveCDs(CD[] cds) //CD-Daten abspeichern!
-        {
-            using (XmlWriter writer = XmlWriter.Create(CDS))
-            {
-                writer.WriteStartDocument();
-                writer.WriteStartElement("CDs");
-                foreach (CD cd in cds)
-                {
-                    //writer.WriteStartElement("Customer");
-                    //writer.WriteElementString("ID", cust.ID.ToString());
-                    //writer.WriteElementString("Vorname", cust.Vorname);
-                    //writer.WriteElementString("Nachname", cust.Nachname);
-                    //writer.WriteElementString("Strasse", cust.Strasse);
-                    //writer.WriteElementString("PLZ", cust.PLZ);
-                    //writer.WriteElementString("Ort", cust.Ort);
-                    writer.WriteEndElement();
-                }
-                writer.WriteEndElement();
-                writer.WriteEndDocument();
-            }
-        }
-        #endregion
-
-        #region Read/Save DVDs
-        private void saveDVDs(DVD[] dvds) //DVD-Daten abspeichern!
-        {
-            using (XmlWriter writer = XmlWriter.Create(DVDS))
-            {
-                writer.WriteStartDocument();
-                writer.WriteStartElement("DVDs");
-                foreach (DVD dvd in dvds)
-                {
-                    //writer.WriteStartElement("Customer");
-                    //writer.WriteElementString("ID", cust.ID.ToString());
-                    //writer.WriteElementString("Vorname", cust.Vorname);
-                    //writer.WriteElementString("Nachname", cust.Nachname);
-                    //writer.WriteElementString("Strasse", cust.Strasse);
-                    //writer.WriteElementString("PLZ", cust.PLZ);
-                    //writer.WriteElementString("Ort", cust.Ort);
-                    writer.WriteEndElement();
-                }
-                writer.WriteEndElement();
-                writer.WriteEndDocument();
-            }
-        }
-        #endregion
-
-        #region Read/Save BluRays
-        private void saveBluRays(BluRay[] blurays) //BluRay-Daten abspeichern!
-        {
-            using (XmlWriter writer = XmlWriter.Create(BLURAYS))
-            {
-                writer.WriteStartDocument();
-                writer.WriteStartElement("BluRays");
-                foreach (BluRay bluray in blurays)
-                {
-                    //writer.WriteStartElement("Customer");
-                    //writer.WriteElementString("ID", cust.ID.ToString());
-                    //writer.WriteElementString("Vorname", cust.Vorname);
-                    //writer.WriteElementString("Nachname", cust.Nachname);
-                    //writer.WriteElementString("Strasse", cust.Strasse);
-                    //writer.WriteElementString("PLZ", cust.PLZ);
-                    //writer.WriteElementString("Ort", cust.Ort);
-                    writer.WriteEndElement();
-                }
-                writer.WriteEndElement();
-                writer.WriteEndDocument();
             }
         }
         #endregion

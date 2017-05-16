@@ -40,7 +40,7 @@ namespace Dateiverwaltung
 
         }
 
-        public IDictionary<string,string> auslesen()
+        public IDictionary<string,string> read()
         {
             IDictionary<string, string> dict = new Dictionary<string, string>();
             dict["ID"] = Convert.ToString(iID);

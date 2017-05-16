@@ -9,9 +9,9 @@ namespace Dateiverwaltung
     class DVD : Media
     {
 
-        int iLength { get; set; }
-        string sDirector { get; set; }
-        byte byAge { get; set; }
+        protected int iLength { get; set; }
+        protected string sDirector { get; set; }
+        protected byte byAge { get; set; }
 
         //Konstrukor beim Erstellen
         public DVD(int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease)
@@ -35,14 +35,12 @@ namespace Dateiverwaltung
             this.dtRelease = dtRelease;
         }
 
-        public DVD()
-        {
-
-        }
+        public DVD(){ }
 
         public override IDictionary<string, string> read()
         {
             IDictionary<string, string> Dictionary = new Dictionary<string, string>();
+            Dictionary["Klasse"] = "DVD";
             Dictionary["ID"] = Convert.ToString(iID);
             Dictionary["Titel"] = sTitel;
             Dictionary["Genre"] = sGenre;
@@ -53,7 +51,7 @@ namespace Dateiverwaltung
 
             Dictionary["Länge"] = Convert.ToString(iLength);
             Dictionary["Regisseur"] = sDirector;
-            Dictionary["Altersbegrenzung"] = Convert.ToString(bAge);
+            Dictionary["Altersbegrenzung"] = Convert.ToString(byAge);
 
             return Dictionary;
         }

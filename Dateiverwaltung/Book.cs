@@ -9,8 +9,11 @@ namespace Dateiverwaltung
     class Book : Media
     {
 
-        int iPages{ get; set; }
-        string sAutor { get; set; }
+        protected int iPages{ get; set; }
+        protected string sAutor { get; set; }
+
+        public string Autor { get { return sAutor; } }
+        public int Seitenanzahl { get { return iPages; } }
 
         //Konstrukor beim Erstellen
         public Book(int iPages, string sAutor, string sTitel, string sGenre, DateTime dtRelease)
@@ -32,14 +35,12 @@ namespace Dateiverwaltung
             this.dtRelease = dtRelease;
         }
 
-        public Book()
-        {
-
-        }
+        public Book(){ }
 
         public override IDictionary<string, string> read()
         {
             IDictionary<string, string> Dictionary = new Dictionary<string, string>();
+            Dictionary["Klasse"] = "Book";
             Dictionary["ID"] = Convert.ToString(iID);
             Dictionary["Titel"] = sTitel;
             Dictionary["Genre"] = sGenre;
@@ -53,7 +54,5 @@ namespace Dateiverwaltung
 
             return Dictionary;
         }
-
-
     }
 }

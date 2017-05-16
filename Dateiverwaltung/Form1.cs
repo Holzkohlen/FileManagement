@@ -14,11 +14,13 @@ namespace Dateiverwaltung
     {
         Backend code;
         EditForm edit;
+
         public Form1()
         {
             InitializeComponent();
             code = new Backend();
             printCustomers();
+            printBooks();
         }
 
         private void printCustomers()
@@ -35,6 +37,22 @@ namespace Dateiverwaltung
             { MessageBox.Show(e.ToString(), "ERROR"); }
         }
 
+        private void printBooks()
+        {
+            try
+            {
+                foreach(Book temp in code.Books)
+                {
+                    string[] row = { temp.ID.ToString(), temp.Titel, temp.Autor, temp.Genre };
+                    dataGridView2.Rows.Add(row);
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString(), "ERROR");
+            }
+        }
+
         private void tb_Search_Click(object sender, EventArgs e)
         {
             if(tb_Search.Text.Equals("Suchen"))
@@ -48,6 +66,11 @@ namespace Dateiverwaltung
         {
             edit = new EditForm();
             edit.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            code.test();
         }
     }
 }

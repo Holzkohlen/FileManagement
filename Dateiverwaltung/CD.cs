@@ -31,14 +31,12 @@ namespace Dateiverwaltung
             this.dtRelease = dtRelease;
         }
 
-        public CD()
-        {
-
-        }
+        public CD(){ }
 
         public override IDictionary<string, string> read()
         {
             IDictionary<string, string> Dictionary = new Dictionary<string, string>();
+            Dictionary["Klasse"] = "CD";
             Dictionary["ID"] = Convert.ToString(iID);
             Dictionary["Titel"] = sTitel;
             Dictionary["Genre"] = sGenre;

@@ -8,3 +8,13 @@ D:\FileManagement\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.Prope
 D:\FileManagement\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
 D:\FileManagement\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
 D:\FileManagement\FileManagement\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.EditForm.resources
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
