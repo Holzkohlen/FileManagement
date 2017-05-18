@@ -18,3 +18,13 @@ E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Reso
 E:\GIT\Datenverwaltung\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
 E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
 E:\GIT\Datenverwaltung\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.EditForm.resources
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache

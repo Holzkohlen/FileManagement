@@ -32,11 +32,21 @@ namespace Dateiverwaltung
             xml.readCustomers(out customers);
             Media[] medArray;
             medArray = xml.readMedia();
-            books = new Book[medArray.Length];
+            books = new Book[medArray.Length];        
             for(int i = 0; i < medArray.Length; i++)
             {
                 books[i] = (Book)medArray[i];
             }
+        }
+        //Form übergibt an diese methode daten zum erstellen eines Kunden
+        public void addCustomer(string sVorname,string sNachname, string sStrasse, string sPLZ, string sOrt)
+        {
+            List<Customer> cusList = new List<Customer>();
+            cusList.Add(new Customer(sVorname,sNachname, sStrasse,sPLZ,sOrt));
+        }
+        public void editCustomer()
+        {
+            //There Will Be Dragons 
         }
 
         public void test()
