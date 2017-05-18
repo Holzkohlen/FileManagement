@@ -72,5 +72,26 @@ namespace Dateiverwaltung
         {
             code.test();
         }
+
+
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var closeMsg = MessageBox.Show("Möchten sie Speichern?", "Sie gehen?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (closeMsg == DialogResult.Yes)
+            { 
+                //SPEICHERN
+            }
+            else if (closeMsg == DialogResult.No)
+            {
+                //NICHT SPEICHERN
+            }
+            else {
+                //Abbrechen
+                e.Cancel = true;
+            }
+        }
+
     }
 }
