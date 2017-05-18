@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,8 +37,7 @@ namespace Dateiverwaltung
             return iCounter;
         }
 
-        #region Read/Save Media
-        public void saveMedia(Media[] media) //Speichert sämtliche Medien ab
+        public void saveMedia(List<Media> media) //Speichert sämtliche Medien ab aus Media-Liste!
         {
             try
             {
@@ -45,7 +45,7 @@ namespace Dateiverwaltung
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("Media");
-                    writer.WriteElementString("Count", Convert.ToString(media.Length));
+                    writer.WriteElementString("Count", Convert.ToString(media.Count));
                     foreach (Media med in media)
                     {
                         IDictionary<string, string> dict = med.read();
@@ -66,134 +66,14 @@ namespace Dateiverwaltung
             catch (Exception e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
         }
 
-        public Media[] readMedia()
+        public DataSet readMedia() //Liest Media-XML-Datei in DataSet ein
         {
-            string[] sArray;
-            int iCount = 0;
-            IDictionary<string, string>[] dict;
-            Media[] medArray;
-            try
-            {
-                using (XmlReader reader = XmlReader.Create(MEDIA))
-                {
-                    while (!reader.EOF)
-                    {
-                        if (reader.IsStartElement())
-                        {
-                            if (reader.Name.Equals("Count")) { iCount = reader.ReadElementContentAsInt(); }
-                            else { reader.Read(); }
-                        }
-                        else { reader.Read(); }
-                    }
-                }
-            }
-            catch (SystemException e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
-            sArray = new string[iCount];
-            medArray = new Media[iCount];
-            int iCounter = 0;
-            dict = new Dictionary<string, string>[iCount];
-
-            try
-            {
-                using (XmlReader reader = XmlReader.Create(MEDIA))
-                {
-                    while (!reader.EOF)
-                    {
-                        switch (reader.Name)
-                        {
-                            case "Book":
-                                dict[iCounter]["Klasse"] = reader.Name;
-                                while (reader.Name != "Book")
-                                {
-                                    if (reader.IsStartElement())
-                                    {
-                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
-                                    }
-                                    else { reader.Read(); }
-                                }
-                                iCounter++;
-                                break;
-                            case "EBook":
-                                dict[iCounter]["Klasse"] = reader.Name;
-                                while (reader.Name != "EBook")
-                                {
-                                    if (reader.IsStartElement())
-                                    {
-                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
-                                    }
-                                    else { reader.Read(); }
-                                }
-                                iCounter++;
-                                break;
-                            case "CD":
-                                dict[iCounter]["Klasse"] = reader.Name;
-                                while (reader.Name != "CD")
-                                {
-                                    if (reader.IsStartElement())
-                                    {
-                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
-                                    }
-                                    else { reader.Read(); }
-                                }
-                                iCounter++;
-                                break;
-                            case "DVD":
-                                dict[iCounter]["Klasse"] = reader.Name;
-                                while (reader.Name != "DVD")
-                                {
-                                    if (reader.IsStartElement())
-                                    {
-                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
-                                    }
-                                    else { reader.Read(); }
-                                }
-                                iCounter++;
-                                break;
-                            case "BluRay":
-                                dict[iCounter]["Klasse"] = reader.Name;
-                                while (reader.Name != "BluRay")
-                                {
-                                    if (reader.IsStartElement())
-                                    {
-                                        dict[iCounter][reader.Name] = reader.ReadElementContentAsString();
-                                    }
-                                    else { reader.Read(); }
-                                }
-                                iCounter++;
-                                break;
-                            default:
-                                reader.Read();
-                                break;
-                        }
-                    }
-                }
-                iCounter = 0;
-                for (int i = 0; i < dict.Length; i++)
-                {
-                    switch (dict[i]["Klasse"])
-                    {
-                        case "Book":
-                            medArray[iCounter] = new Book(Convert.ToInt32(dict[i]["ID"]), Convert.ToInt32(dict[i]["Seitenanzahl"]), dict[i]["Autor"], dict[i]["Titel"], dict[i]["Genre"], DateTime.Parse(dict[i]["Release"]), DateTime.Parse(dict[i]["Ausleihdatum"]), Convert.ToBoolean(dict[i]["Ausgeliehen"]), Convert.ToInt32(dict[i]["Kunden-ID"]));
-                            iCounter++;
-                            break;
-                        case "EBook":
-                            break;
-                        case "CD":
-                            break;
-                        case "DVD":
-                            break;
-                        case "BluRay":
-                            break;
-                    }
-                }
-            }
-            catch (SystemException e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); }
-            return medArray;
+            DataSet ds_Media = new DataSet();
+            ds_Media.ReadXml(MEDIA, XmlReadMode.InferSchema);
+            return ds_Media;
         }
-        #endregion
 
-        #region Read/Save Customers
-        private void saveCustomers(Customer[] customers) //Kundendaten abspeichern!
+        private void saveCustomers(List<Customer> customers) //Kundendaten abspeichern in XML-Datei!
         {
             using (XmlWriter writer = XmlWriter.Create(CUSTOMERS))
             {
@@ -214,7 +94,14 @@ namespace Dateiverwaltung
             }
         }
 
-        public void readCustomers(out Customer[] customers) //Kundendaten auslesen!
+        public DataSet readCustomers() //Liest Customer-XML-Datei in DataSet ein
+        {
+            DataSet ds_Customer = new DataSet();
+            ds_Customer.ReadXml(CUSTOMERS, XmlReadMode.InferSchema);
+            return ds_Customer;
+        }
+
+        public void readCustomers(out Customer[] customers) //Kundendaten auslesen aus XML-Datei!
         {
             customers = new Customer[countElement(CUSTOMERS, "Customer")];
             for (int j = 0; j < customers.Length; j++)
@@ -267,6 +154,5 @@ namespace Dateiverwaltung
                 }
             }
         }
-        #endregion
     }
 }

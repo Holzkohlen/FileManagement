@@ -27,7 +27,7 @@ namespace Dateiverwaltung
             Dictionary["Release"] = Convert.ToString(dtRelease);
             Dictionary["Ausgeliehen"] = Convert.ToString(bLent);
             Dictionary["Kunden-ID"] = Convert.ToString(iIDCustomer);
-            Dictionary["Ausleidatum"] = Convert.ToString(dtLend);
+            Dictionary["Ausleidatum"] = Convert.ToString(dtLent);
             Dictionary["Länge"] = Convert.ToString(iLength);
             Dictionary["Regisseur"] = sDirector;
             Dictionary["Altersbegrenzung"] = Convert.ToString(byAge);

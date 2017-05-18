@@ -28,3 +28,13 @@ C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateive
 C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
 C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
 C:\Users\DtheK\Documents\Projrkt\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+E:\GIT\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+E:\GIT\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+E:\GIT\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.EditForm.resources
+E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache

@@ -12,10 +12,8 @@ namespace Dateiverwaltung
         public EBook(int iPages, string sAutor, string sTitel, string sGenre, DateTime dtRelease)
         : base(iPages, sAutor, sTitel, sGenre, dtRelease) { }
 
-        public EBook(int iID, int iPages, string sAutor, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCostumer)
-        : base(iID, iPages, sAutor, sTitel, sGenre, dtRelease, dtLent, bLent, iIDCostumer) { }
-
-        public EBook() { }
+        public EBook(int iID, string sTitel, string sGenre, DateTime dtRelease, bool bLent, int iIDCustomer, DateTime dtLent, int iPages, string sAutor)
+        : base(iID, sTitel, sGenre, dtRelease, bLent, iIDCustomer, dtLent, iPages, sAutor) { }
 
         public override IDictionary<string, string> read()
         {
@@ -27,11 +25,9 @@ namespace Dateiverwaltung
             Dictionary["Release"] = Convert.ToString(dtRelease);
             Dictionary["Ausgeliehen"] = Convert.ToString(bLent);
             Dictionary["Kunden-ID"] = Convert.ToString(iIDCustomer);
-            Dictionary["Ausleidatum"] = Convert.ToString(dtLend);
-
+            Dictionary["Ausleidatum"] = Convert.ToString(dtLent);
             Dictionary["Seitenzahl"] = Convert.ToString(iPages);
             Dictionary["Autor"] = sAutor;
-
             return Dictionary;
         }
     }

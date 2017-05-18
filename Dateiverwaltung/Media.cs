@@ -14,7 +14,8 @@ namespace Dateiverwaltung
         protected DateTime dtRelease;
         protected bool bLent;
         protected int iIDCustomer;
-        protected DateTime dtLend;
+        protected DateTime dtLent;
+        protected string sKlasse;
 
         public virtual IDictionary<string, string> read()
         {
@@ -29,7 +30,8 @@ namespace Dateiverwaltung
         public DateTime Release { get { return dtRelease; } }
         public bool Ausgeliehen { get { return bLent; } }
         public int IDCustomer { get { return iIDCustomer; } }
-        public DateTime Ausleihdatum { get { return dtLend; } }
+        public DateTime Ausleihdatum { get { return dtLent; } }
+        public string Klasse { get { return sKlasse; } }
 
         #endregion
     }

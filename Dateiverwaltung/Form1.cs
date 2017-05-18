@@ -17,81 +17,100 @@ namespace Dateiverwaltung
 
         public Form1()
         {
-            InitializeComponent();
-            code = new Backend();
-            printCustomers();
-            printBooks();
-        }
-
-        private void printCustomers()
-        {
             try
             {
-                foreach (Customer temp in code.Customers)
-                {
-                    string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
-                    dataGridView1.Rows.Add(row);
-                }
+                InitializeComponent();
+                code = new Backend();
+                printCustomers();
+                printMedia();
             }
             catch (Exception e)
-            { MessageBox.Show(e.ToString(), "ERROR"); }
-        }
-
-        private void printBooks()
-        {
-            try
-            {
-                foreach(Book temp in code.Books)
-                {
-                    string[] row = { temp.ID.ToString(), temp.Titel, temp.Autor, temp.Genre };
-                    dataGridView2.Rows.Add(row);
-                }
-            }
-            catch(Exception e)
             {
                 MessageBox.Show(e.ToString(), "ERROR");
             }
         }
 
+        private void printCustomers()
+        {
+            foreach (Customer temp in code.CustomerListe)
+            {
+                string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
+                dgv_Customers.Rows.Add(row);
+            }
+        }
+
+        private void printMedia() //Gibt Medien-Objekte in der jeweiligen DataGridView aus
+        {
+            string[] row;
+            for (int i = 0; i < code.MedienListe.Count; i++)
+            {
+                switch (code.MedienListe[i].Klasse)
+                {
+                    case "Book":
+                        Book tempBook = (Book)code.MedienListe[i];
+                        row = new string[4] { Convert.ToString(tempBook.ID), tempBook.Titel, tempBook.Autor, tempBook.Genre };
+                        dgv_Books.Rows.Add(row);
+                        break;
+                    case "EBook":
+                        EBook tempEBook = (EBook)code.MedienListe[i];
+                        //row = new string[4] { Convert.ToString(tempEBook.ID), tempEBook.Titel, tempEBook.Autor, tempEBook.Genre };
+                        //dgv_EBooks.Rows.Add(row);
+                        break;
+                    case "CD":
+                        CD tempCD = (CD)code.MedienListe[i];
+                        break;
+                    case "DVD":
+                        DVD tempDVD = (DVD)code.MedienListe[i];
+                        break;
+                    case "BluRay":
+                        BluRay tempBluRay = (BluRay)code.MedienListe[i];
+                        break;
+                }
+            }
+        }
+
         private void tb_Search_Click(object sender, EventArgs e)
         {
-            if(tb_Search.Text.Equals("Suchen"))
+            if (tb_Search.Text.Equals("Suchen"))
             {
                 tb_Search.Text = "";
                 tb_Search.ForeColor = Color.Black;
             }
         }
 
-        private void btn_Edit_Click(object sender, EventArgs e)
+        private void btn_Edit_Click(object sender, EventArgs e) //öffnet zweite Forms zum Bearbeiten von Objekten
         {
             edit = new EditForm();
             edit.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            code.test();
-        }
-
-
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e) //Zeigt beim Schließen abfrage, ob gespeichert werden soll
         {
             var closeMsg = MessageBox.Show("Möchten sie Speichern?", "Sie gehen?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (closeMsg == DialogResult.Yes)
-            { 
+            {
                 //SPEICHERN
             }
             else if (closeMsg == DialogResult.No)
             {
                 //NICHT SPEICHERN
             }
-            else {
+            else
+            {
                 //Abbrechen
                 e.Cancel = true;
             }
         }
+
+
+
+        #region Keep for now, Delete before abgabe
+        private void button1_Click(object sender, EventArgs e)
+        {
+            code.test();
+        }
+        #endregion
 
     }
 }
