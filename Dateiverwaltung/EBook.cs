@@ -9,8 +9,8 @@ namespace Dateiverwaltung
     class EBook : Book
     {
 
-        public EBook(int iPages, string sAutor, string sTitel, string sGenre, DateTime dtRelease)
-        : base(iPages, sAutor, sTitel, sGenre, dtRelease) { this.sKlasse = "EBook"; }
+        public EBook(string sTitel, string sAutor, string sGenre, int iPages, DateTime dtRelease)
+        : base(sTitel, sAutor, sGenre, iPages, dtRelease) { this.sKlasse = "EBook"; }
 
         public EBook(int iID, string sTitel, string sGenre, DateTime dtRelease, bool bLent, int iIDCustomer, DateTime dtLent, int iPages, string sAutor)
         : base(iID, sTitel, sGenre, dtRelease, bLent, iIDCustomer, dtLent, iPages, sAutor) { this.sKlasse = "EBook"; }

@@ -10,12 +10,12 @@ namespace Dateiverwaltung
     {
 
         public BluRay(int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease)
-        : base(iLength, sDirector, byAge, sTitel, sGenre, dtRelease) { }
+        : base(iLength, sDirector, byAge, sTitel, sGenre, dtRelease) { this.sKlasse = "BluRay"; }
 
         public BluRay(int iID, int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCostumer)
-        : base(iID, iLength, sDirector, byAge, sTitel, sGenre, dtRelease, dtLent, bLent, iIDCostumer) { }
+        : base(iID, iLength, sDirector, byAge, sTitel, sGenre, dtRelease, dtLent, bLent, iIDCostumer) { this.sKlasse = "BluRay"; }
 
-        public BluRay(string iID, string iLength, string sDirector, string byAge, string sTitel, string sGenre, string dtRelease, string dtLent, string bLent, string iIDCustomer)
+        public BluRay(string iID, string sTitel, string sGenre, string dtRelease, string bLent, string iIDCustomer, string dtLent, string iLength, string sDirector, string byAge)
         {
             this.iID = Int32.Parse(iID);
             this.iLength = Int32.Parse(iLength);
@@ -34,7 +34,7 @@ namespace Dateiverwaltung
         public override IDictionary<string, string> read()
         {
             IDictionary<string, string> Dictionary = new Dictionary<string, string>();
-            Dictionary["Klasse"] = "BluRay";
+            Dictionary["Klasse"] = sKlasse;
             Dictionary["ID"] = Convert.ToString(iID);
             Dictionary["Titel"] = sTitel;
             Dictionary["Genre"] = sGenre;

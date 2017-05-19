@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_Customers = new System.Windows.Forms.TabPage();
+            this.btn_AddCostumer = new System.Windows.Forms.Button();
             this.cb_BorrowSearch = new System.Windows.Forms.ComboBox();
             this.cb_WichMedia = new System.Windows.Forms.ComboBox();
             this.btn_Borrow = new System.Windows.Forms.Button();
@@ -131,7 +132,6 @@
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.btn_AddCostumer = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab_Customers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Borrowed)).BeginInit();
@@ -178,6 +178,16 @@
             this.tab_Customers.TabIndex = 0;
             this.tab_Customers.Text = "Kunden";
             this.tab_Customers.UseVisualStyleBackColor = true;
+            // 
+            // btn_AddCostumer
+            // 
+            this.btn_AddCostumer.Location = new System.Drawing.Point(196, 193);
+            this.btn_AddCostumer.Name = "btn_AddCostumer";
+            this.btn_AddCostumer.Size = new System.Drawing.Size(176, 23);
+            this.btn_AddCostumer.TabIndex = 8;
+            this.btn_AddCostumer.Text = "Hinzufügen";
+            this.btn_AddCostumer.UseVisualStyleBackColor = true;
+            this.btn_AddCostumer.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // cb_BorrowSearch
             // 
@@ -387,7 +397,7 @@
             this.tab_Books.Location = new System.Drawing.Point(4, 22);
             this.tab_Books.Name = "tab_Books";
             this.tab_Books.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Books.Size = new System.Drawing.Size(871, 433);
+            this.tab_Books.Size = new System.Drawing.Size(871, 233);
             this.tab_Books.TabIndex = 1;
             this.tab_Books.Text = "Bücher";
             this.tab_Books.UseVisualStyleBackColor = true;
@@ -438,7 +448,6 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 19;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // textBox5
             // 
@@ -579,7 +588,7 @@
             this.tab_Ebooks.Location = new System.Drawing.Point(4, 22);
             this.tab_Ebooks.Name = "tab_Ebooks";
             this.tab_Ebooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Ebooks.Size = new System.Drawing.Size(871, 433);
+            this.tab_Ebooks.Size = new System.Drawing.Size(871, 233);
             this.tab_Ebooks.TabIndex = 5;
             this.tab_Ebooks.Text = "E-Books";
             this.tab_Ebooks.UseVisualStyleBackColor = true;
@@ -603,7 +612,7 @@
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Location = new System.Drawing.Point(3, 6);
+            this.groupBox2.Location = new System.Drawing.Point(7, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(859, 123);
             this.groupBox2.TabIndex = 7;
@@ -769,7 +778,7 @@
             this.DVD.Location = new System.Drawing.Point(4, 22);
             this.DVD.Name = "DVD";
             this.DVD.Padding = new System.Windows.Forms.Padding(3);
-            this.DVD.Size = new System.Drawing.Size(871, 433);
+            this.DVD.Size = new System.Drawing.Size(871, 233);
             this.DVD.TabIndex = 6;
             this.DVD.Text = "DVD";
             this.DVD.UseVisualStyleBackColor = true;
@@ -967,7 +976,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(871, 433);
+            this.tabPage1.Size = new System.Drawing.Size(871, 233);
             this.tabPage1.TabIndex = 7;
             this.tabPage1.Text = "BluRay";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -978,7 +987,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(871, 433);
+            this.tabPage2.Size = new System.Drawing.Size(871, 233);
             this.tabPage2.TabIndex = 8;
             this.tabPage2.Text = "CD";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1137,16 +1146,6 @@
             this.label47.Size = new System.Drawing.Size(73, 13);
             this.label47.TabIndex = 6;
             this.label47.Text = "Ausleihdatum:";
-            // 
-            // btn_AddCostumer
-            // 
-            this.btn_AddCostumer.Location = new System.Drawing.Point(196, 193);
-            this.btn_AddCostumer.Name = "btn_AddCostumer";
-            this.btn_AddCostumer.Size = new System.Drawing.Size(176, 23);
-            this.btn_AddCostumer.TabIndex = 8;
-            this.btn_AddCostumer.Text = "Hinzufügen";
-            this.btn_AddCostumer.UseVisualStyleBackColor = true;
-            this.btn_AddCostumer.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // EditForm
             // 

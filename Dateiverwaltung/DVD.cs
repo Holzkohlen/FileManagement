@@ -41,7 +41,7 @@ namespace Dateiverwaltung
             this.iIDCustomer = iIDCustomer;
         }
 
-        public DVD(string iID, string iLength, string sDirector, string byAge, string sTitel, string sGenre, string dtRelease, string dtLent, string bLent, string iIDCustomer)
+        public DVD(string iID, string sTitel, string sGenre, string dtRelease, string bLent, string iIDCustomer, string dtLent, string iLength, string sDirector, string byAge)
         {
             this.iID = Int32.Parse(iID);
             this.iLength = Int32.Parse(iLength);

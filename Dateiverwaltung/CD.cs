@@ -37,16 +37,18 @@ namespace Dateiverwaltung
             this.iIDCustomer = iIDCustomer;
         }
 
-        public CD(string sID, string sLength, string sInterpret, string sTitel, string sGenre, string sdtRelease, string sdtLent,string sbLent, string sIDCustomer)
+        public CD(string sID, string sTitel, string sGenre, string sdtRelease, string sbLent, string sIDCustomer, string sdtLent, string sLength, string sInterpret)
         {
-            this.iLength = Int32.Parse(sID);
+            this.iID = Int32.Parse(sID);
             this.sInterpret = sInterpret;
             this.sTitel = sTitel;
             this.sGenre = sGenre;
             this.dtRelease = DateTime.Parse(sdtRelease);
-            this.dtLent = DateTime.Parse(sdtLent);
             this.bLent = (sbLent == "True") ? true : false;
             this.iIDCustomer = Int32.Parse(sIDCustomer);
+            this.dtLent = DateTime.Parse(sdtLent);
+            this.iLength = Int32.Parse(sLength);
+            this.sInterpret = sInterpret;
         }
 
         public CD(){ }

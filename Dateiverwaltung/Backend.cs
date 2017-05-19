@@ -67,7 +67,7 @@ namespace Dateiverwaltung
                     {
                         case 1: //BOOK
                             mediaList.Add(new Book(ds_Media.Tables[i].Rows[j][0].ToString(), ds_Media.Tables[i].Rows[j][1].ToString(), ds_Media.Tables[i].Rows[j][2].ToString(), ds_Media.Tables[i].Rows[j][3].ToString(), ds_Media.Tables[i].Rows[j][4].ToString(), ds_Media.Tables[i].Rows[j][5].ToString(), ds_Media.Tables[i].Rows[j][6].ToString(), ds_Media.Tables[i].Rows[j][7].ToString(), ds_Media.Tables[i].Rows[j][8].ToString()));
-                                break;
+                            break;
                         case 2: //EBOOK
                             mediaList.Add(new EBook(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString()));
                             break;
@@ -91,6 +91,25 @@ namespace Dateiverwaltung
             //Kunde hinzufügen
         }
 
+        public void addMedia(string[] sArray, int iArt)
+        {
+            switch(iArt)
+            {
+                case 1: //Book
+                    mediaList.Add(new Book(sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), DateTime.Parse(sArray[4])));
+                    break;
+                case 2: //EBook
+                    mediaList.Add(new EBook(sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), DateTime.Parse(sArray[4])));
+                    break;
+                case 3: //CD
+                    break;
+                case 4: //DVD
+                    break;
+                case 5: //BluRay
+                    break;
+            }
+        }
+
         public void editCustomer()
         {
             //Here there be dragons!
@@ -101,29 +120,5 @@ namespace Dateiverwaltung
             xml.saveMedia(mediaList);
             xml.saveCustomers(customerList);
         }
-
-        #region Keep for now, Delete before Abgabe!
-        public void test()
-        {
-            DateTime dt = new DateTime(1999, 05, 16);
-
-            Media[] medArray = new Media[9];
-            medArray[0] = new Book(15, "Stephen King", "Dark Tower", "Fantasy/Horror", dt);
-            medArray[1] = new Book(32, "Douglas Adams", "Hitchhikers Guide to the Galaxy", "Fantasy", dt);
-            medArray[2] = new Book(10238, "Gustapho Fring", "Los Pollos Hermanos", "Mexico", dt);
-            medArray[3] = new EBook(482, "Jules Verne", "Reise zum Mittelpunkt der Erde", "SciFi", dt);
-            medArray[4] = new EBook(47, "Edgar Allan Poe", "Der Rabe", "Horror", dt);
-            medArray[5] = new EBook(794, "Jesus Christus", "Die Lutherbibel", "Fantasy", dt);
-            medArray[6] = new CD(123, "Monstercat", "30 - Finale", "EDM", dt);
-            medArray[7] = new CD(34, "JayZ", "It's a hard knock life", "HipHop", dt);
-            medArray[8] = new CD(74, "Gustave Le Bon", "Psychologie der Massen", "Buch", dt);
-            //medArray[9] = new DVD();
-            //medArray[10] = new DVD();
-            //medArray[11] = new DVD();
-            //medArray[12] = new BluRay();
-            //medArray[13] = new BluRay();
-            //medArray[14] = new BluRay();
-        }
-        #endregion
     }
 }

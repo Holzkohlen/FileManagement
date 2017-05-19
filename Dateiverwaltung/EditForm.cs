@@ -13,14 +13,12 @@ namespace Dateiverwaltung
     public partial class EditForm : Form
     {
         Backend code;
+
         public EditForm(Backend code)
         {
             InitializeComponent();
             this.code = code;
         }
-            
-        //public EditForm(Backend code):this()
-        //{ }
 
         private void EditForm_Load(object sender, EventArgs e)
         {
@@ -74,10 +72,6 @@ namespace Dateiverwaltung
             }
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void offWrite(bool bModus)
         {
             tb_Name.ReadOnly = bModus;
