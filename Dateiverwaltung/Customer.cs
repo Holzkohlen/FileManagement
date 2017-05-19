@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dateiverwaltung
 {
-    class Customer
+    public class Customer
     {
         int iID;
         string sVorname;

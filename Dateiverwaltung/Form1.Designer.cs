@@ -45,45 +45,46 @@
             this.Ort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_Books = new System.Windows.Forms.TabPage();
             this.dgv_Books = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_CDs = new System.Windows.Forms.TabPage();
             this.dgv_CDs = new System.Windows.Forms.DataGridView();
+            this.tab_DVDs = new System.Windows.Forms.TabPage();
+            this.dgv_DVDs = new System.Windows.Forms.DataGridView();
+            this.tab_BluRays = new System.Windows.Forms.TabPage();
+            this.tab_EBooks = new System.Windows.Forms.TabPage();
+            this.tb_Search = new System.Windows.Forms.TextBox();
+            this.btn_Edit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Interpret = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Release = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_BluRays = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tab_DVDs = new System.Windows.Forms.TabPage();
-            this.dgv_DVDs = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_EBooks = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tab_BluRays = new System.Windows.Forms.TabPage();
-            this.dgv_BluRays = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_EBooks = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tb_Search = new System.Windows.Forms.TextBox();
-            this.btn_Edit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tab_EBooks = new System.Windows.Forms.TabPage();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_Customers.SuspendLayout();
@@ -95,9 +96,9 @@
             this.tab_DVDs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DVDs)).BeginInit();
             this.tab_BluRays.SuspendLayout();
+            this.tab_EBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_BluRays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_EBooks)).BeginInit();
-            this.tab_EBooks.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -107,7 +108,7 @@
             this.hilfeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(837, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,7 +158,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 56);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(674, 419);
+            this.tabControl1.Size = new System.Drawing.Size(813, 409);
             this.tabControl1.TabIndex = 1;
             // 
             // tab_Customers
@@ -166,7 +167,7 @@
             this.tab_Customers.Location = new System.Drawing.Point(4, 22);
             this.tab_Customers.Name = "tab_Customers";
             this.tab_Customers.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Customers.Size = new System.Drawing.Size(666, 393);
+            this.tab_Customers.Size = new System.Drawing.Size(805, 383);
             this.tab_Customers.TabIndex = 0;
             this.tab_Customers.Text = "Kunden";
             this.tab_Customers.UseVisualStyleBackColor = true;
@@ -175,6 +176,7 @@
             // 
             this.dgv_Customers.AllowUserToAddRows = false;
             this.dgv_Customers.AllowUserToDeleteRows = false;
+            this.dgv_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Customers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -183,10 +185,10 @@
             this.Strasse,
             this.PLZ,
             this.Ort});
-            this.dgv_Customers.Location = new System.Drawing.Point(6, 6);
+            this.dgv_Customers.Location = new System.Drawing.Point(0, 0);
             this.dgv_Customers.Name = "dgv_Customers";
             this.dgv_Customers.ReadOnly = true;
-            this.dgv_Customers.Size = new System.Drawing.Size(654, 381);
+            this.dgv_Customers.Size = new System.Drawing.Size(805, 383);
             this.dgv_Customers.TabIndex = 4;
             // 
             // ID
@@ -231,7 +233,7 @@
             this.tab_Books.Location = new System.Drawing.Point(4, 22);
             this.tab_Books.Name = "tab_Books";
             this.tab_Books.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Books.Size = new System.Drawing.Size(666, 393);
+            this.tab_Books.Size = new System.Drawing.Size(805, 383);
             this.tab_Books.TabIndex = 1;
             this.tab_Books.Text = "Bücher";
             this.tab_Books.UseVisualStyleBackColor = true;
@@ -240,42 +242,21 @@
             // 
             this.dgv_Books.AllowUserToAddRows = false;
             this.dgv_Books.AllowUserToDeleteRows = false;
+            this.dgv_Books.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Books.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Books.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Books.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dgv_Books.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewTextBoxColumn4,
+            this.Column1});
+            this.dgv_Books.Location = new System.Drawing.Point(0, 0);
             this.dgv_Books.Name = "dgv_Books";
             this.dgv_Books.ReadOnly = true;
-            this.dgv_Books.Size = new System.Drawing.Size(654, 381);
+            this.dgv_Books.Size = new System.Drawing.Size(805, 383);
             this.dgv_Books.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Titel";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Autor";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Genre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dgv_Books.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Books_CellContentClick);
             // 
             // tab_CDs
             // 
@@ -283,7 +264,7 @@
             this.tab_CDs.Location = new System.Drawing.Point(4, 22);
             this.tab_CDs.Name = "tab_CDs";
             this.tab_CDs.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_CDs.Size = new System.Drawing.Size(666, 393);
+            this.tab_CDs.Size = new System.Drawing.Size(805, 383);
             this.tab_CDs.TabIndex = 2;
             this.tab_CDs.Text = "CDs";
             this.tab_CDs.UseVisualStyleBackColor = true;
@@ -292,55 +273,19 @@
             // 
             this.dgv_CDs.AllowUserToAddRows = false;
             this.dgv_CDs.AllowUserToDeleteRows = false;
+            this.dgv_CDs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_CDs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_CDs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
-            this.dgv_CDs.Location = new System.Drawing.Point(6, 6);
+            this.Titel,
+            this.Interpret,
+            this.Genre,
+            this.Release});
+            this.dgv_CDs.Location = new System.Drawing.Point(0, 0);
             this.dgv_CDs.Name = "dgv_CDs";
             this.dgv_CDs.ReadOnly = true;
-            this.dgv_CDs.Size = new System.Drawing.Size(654, 381);
+            this.dgv_CDs.Size = new System.Drawing.Size(805, 383);
             this.dgv_CDs.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Nachname";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Vorname";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Straße";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "PLZ";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Ort";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
             // tab_DVDs
             // 
@@ -348,7 +293,7 @@
             this.tab_DVDs.Location = new System.Drawing.Point(4, 22);
             this.tab_DVDs.Name = "tab_DVDs";
             this.tab_DVDs.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_DVDs.Size = new System.Drawing.Size(666, 393);
+            this.tab_DVDs.Size = new System.Drawing.Size(805, 383);
             this.tab_DVDs.TabIndex = 3;
             this.tab_DVDs.Text = "DVDs";
             this.tab_DVDs.UseVisualStyleBackColor = true;
@@ -357,55 +302,21 @@
             // 
             this.dgv_DVDs.AllowUserToAddRows = false;
             this.dgv_DVDs.AllowUserToDeleteRows = false;
+            this.dgv_DVDs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_DVDs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DVDs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18});
-            this.dgv_DVDs.Location = new System.Drawing.Point(6, 6);
+            this.Column2,
+            this.Column3,
+            this.Column7,
+            this.Column4,
+            this.Column5,
+            this.Column6});
+            this.dgv_DVDs.Location = new System.Drawing.Point(0, 0);
             this.dgv_DVDs.Name = "dgv_DVDs";
             this.dgv_DVDs.ReadOnly = true;
-            this.dgv_DVDs.Size = new System.Drawing.Size(654, 381);
+            this.dgv_DVDs.Size = new System.Drawing.Size(805, 383);
             this.dgv_DVDs.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "Nachname";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Vorname";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Straße";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "PLZ";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "Ort";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // tab_BluRays
             // 
@@ -413,118 +324,21 @@
             this.tab_BluRays.Location = new System.Drawing.Point(4, 22);
             this.tab_BluRays.Name = "tab_BluRays";
             this.tab_BluRays.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_BluRays.Size = new System.Drawing.Size(666, 393);
+            this.tab_BluRays.Size = new System.Drawing.Size(805, 383);
             this.tab_BluRays.TabIndex = 4;
             this.tab_BluRays.Text = "BluRays";
             this.tab_BluRays.UseVisualStyleBackColor = true;
             // 
-            // dgv_BluRays
+            // tab_EBooks
             // 
-            this.dgv_BluRays.AllowUserToAddRows = false;
-            this.dgv_BluRays.AllowUserToDeleteRows = false;
-            this.dgv_BluRays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_BluRays.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24});
-            this.dgv_BluRays.Location = new System.Drawing.Point(6, 6);
-            this.dgv_BluRays.Name = "dgv_BluRays";
-            this.dgv_BluRays.ReadOnly = true;
-            this.dgv_BluRays.Size = new System.Drawing.Size(654, 381);
-            this.dgv_BluRays.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "Nachname";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.HeaderText = "Vorname";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.HeaderText = "Straße";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.HeaderText = "PLZ";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.HeaderText = "Ort";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            // 
-            // dgv_EBooks
-            // 
-            this.dgv_EBooks.AllowUserToAddRows = false;
-            this.dgv_EBooks.AllowUserToDeleteRows = false;
-            this.dgv_EBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_EBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn25,
-            this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn29,
-            this.dataGridViewTextBoxColumn30});
-            this.dgv_EBooks.Location = new System.Drawing.Point(6, 6);
-            this.dgv_EBooks.Name = "dgv_EBooks";
-            this.dgv_EBooks.ReadOnly = true;
-            this.dgv_EBooks.Size = new System.Drawing.Size(654, 381);
-            this.dgv_EBooks.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.HeaderText = "Nachname";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.HeaderText = "Vorname";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.HeaderText = "Straße";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn29
-            // 
-            this.dataGridViewTextBoxColumn29.HeaderText = "PLZ";
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            this.dataGridViewTextBoxColumn29.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn30
-            // 
-            this.dataGridViewTextBoxColumn30.HeaderText = "Ort";
-            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
-            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            this.tab_EBooks.Controls.Add(this.dgv_EBooks);
+            this.tab_EBooks.Location = new System.Drawing.Point(4, 22);
+            this.tab_EBooks.Name = "tab_EBooks";
+            this.tab_EBooks.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_EBooks.Size = new System.Drawing.Size(805, 383);
+            this.tab_EBooks.TabIndex = 6;
+            this.tab_EBooks.Text = "EBooks";
+            this.tab_EBooks.UseVisualStyleBackColor = true;
             // 
             // tb_Search
             // 
@@ -557,22 +371,226 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tab_EBooks
+            // dataGridViewTextBoxColumn7
             // 
-            this.tab_EBooks.Controls.Add(this.dgv_EBooks);
-            this.tab_EBooks.Location = new System.Drawing.Point(4, 22);
-            this.tab_EBooks.Name = "tab_EBooks";
-            this.tab_EBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_EBooks.Size = new System.Drawing.Size(666, 393);
-            this.tab_EBooks.TabIndex = 6;
-            this.tab_EBooks.Text = "EBooks";
-            this.tab_EBooks.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn7.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // Titel
+            // 
+            this.Titel.HeaderText = "Titel";
+            this.Titel.Name = "Titel";
+            this.Titel.ReadOnly = true;
+            // 
+            // Interpret
+            // 
+            this.Interpret.HeaderText = "Interpret";
+            this.Interpret.Name = "Interpret";
+            this.Interpret.ReadOnly = true;
+            // 
+            // Genre
+            // 
+            this.Genre.HeaderText = "Genre";
+            this.Genre.Name = "Genre";
+            this.Genre.ReadOnly = true;
+            // 
+            // Release
+            // 
+            this.Release.HeaderText = "Release";
+            this.Release.Name = "Release";
+            this.Release.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Titel";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Regisseur";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Länge";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Genre";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "FSK";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Release";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // dgv_BluRays
+            // 
+            this.dgv_BluRays.AllowUserToAddRows = false;
+            this.dgv_BluRays.AllowUserToDeleteRows = false;
+            this.dgv_BluRays.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_BluRays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_BluRays.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
+            this.dgv_BluRays.Location = new System.Drawing.Point(0, 0);
+            this.dgv_BluRays.Name = "dgv_BluRays";
+            this.dgv_BluRays.ReadOnly = true;
+            this.dgv_BluRays.Size = new System.Drawing.Size(805, 383);
+            this.dgv_BluRays.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Titel";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Regisseur";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Länge";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "FSK";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Release";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dgv_EBooks
+            // 
+            this.dgv_EBooks.AllowUserToAddRows = false;
+            this.dgv_EBooks.AllowUserToDeleteRows = false;
+            this.dgv_EBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_EBooks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_EBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_EBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18});
+            this.dgv_EBooks.Location = new System.Drawing.Point(0, 0);
+            this.dgv_EBooks.Name = "dgv_EBooks";
+            this.dgv_EBooks.ReadOnly = true;
+            this.dgv_EBooks.Size = new System.Drawing.Size(805, 383);
+            this.dgv_EBooks.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Release";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Titel";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 43;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Titel";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Release";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 477);
+            this.ClientSize = new System.Drawing.Size(837, 477);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.tb_Search);
@@ -595,9 +613,9 @@
             this.tab_DVDs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DVDs)).EndInit();
             this.tab_BluRays.ResumeLayout(false);
+            this.tab_EBooks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_BluRays)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_EBooks)).EndInit();
-            this.tab_EBooks.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -626,41 +644,42 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Ort;
         private System.Windows.Forms.DataGridView dgv_Books;
         private System.Windows.Forms.DataGridView dgv_CDs;
+        private System.Windows.Forms.DataGridView dgv_DVDs;
+        private System.Windows.Forms.ToolStripMenuItem speichernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tab_EBooks;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Titel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Interpret;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Genre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Release;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridView dgv_BluRays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridView dgv_DVDs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridView dgv_EBooks;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridView dgv_BluRays;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridView dgv_EBooks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private System.Windows.Forms.ToolStripMenuItem speichernToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.TabPage tab_EBooks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 

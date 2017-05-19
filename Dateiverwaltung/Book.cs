@@ -24,6 +24,7 @@ namespace Dateiverwaltung
             this.dtRelease = dtRelease;
             this.sKlasse = "Book";
         }
+        public Book() { }
 
         //Konstruktor für Aulesen XMLDatei
         public Book(int iID, string sTitel, string sGenre, DateTime dtRelease, bool bLent, int iIDCustomer, DateTime dtLent, int iPages, string sAutor)

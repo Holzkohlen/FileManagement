@@ -13,11 +13,12 @@ namespace Dateiverwaltung
     public partial class EditForm : Form
     {
         Backend code;
-        public EditForm()
+        public EditForm(Backend code)
         {
             InitializeComponent();
-            code = new Backend();
+            this.code = code;
         }
+            
         //public EditForm(Backend code):this()
         //{ }
 

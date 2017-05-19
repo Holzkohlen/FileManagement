@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dateiverwaltung
 {
-    class Backend
+    public class Backend
     {
         XML_IO xml;
         DataSet ds_Media;
@@ -73,8 +73,7 @@ namespace Dateiverwaltung
         //Form übergibt an diese methode daten zum erstellen eines Kunden
         public void addCustomer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt)
         {
-            List<Customer> cusList = new List<Customer>();
-            cusList.Add(new Customer(sVorname, sNachname, sStrasse, sPLZ, sOrt));
+            
         }
 
         public void editCustomer()

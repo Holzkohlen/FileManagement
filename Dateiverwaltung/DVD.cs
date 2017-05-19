@@ -33,6 +33,7 @@ namespace Dateiverwaltung
             this.sTitel = sTitel;
             this.sGenre = sGenre;
             this.dtRelease = dtRelease;
+            this.bLent = bLent;
         }
 
         public DVD(){ }

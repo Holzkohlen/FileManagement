@@ -80,7 +80,7 @@ namespace Dateiverwaltung
 
         private void btn_Edit_Click(object sender, EventArgs e) //öffnet zweite Forms zum Bearbeiten von Objekten
         {
-            edit = new EditForm();
+            edit = new EditForm(code);
             edit.Show();
         }
 
@@ -112,5 +112,9 @@ namespace Dateiverwaltung
         }
         #endregion
 
+        private void dgv_Books_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

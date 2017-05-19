@@ -38,3 +38,13 @@ E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.EditForm.resource
 E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
 E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
 E:\GIT\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.EditForm.resources
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache

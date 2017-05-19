@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dateiverwaltung
 {
-    abstract class Media
+    public abstract class Media
     {
         protected int iID;
         protected string sTitel;
