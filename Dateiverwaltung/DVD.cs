@@ -9,9 +9,13 @@ namespace Dateiverwaltung
     class DVD : Media
     {
 
-        protected int iLength { get; set; }
-        protected string sDirector { get; set; }
-        protected byte byAge { get; set; }
+        protected int iLength;
+        protected string sDirector;
+        protected byte byAge;
+
+        public int Length { get { return iLength; } }
+        public string Director { get { return sDirector; } }
+        public byte Age { get { return byAge; } }
 
         //Konstrukor beim Erstellen
         public DVD(int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease)
@@ -25,7 +29,7 @@ namespace Dateiverwaltung
         }
 
         //Konstruktor für Aulesen XMLDatei
-        public DVD(int iID, int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCostumer)
+        public DVD(int iID, int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCustomer)
         {
             this.iLength = iLength;
             this.sDirector = sDirector;
@@ -34,6 +38,21 @@ namespace Dateiverwaltung
             this.sGenre = sGenre;
             this.dtRelease = dtRelease;
             this.bLent = bLent;
+            this.iIDCustomer = iIDCustomer;
+        }
+
+        public DVD(string iID, string iLength, string sDirector, string byAge, string sTitel, string sGenre, string dtRelease, string dtLent, string bLent, string iIDCustomer)
+        {
+            this.iID = Int32.Parse(iID);
+            this.iLength = Int32.Parse(iLength);
+            this.sDirector = sDirector;
+            this.byAge = Byte.Parse(byAge);
+            this.sTitel = sTitel;
+            this.sGenre = sGenre;
+            this.dtRelease = DateTime.Parse(dtRelease);
+            this.dtLent = DateTime.Parse(dtLent);
+            this.bLent = (bLent == "True") ? true : false;
+            this.iIDCustomer = Int32.Parse(iIDCustomer);
         }
 
         public DVD(){ }

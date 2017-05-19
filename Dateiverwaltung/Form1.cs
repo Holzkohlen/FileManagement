@@ -53,17 +53,23 @@ namespace Dateiverwaltung
                         break;
                     case "EBook":
                         EBook tempEBook = (EBook)code.MedienListe[i];
-                        //row = new string[4] { Convert.ToString(tempEBook.ID), tempEBook.Titel, tempEBook.Autor, tempEBook.Genre };
-                        //dgv_EBooks.Rows.Add(row);
+                        row = new string[4] { Convert.ToString(tempEBook.ID), tempEBook.Titel, tempEBook.Autor, tempEBook.Genre };
+                        dgv_EBooks.Rows.Add(row);
                         break;
-                    case "CD":
+                    case "CD": //ID Titel Interpret Genre Release
                         CD tempCD = (CD)code.MedienListe[i];
+                        row = new string[5] { Convert.ToString(tempCD.ID), tempCD.Titel, tempCD.Interpret, tempCD.Genre, tempCD.Release.ToString("MMMM dd, yyyy") };
+                        dgv_CDs.Rows.Add(row);
                         break;
-                    case "DVD":
+                    case "DVD": //ID Titel Regisseur Länge Genre FSK Release
                         DVD tempDVD = (DVD)code.MedienListe[i];
+                        row = new string[7] { Convert.ToString(tempDVD.ID), tempDVD.Titel, tempDVD.Director, Convert.ToString(tempDVD.Length), tempDVD.Genre, Convert.ToString(tempDVD.Age), tempDVD.Release.ToString("MMMM dd, yyyy") };
+                        dgv_DVDs.Rows.Add(row);
                         break;
                     case "BluRay":
                         BluRay tempBluRay = (BluRay)code.MedienListe[i];
+                        row = new string[7] { Convert.ToString(tempBluRay.ID), tempBluRay.Titel, tempBluRay.Director, Convert.ToString(tempBluRay.Length), tempBluRay.Genre, Convert.ToString(tempBluRay.Age), tempBluRay.Release.ToString("MMMM dd, yyyy") };
+                        dgv_BluRays.Rows.Add(row);
                         break;
                 }
             }
@@ -88,22 +94,19 @@ namespace Dateiverwaltung
         {
             var closeMsg = MessageBox.Show("Möchten sie Speichern?", "Sie gehen?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-            if (closeMsg == DialogResult.Yes)
+            if (closeMsg == DialogResult.Yes) //SPEICHERN
             {
-                //SPEICHERN
+                code.saveAll();
             }
-            else if (closeMsg == DialogResult.No)
+            else if (closeMsg == DialogResult.No) //NICHT SPEICHERN
             {
                 //NICHT SPEICHERN
             }
-            else
-            {
-                //Abbrechen
+            else //Abbrechen
+            {                
                 e.Cancel = true;
             }
         }
-
-
 
         #region Keep for now, Delete before abgabe
         private void button1_Click(object sender, EventArgs e)
@@ -111,10 +114,5 @@ namespace Dateiverwaltung
             code.test();
         }
         #endregion
-
-        private void dgv_Books_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

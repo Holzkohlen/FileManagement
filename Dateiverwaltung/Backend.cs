@@ -62,9 +62,24 @@ namespace Dateiverwaltung
             {
                 for (int j = 0; j < ds_Media.Tables[i].Rows.Count; j++) //Looped durch alle Reihen einer Tabelle
                 {
-                    if (i == 1)
+                    DataRow dr = ds_Media.Tables[i].Rows[j];
+                    switch (i)
                     {
-                        mediaList.Add(new Book(ds_Media.Tables[i].Rows[j][0].ToString(), ds_Media.Tables[i].Rows[j][1].ToString(), ds_Media.Tables[i].Rows[j][2].ToString(), ds_Media.Tables[i].Rows[j][3].ToString(), ds_Media.Tables[i].Rows[j][4].ToString(), ds_Media.Tables[i].Rows[j][5].ToString(), ds_Media.Tables[i].Rows[j][6].ToString(), ds_Media.Tables[i].Rows[j][7].ToString(), ds_Media.Tables[i].Rows[j][8].ToString()));
+                        case 1: //BOOK
+                            mediaList.Add(new Book(ds_Media.Tables[i].Rows[j][0].ToString(), ds_Media.Tables[i].Rows[j][1].ToString(), ds_Media.Tables[i].Rows[j][2].ToString(), ds_Media.Tables[i].Rows[j][3].ToString(), ds_Media.Tables[i].Rows[j][4].ToString(), ds_Media.Tables[i].Rows[j][5].ToString(), ds_Media.Tables[i].Rows[j][6].ToString(), ds_Media.Tables[i].Rows[j][7].ToString(), ds_Media.Tables[i].Rows[j][8].ToString()));
+                                break;
+                        case 2: //EBOOK
+                            mediaList.Add(new EBook(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString()));
+                            break;
+                        case 3: //CD
+                            mediaList.Add(new CD(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString()));
+                            break;
+                        case 4: //DVD
+                            mediaList.Add(new DVD(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString()));
+                            break;
+                        case 5: //BluRay
+                            mediaList.Add(new BluRay(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString()));
+                            break;
                     }
                 }
             }
@@ -73,12 +88,18 @@ namespace Dateiverwaltung
         //Form übergibt an diese methode daten zum erstellen eines Kunden
         public void addCustomer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt)
         {
-            
+            //Kunde hinzufügen
         }
 
         public void editCustomer()
         {
             //Here there be dragons!
+        }
+
+        public void saveAll() //Übergibt Medien- und Kundenliste an XML-Klasse zum Abspeichern
+        {
+            xml.saveMedia(mediaList);
+            xml.saveCustomers(customerList);
         }
 
         #region Keep for now, Delete before Abgabe!

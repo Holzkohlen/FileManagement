@@ -48,3 +48,13 @@ D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dat
 D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
 D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
 D:\Daniel Kern Prüfungsvorbereitung\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe.config
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.exe
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.pdb
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.exe
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\bin\Debug\Dateiverwaltung.pdb
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csprojResolveAssemblyReference.cache
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.EditForm.resources
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Form1.resources
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.Properties.Resources.resources
+C:\Users\Lukas\Git\projectmeymey\Dateiverwaltung\obj\Debug\Dateiverwaltung.csproj.GenerateResource.Cache

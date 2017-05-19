@@ -15,6 +15,20 @@ namespace Dateiverwaltung
         public BluRay(int iID, int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCostumer)
         : base(iID, iLength, sDirector, byAge, sTitel, sGenre, dtRelease, dtLent, bLent, iIDCostumer) { }
 
+        public BluRay(string iID, string iLength, string sDirector, string byAge, string sTitel, string sGenre, string dtRelease, string dtLent, string bLent, string iIDCustomer)
+        {
+            this.iID = Int32.Parse(iID);
+            this.iLength = Int32.Parse(iLength);
+            this.sDirector = sDirector;
+            this.byAge = Byte.Parse(byAge);
+            this.sTitel = sTitel;
+            this.sGenre = sGenre;
+            this.dtRelease = DateTime.Parse(dtRelease);
+            this.dtLent = DateTime.Parse(dtLent);
+            this.bLent = (bLent == "True") ? true : false;
+            this.iIDCustomer = Int32.Parse(iIDCustomer);
+        }
+
         public BluRay() { }
 
         public override IDictionary<string, string> read()

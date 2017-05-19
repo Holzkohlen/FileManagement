@@ -73,7 +73,7 @@ namespace Dateiverwaltung
             return ds_Media;
         }
 
-        private void saveCustomers(List<Customer> customers) //Kundendaten abspeichern in XML-Datei!
+        public void saveCustomers(List<Customer> customers) //Kundendaten abspeichern in XML-Datei!
         {
             using (XmlWriter writer = XmlWriter.Create(CUSTOMERS))
             {
