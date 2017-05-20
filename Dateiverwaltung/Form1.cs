@@ -154,15 +154,7 @@ namespace Dateiverwaltung
             }
         }
 
-        #region Keep for now, Delete before abgabe
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //code.test();
-        }
-        #endregion
-
-        //Suchalgo
-        private void tb_Search_TextChanged(object sender, EventArgs e)
+        private void tb_Search_TextChanged(object sender, EventArgs e) //Suchalgorithmus
         {
             int iRow = -1;
             String sSearch = tb_Search.Text.ToUpper();
@@ -186,16 +178,17 @@ namespace Dateiverwaltung
             {
                 foreach (DataGridViewRow row in aDataGrids[iTabIndex].Rows)
                 {
-                    //search for identical art
-                    if (row.Cells[1].Value.ToString().ToUpper().Equals(sSearch))
+                    for(int i = 1; i < aDataGrids[iTabIndex].Columns.Count; i++)
                     {
-                        iRow = row.Index;
-                        break;//stop searching if it's found
-                    }
-                    //search for first art that contains search value
-                    else if (row.Cells[1].Value.ToString().ToUpper().Contains(sSearch) && iRow == -1)
-                    {
-                        iRow = row.Index;
+                        if (row.Cells[i].Value.ToString().ToUpper().Equals(sSearch))
+                        {
+                            iRow = row.Index;
+                            break;
+                        }
+                        else if (row.Cells[i].Value.ToString().ToUpper().Contains(sSearch) && iRow == -1)
+                        {
+                            iRow = row.Index;
+                        }
                     }
                 }
                 //if nothing found set color red
@@ -211,18 +204,6 @@ namespace Dateiverwaltung
                     aDataGrids[iTabIndex].FirstDisplayedScrollingRowIndex = iRow;
                 }
             }
-        }
-
-
-
-        private void tb_Search_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tab_CDs_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

@@ -200,7 +200,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(879, 248);
             this.tabControl.TabIndex = 2;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             // 
             // tab_Customers
             // 
@@ -420,12 +420,6 @@
             // cb_Search
             // 
             this.cb_Search.FormattingEnabled = true;
-            this.cb_Search.Items.AddRange(new object[] {
-            "Hans",
-            "Hänsel",
-            "Peter",
-            "Robert",
-            "Herbert"});
             this.cb_Search.Location = new System.Drawing.Point(3, 6);
             this.cb_Search.Name = "cb_Search";
             this.cb_Search.Size = new System.Drawing.Size(369, 21);
@@ -1532,7 +1526,7 @@
             this.Controls.Add(this.tabControl);
             this.MaximizeBox = false;
             this.Name = "EditForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditForm";
             this.Load += new System.EventHandler(this.EditForm_Load);
             this.tabControl.ResumeLayout(false);

@@ -29,7 +29,6 @@ namespace Dateiverwaltung
             this.sKlasse = "EBook";
         }
 
-
         public override IDictionary<string, string> read()
         {
             IDictionary<string, string> Dictionary = new Dictionary<string, string>();

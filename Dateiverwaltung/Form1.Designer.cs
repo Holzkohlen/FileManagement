@@ -84,7 +84,6 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tb_Search = new System.Windows.Forms.TextBox();
             this.btn_Edit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_Customers.SuspendLayout();
@@ -300,7 +299,6 @@
             this.tab_CDs.TabIndex = 2;
             this.tab_CDs.Text = "CDs";
             this.tab_CDs.UseVisualStyleBackColor = true;
-            this.tab_CDs.Click += new System.EventHandler(this.tab_CDs_Click);
             // 
             // dgv_CDs
             // 
@@ -317,7 +315,7 @@
             this.dgv_CDs.Location = new System.Drawing.Point(0, 0);
             this.dgv_CDs.Name = "dgv_CDs";
             this.dgv_CDs.ReadOnly = true;
-            this.dgv_CDs.Size = new System.Drawing.Size(805, 383);
+            this.dgv_CDs.Size = new System.Drawing.Size(805, 377);
             this.dgv_CDs.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn7
@@ -567,7 +565,6 @@
             this.tb_Search.Text = "Nachname...";
             this.tb_Search.Click += new System.EventHandler(this.tb_Search_Click);
             this.tb_Search.TextChanged += new System.EventHandler(this.tb_Search_TextChanged);
-            this.tb_Search.Leave += new System.EventHandler(this.tb_Search_Leave);
             // 
             // btn_Edit
             // 
@@ -579,27 +576,17 @@
             this.btn_Edit.UseVisualStyleBackColor = true;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(581, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "??????";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 477);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.tb_Search);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShitsGoingDown";
@@ -650,7 +637,6 @@
         private System.Windows.Forms.DataGridView dgv_DVDs;
         private System.Windows.Forms.ToolStripMenuItem speichernToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tab_EBooks;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titel;

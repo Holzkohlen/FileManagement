@@ -18,15 +18,26 @@ namespace Dateiverwaltung
 
         public EditForm(Backend code, Form1 mainForm)
         {
-            InitializeComponent();
-            this.code = code;
-            bEditMode = false;
-            this.mainForm = mainForm;
+            try
+            {
+                InitializeComponent();
+                this.code = code;
+                bEditMode = false;
+                this.mainForm = mainForm;
+                fillComboBox();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString(), "ERROR");
+            }
         }
 
-        private void EditForm_Load(object sender, EventArgs e)
+        private void fillComboBox() //Befüllt die Vorschläge der ComboBox mit dem Nachnamen der Kunden
         {
-
+            foreach(Customer temp in code.CustomerListe)
+            {
+                cb_Search.Items.Add(temp.Nachname);
+            }
         }
 
         private void cb_Search_TextChanged(object sender, EventArgs e)
@@ -40,7 +51,7 @@ namespace Dateiverwaltung
             //}
         }
 
-        private void btn_Edit_Click(object sender, EventArgs e)
+        private void btn_Edit_Click(object sender, EventArgs e) //Kunde bearbeiten
         {
             if (btn_EditCostumer.Text != "Speichern")
             {
@@ -110,18 +121,7 @@ namespace Dateiverwaltung
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            if(tabControl.SelectedTab.Name != "tab_Customers")
-            {
-                this.Size = new System.Drawing.Size(this.Width, 174);
-                tabControl.Height = 174;
-            }
-            else
-            {
-                this.Size = new System.Drawing.Size(this.Width, 248);
-                tabControl.Height = 248;
-            }
-            
+
         }
 
         static void Rezise()
@@ -192,5 +192,24 @@ namespace Dateiverwaltung
             }
         }
         #endregion
+
+        private void tabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl.SelectedTab == tabControl.TabPages[0])
+            {
+                this.Size = new System.Drawing.Size(this.Width, 248);
+                tabControl.Height = 248;
+            }
+            else
+            {
+                this.Size = new System.Drawing.Size(this.Width, 174);
+                tabControl.Height = 174;
+            }
+        }
+
+        private void EditForm_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
