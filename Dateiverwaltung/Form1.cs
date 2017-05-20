@@ -15,6 +15,7 @@ namespace Dateiverwaltung
         Backend code;
         EditForm edit;
         string sDatumsformat;
+        DataGridView[] aDataGrids;
 
         public Form1()
         {
@@ -25,6 +26,8 @@ namespace Dateiverwaltung
                 code = new Backend();
                 printCustomers();
                 printMedia();
+                aDataGrids = new DataGridView[] {dgv_Customers,dgv_Books,dgv_CDs,dgv_DVDs,dgv_BluRays,dgv_EBooks};
+
             }
             catch (Exception e)
             {
@@ -119,14 +122,28 @@ namespace Dateiverwaltung
 
         //Suchalgo
         private void tb_Search_TextChanged(object sender, EventArgs e)
-        {
+         {
             int iRow = -1;
-            String sSearch = tb_Search.Text.ToUpper();
-            dgv_Customers.ClearSelection();
+            String sSearch = tb_Search.Text.ToUpper();      
+            int iTabIndex; //0:Kunde 1:Buch 2:Cd 3:DVD 4:BluRay 5:EBook
+
+
+            //tabControl1.SelectedTab == tabControl1.TabPages["Kunden"]? iTabIndex = 0:
+            switch (tabControl1.SelectedTab.Name)
+            {
+                case "tab_Customers": iTabIndex = 0; break;
+                case "tab_Books": iTabIndex = 1; break;
+                case "tab_CDs": iTabIndex = 2; break;
+                case "tab_DVDs": iTabIndex = 3; break;
+                case "tab_BluRays": iTabIndex = 4; break;
+                default: iTabIndex = 5; break;
+            }
+
+            aDataGrids[iTabIndex].ClearSelection();
 
             if (sSearch != null && sSearch != "")
             {
-                foreach (DataGridViewRow row in dgv_Customers.Rows)
+                foreach (DataGridViewRow row in aDataGrids[iTabIndex].Rows)
                 {
                     //search for identical art
                     if (row.Cells[1].Value.ToString().ToUpper().Equals(sSearch))
@@ -149,13 +166,18 @@ namespace Dateiverwaltung
                 else
                 {
                     tb_Search.BackColor = Color.White;
-                    dgv_Customers.Rows[iRow].Selected = true;
-                    dgv_Customers.FirstDisplayedScrollingRowIndex = iRow;
+                    aDataGrids[iTabIndex].Rows[iRow].Selected = true;
+                    aDataGrids[iTabIndex].FirstDisplayedScrollingRowIndex = iRow;
                 }
             }
         }
 
         private void tb_Search_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab_CDs_Click(object sender, EventArgs e)
         {
 
         }

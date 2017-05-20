@@ -158,7 +158,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 56);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(813, 409);
+            this.tabControl1.Size = new System.Drawing.Size(825, 409);
             this.tabControl1.TabIndex = 1;
             // 
             // tab_Customers
@@ -167,7 +167,7 @@
             this.tab_Customers.Location = new System.Drawing.Point(4, 22);
             this.tab_Customers.Name = "tab_Customers";
             this.tab_Customers.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Customers.Size = new System.Drawing.Size(805, 383);
+            this.tab_Customers.Size = new System.Drawing.Size(817, 383);
             this.tab_Customers.TabIndex = 0;
             this.tab_Customers.Text = "Kunden";
             this.tab_Customers.UseVisualStyleBackColor = true;
@@ -233,7 +233,7 @@
             this.tab_Books.Location = new System.Drawing.Point(4, 22);
             this.tab_Books.Name = "tab_Books";
             this.tab_Books.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Books.Size = new System.Drawing.Size(805, 383);
+            this.tab_Books.Size = new System.Drawing.Size(817, 383);
             this.tab_Books.TabIndex = 1;
             this.tab_Books.Text = "Bücher";
             this.tab_Books.UseVisualStyleBackColor = true;
@@ -295,10 +295,11 @@
             this.tab_CDs.Location = new System.Drawing.Point(4, 22);
             this.tab_CDs.Name = "tab_CDs";
             this.tab_CDs.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_CDs.Size = new System.Drawing.Size(805, 383);
+            this.tab_CDs.Size = new System.Drawing.Size(817, 383);
             this.tab_CDs.TabIndex = 2;
             this.tab_CDs.Text = "CDs";
             this.tab_CDs.UseVisualStyleBackColor = true;
+            this.tab_CDs.Click += new System.EventHandler(this.tab_CDs_Click);
             // 
             // dgv_CDs
             // 
