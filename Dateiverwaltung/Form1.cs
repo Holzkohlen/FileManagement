@@ -156,53 +156,60 @@ namespace Dateiverwaltung
 
         private void tb_Search_TextChanged(object sender, EventArgs e) //Suchalgorithmus
         {
-            int iRow = -1;
-            String sSearch = tb_Search.Text.ToUpper();
-            int iTabIndex; //0:Kunde 1:Buch 2:Cd 3:DVD 4:BluRay 5:EBook
-
-
-            //tabControl1.SelectedTab == tabControl1.TabPages["Kunden"]? iTabIndex = 0:
-            switch (tabControl1.SelectedTab.Name)
+            try
             {
-                case "tab_Customers": iTabIndex = 0; break;
-                case "tab_Books": iTabIndex = 1; break;
-                case "tab_CDs": iTabIndex = 2; break;
-                case "tab_DVDs": iTabIndex = 3; break;
-                case "tab_BluRays": iTabIndex = 4; break;
-                default: iTabIndex = 5; break;
-            }
+                int iRow = -1;
+                String sSearch = tb_Search.Text.ToUpper();
+                int iTabIndex; //0:Kunde 1:Buch 2:Cd 3:DVD 4:BluRay 5:EBook
 
-            aDataGrids[iTabIndex].ClearSelection();
 
-            if (sSearch != null && sSearch != "" && tb_Search.Text != "Titel..." && tb_Search.Text != "Nachname...")
-            {
-                foreach (DataGridViewRow row in aDataGrids[iTabIndex].Rows)
+                //tabControl1.SelectedTab == tabControl1.TabPages["Kunden"]? iTabIndex = 0:
+                switch (tabControl1.SelectedTab.Name)
                 {
-                    for(int i = 1; i < aDataGrids[iTabIndex].Columns.Count; i++)
+                    case "tab_Customers": iTabIndex = 0; break;
+                    case "tab_Books": iTabIndex = 1; break;
+                    case "tab_CDs": iTabIndex = 2; break;
+                    case "tab_DVDs": iTabIndex = 3; break;
+                    case "tab_BluRays": iTabIndex = 4; break;
+                    default: iTabIndex = 5; break;
+                }
+
+                aDataGrids[iTabIndex].ClearSelection();
+
+                if (sSearch != null && sSearch != "" && tb_Search.Text != "Titel..." && tb_Search.Text != "Nachname...")
+                {
+                    foreach (DataGridViewRow row in aDataGrids[iTabIndex].Rows)
                     {
-                        if (row.Cells[i].Value.ToString().ToUpper().Equals(sSearch))
+                        for (int i = 0; i < aDataGrids[iTabIndex].Columns.Count; i++)
                         {
-                            iRow = row.Index;
-                            break;
-                        }
-                        else if (row.Cells[i].Value.ToString().ToUpper().Contains(sSearch) && iRow == -1)
-                        {
-                            iRow = row.Index;
+                            if (row.Cells[i].Value.ToString().ToUpper().Equals(sSearch))
+                            {
+                                iRow = row.Index;
+                                break;
+                            }
+                            else if (row.Cells[i].Value.ToString().ToUpper().Contains(sSearch) && iRow == -1)
+                            {
+                                iRow = row.Index;
+                            }
                         }
                     }
+                    //if nothing found set color red
+                    if (iRow == -1)
+                    {
+                        tb_Search.BackColor = Color.Red;
+                    }
+                    //if found set color white, select the row and go to the row
+                    else
+                    {
+                        tb_Search.BackColor = Color.White;
+                        aDataGrids[iTabIndex].Rows[iRow].Selected = true;
+                        aDataGrids[iTabIndex].FirstDisplayedScrollingRowIndex = iRow;
+                    }
                 }
-                //if nothing found set color red
-                if (iRow == -1)
-                {
-                    tb_Search.BackColor = Color.Red;
-                }
-                //if found set color white, select the row and go to the row
-                else
-                {
-                    tb_Search.BackColor = Color.White;
-                    aDataGrids[iTabIndex].Rows[iRow].Selected = true;
-                    aDataGrids[iTabIndex].FirstDisplayedScrollingRowIndex = iRow;
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR");
             }
         }
 
