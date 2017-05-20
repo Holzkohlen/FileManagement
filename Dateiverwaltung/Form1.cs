@@ -82,7 +82,7 @@ namespace Dateiverwaltung
 
         private void tb_Search_Click(object sender, EventArgs e)
         {
-            if (tb_Search.Text.Equals("Nachname / Titel"))
+            if (tb_Search.Text.Equals("Nachname...") || tb_Search.Text.Equals("Titel..."))
             {
                 tb_Search.Text = "";
                 tb_Search.ForeColor = Color.Black;
@@ -141,7 +141,7 @@ namespace Dateiverwaltung
 
             aDataGrids[iTabIndex].ClearSelection();
 
-            if (sSearch != null && sSearch != "")
+            if (sSearch != null && sSearch != "" && tb_Search.Text != "Titel..." && tb_Search.Text != "Nachname...")
             {
                 foreach (DataGridViewRow row in aDataGrids[iTabIndex].Rows)
                 {
@@ -158,7 +158,7 @@ namespace Dateiverwaltung
                     }
                 }
                 //if nothing found set color red
-                if (iRow == -1)
+                if (iRow == -1 )
                 {
                     tb_Search.BackColor = Color.Red;
                 }
@@ -180,6 +180,14 @@ namespace Dateiverwaltung
         private void tab_CDs_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab.Name == "tab_Customers") { tb_Search.Text = "Nachname..."; }
+            else { tb_Search.Text = "Titel..."; }
+            tb_Search.ForeColor = Color.DimGray;
         }
     }
 }

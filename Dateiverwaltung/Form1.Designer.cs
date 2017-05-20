@@ -160,6 +160,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(825, 409);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tab_Customers
             // 
@@ -355,7 +356,7 @@
             this.tab_DVDs.Location = new System.Drawing.Point(4, 22);
             this.tab_DVDs.Name = "tab_DVDs";
             this.tab_DVDs.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_DVDs.Size = new System.Drawing.Size(805, 383);
+            this.tab_DVDs.Size = new System.Drawing.Size(817, 383);
             this.tab_DVDs.TabIndex = 3;
             this.tab_DVDs.Text = "DVDs";
             this.tab_DVDs.UseVisualStyleBackColor = true;
@@ -428,7 +429,7 @@
             this.tab_BluRays.Location = new System.Drawing.Point(4, 22);
             this.tab_BluRays.Name = "tab_BluRays";
             this.tab_BluRays.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_BluRays.Size = new System.Drawing.Size(805, 383);
+            this.tab_BluRays.Size = new System.Drawing.Size(817, 383);
             this.tab_BluRays.TabIndex = 4;
             this.tab_BluRays.Text = "BluRays";
             this.tab_BluRays.UseVisualStyleBackColor = true;
@@ -501,7 +502,7 @@
             this.tab_EBooks.Location = new System.Drawing.Point(4, 22);
             this.tab_EBooks.Name = "tab_EBooks";
             this.tab_EBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_EBooks.Size = new System.Drawing.Size(805, 383);
+            this.tab_EBooks.Size = new System.Drawing.Size(817, 383);
             this.tab_EBooks.TabIndex = 6;
             this.tab_EBooks.Text = "EBooks";
             this.tab_EBooks.UseVisualStyleBackColor = true;
@@ -557,13 +558,13 @@
             // 
             // tb_Search
             // 
-            this.tb_Search.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.tb_Search.ForeColor = System.Drawing.Color.DimGray;
             this.tb_Search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tb_Search.Location = new System.Drawing.Point(12, 27);
             this.tb_Search.Name = "tb_Search";
             this.tb_Search.Size = new System.Drawing.Size(282, 20);
             this.tb_Search.TabIndex = 2;
-            this.tb_Search.Text = "Nachname / Titel";
+            this.tb_Search.Text = "Nachname...";
             this.tb_Search.Click += new System.EventHandler(this.tb_Search_Click);
             this.tb_Search.TextChanged += new System.EventHandler(this.tb_Search_TextChanged);
             this.tb_Search.Leave += new System.EventHandler(this.tb_Search_Leave);
