@@ -55,7 +55,7 @@ namespace Dateiverwaltung
                 offWrite(true);
                 btn_AddCostumer.Enabled = true;
                 bEditMode = false;
-                tabControl1.TabPages[tabControl1.SelectedIndex].Enabled = true;
+                tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
             }
             
         }
@@ -78,7 +78,7 @@ namespace Dateiverwaltung
                 bEditMode = false;
 
                 code.addCustomer(tb_Vorname.Text, tb_Name.Text, tb_Strasse.Text, tb_PLZ.Text, tb_Ort.Text);
-                tabControl1.TabPages[tabControl1.SelectedIndex].Enabled = true;
+                tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
                 mainForm.addCustomer();
             }
         }
@@ -101,25 +101,25 @@ namespace Dateiverwaltung
             
             
             //Ganzer Tab geht dann nicht
-            foreach (TabPage tab in tabControl1.TabPages)
+            foreach (TabPage tab in tabControl.TabPages)
             {
                 tab.Enabled = bModus;
             }
-            tabControl1.TabPages[tabControl1.SelectedIndex].Enabled = !bModus;
+            tabControl.TabPages[tabControl.SelectedIndex].Enabled = !bModus;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            if(tabControl1.SelectedTab.Name != "tab_Customers")
+            if(tabControl.SelectedTab.Name != "tab_Customers")
             {
                 this.Size = new System.Drawing.Size(this.Width, 174);
-                tabControl1.Height = 174;
+                tabControl.Height = 174;
             }
             else
             {
                 this.Size = new System.Drawing.Size(this.Width, 248);
-                tabControl1.Height = 248;
+                tabControl.Height = 248;
             }
             
         }
@@ -128,5 +128,69 @@ namespace Dateiverwaltung
         {
             
         }
+
+
+        #region Medien hinzufügen ButtonClick Handler
+        private void btn_Add_Book_Click(object sender, EventArgs e)
+        {
+            string[] sArray = { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, tb_Book_Seiten.Text, tb_Book_Release.Text};
+            if (code.addMedia(sArray, 1))
+            {
+                mainForm.updateMedienAnzeige();
+            }
+            else
+            {
+                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
+            }
+        }
+        private void btn_Add_EBook_Click(object sender, EventArgs e)
+        {
+            string[] sArray = { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, tb_EBook_Seiten.Text, tb_EBook_Release.Text };
+            if (code.addMedia(sArray, 2))
+            {
+                mainForm.updateMedienAnzeige();
+            }
+            else
+            {
+                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
+            }
+        }
+        private void btn_Add_DVD_Click(object sender, EventArgs e)
+        {
+            string[] sArray = { tb_DVD_Titel.Text, tb_DVD_Regisseur.Text, tb_DVD_Genre.Text, tb_DVD_Length.Text, tb_DVD_FSK.Text, tb_DVD_Release.Text };
+            if (code.addMedia(sArray, 4))
+            {
+                mainForm.updateMedienAnzeige();
+            }
+            else
+            {
+                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
+            }
+        }
+        private void btn_Add_CD_Click(object sender, EventArgs e)
+        {
+            string[] sArray = { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, tb_CD_Length.Text, tb_CD_Release.Text };
+            if (code.addMedia(sArray, 3))
+            {
+                mainForm.updateMedienAnzeige();
+            }
+            else
+            {
+                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
+            }
+        }
+        private void btn_Add_BluRay_Click(object sender, EventArgs e)
+        {
+            string[] sArray = { tb_BluRay_Titel.Text, tb_BluRay_Regisseur.Text, tb_BluRay_Genre.Text, tb_BluRay_Length.Text, tb_BluRay_FSK.Text, tb_BluRay_Release.Text };
+            if (code.addMedia(sArray, 5))
+            {
+                mainForm.updateMedienAnzeige();
+            }
+            else
+            {
+                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
+            }
+        }
+        #endregion
     }
 }

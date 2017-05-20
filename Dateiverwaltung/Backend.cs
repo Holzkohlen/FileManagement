@@ -16,6 +16,8 @@ namespace Dateiverwaltung
         List<Media> mediaList;
         List<Customer> customerList;
         Customer[] customers;
+        int iCustomerCounter;
+        int iMediaCounter;
 
         public List<Customer> CustomerListe { get { return customerList; } }
         public List<Media> MedienListe { get { return mediaList; } }
@@ -27,7 +29,7 @@ namespace Dateiverwaltung
                 xml = new XML_IO();
                 ds_Customers = xml.readCustomers();
                 ds_Media = xml.readMedia();
-                xml.readCustomers(out customers);
+                xml.readCustomers(out customers, ref iCustomerCounter);
                 //customerList = new List<Customer>();
                 customerList = customers.ToList<Customer>();
                 //ds_CustomersAuslesen();
@@ -38,6 +40,8 @@ namespace Dateiverwaltung
             {
                 System.Windows.Forms.MessageBox.Show(e.ToString(), "IOException");
                 customerList = new List<Customer>();
+                iMediaCounter = 1;
+                iCustomerCounter = 1;
             }
             catch (Exception e)
             {
@@ -57,7 +61,7 @@ namespace Dateiverwaltung
         private void ds_MediaAuslesen() //Liest ds_Media aus und erstellt enthaltene Objekte, speichert diese in Liste
         {
             //ds_Media.Tables[x] 0 => Media, 1 => Books, 2 => EBook, 3 => CD, 4 => DVD, 5 => BluRay
-
+            iMediaCounter = Int32.Parse(ds_Media.Tables[0].Rows[0][0].ToString());
             for (int i = 1; i < ds_Media.Tables.Count; i++) //Looped durch die verschiedenen Tabellen
             {
                 for (int j = 0; j < ds_Media.Tables[i].Rows.Count; j++) //Looped durch alle Reihen einer Tabelle
@@ -87,26 +91,36 @@ namespace Dateiverwaltung
 
         public void addCustomer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt) //Form übergibt an diese methode daten zum erstellen eines Kunden
         {
-            customerList.Add(new Customer(sVorname, sNachname, sStrasse, sPLZ, sOrt));
+            customerList.Add(new Customer(Convert.ToString(iCustomerCounter), sVorname, sNachname, sStrasse, sPLZ, sOrt));
+            iCustomerCounter++;
         }
 
-        public void addMedia(string[] sArray, int iArt)
+        public bool addMedia(string[] sArray, int iArt)
         {
-            switch(iArt)
+            try
             {
-                case 1: //Book
-                    mediaList.Add(new Book(sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), DateTime.Parse(sArray[4])));
-                    break;
-                case 2: //EBook
-                    mediaList.Add(new EBook(sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), DateTime.Parse(sArray[4])));
-                    break;
-                case 3: //CD
-                    break;
-                case 4: //DVD
-                    break;
-                case 5: //BluRay
-                    break;
+                switch (iArt)
+                {
+                    case 1: //Book
+                        mediaList.Add(new Book(iMediaCounter, sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), DateTime.Parse(sArray[4])));
+                        break;
+                    case 2: //EBook
+                        mediaList.Add(new EBook(iMediaCounter, sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), DateTime.Parse(sArray[4])));
+                        break;
+                    case 3: //CD
+                        mediaList.Add(new CD(iMediaCounter, sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), DateTime.Parse(sArray[4])));
+                        break;
+                    case 4: //DVD
+                        mediaList.Add(new DVD(iMediaCounter, sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), Byte.Parse(sArray[4]), DateTime.Parse(sArray[5])));
+                        break;
+                    case 5: //BluRay
+                        mediaList.Add(new BluRay(iMediaCounter, sArray[0], sArray[1], sArray[2], Int32.Parse(sArray[3]), Byte.Parse(sArray[4]), DateTime.Parse(sArray[5])));
+                        break;
+                }
+                iMediaCounter++;
+                return true;
             }
+            catch(Exception e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); return false; }
         }
 
         public void editCustomer()
@@ -116,8 +130,8 @@ namespace Dateiverwaltung
 
         public void saveAll() //Übergibt Medien- und Kundenliste an XML-Klasse zum Abspeichern
         {
-            xml.saveMedia(mediaList);
-            xml.saveCustomers(customerList);
+            xml.saveMedia(mediaList, iMediaCounter);
+            xml.saveCustomers(customerList, iCustomerCounter);
         }
     }
 }

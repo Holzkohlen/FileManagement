@@ -18,8 +18,9 @@ namespace Dateiverwaltung
         public byte Age { get { return byAge; } }
 
         //Konstrukor beim Erstellen
-        public DVD(int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease)
+        public DVD(int iID, string sTitel, string sDirector, string sGenre, int iLength, byte byAge, DateTime dtRelease)
         {
+            this.iID = iID;
             this.iLength = iLength;
             this.sDirector = sDirector;
             this.byAge = byAge;
@@ -60,7 +61,7 @@ namespace Dateiverwaltung
             this.sKlasse = "DVD";
         }
 
-        public DVD(){ }
+        public DVD() { }
 
         public override IDictionary<string, string> read()
         {

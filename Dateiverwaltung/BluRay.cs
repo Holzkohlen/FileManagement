@@ -9,8 +9,8 @@ namespace Dateiverwaltung
     class BluRay : DVD
     {
 
-        public BluRay(int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease)
-        : base(iLength, sDirector, byAge, sTitel, sGenre, dtRelease) { this.sKlasse = "BluRay"; }
+        public BluRay(int iID, string sTitel, string sDirector, string sGenre, int iLength, byte byAge, DateTime dtRelease)
+        : base(iID, sTitel, sDirector, sGenre, iLength, byAge, dtRelease) { this.sKlasse = "BluRay"; }
 
         public BluRay(int iID, int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCostumer)
         : base(iID, iLength, sDirector, byAge, sTitel, sGenre, dtRelease, dtLent, bLent, iIDCostumer) { this.sKlasse = "BluRay"; }

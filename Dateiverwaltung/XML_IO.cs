@@ -37,7 +37,7 @@ namespace Dateiverwaltung
             return iCounter;
         }
 
-        public void saveMedia(List<Media> media) //Speichert sämtliche Medien ab aus Media-Liste!
+        public void saveMedia(List<Media> media, int iCounter) //Speichert sämtliche Medien ab aus Media-Liste!
         {
             try
             {
@@ -45,7 +45,7 @@ namespace Dateiverwaltung
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("Media");
-                    writer.WriteElementString("Count", Convert.ToString(media.Count));
+                    writer.WriteElementString("Count", Convert.ToString(iCounter));
                     foreach (Media med in media)
                     {
                         IDictionary<string, string> dict = med.read();
@@ -73,12 +73,13 @@ namespace Dateiverwaltung
             return ds_Media;
         }
 
-        public void saveCustomers(List<Customer> customers) //Kundendaten abspeichern in XML-Datei!
+        public void saveCustomers(List<Customer> customers, int iCounter) //Kundendaten abspeichern in XML-Datei!
         {
             using (XmlWriter writer = XmlWriter.Create(CUSTOMERS))
             {
                 writer.WriteStartDocument();
                 writer.WriteStartElement("Customers");
+                writer.WriteElementString("Count", Convert.ToString(iCounter));
                 foreach (Customer cust in customers)
                 {
                     writer.WriteStartElement("Customer");
@@ -101,7 +102,7 @@ namespace Dateiverwaltung
             return ds_Customer;
         }
 
-        public void readCustomers(out Customer[] customers) //Kundendaten auslesen aus XML-Datei!
+        public void readCustomers(out Customer[] customers, ref int iCounter) //Kundendaten auslesen aus XML-Datei!
         {
             customers = new Customer[countElement(CUSTOMERS, "Customer")];
             for (int j = 0; j < customers.Length; j++)
@@ -121,6 +122,10 @@ namespace Dateiverwaltung
                         {
                             i++;
                             reader.Read();
+                        }
+                        else if(reader.Name == "Count")
+                        {
+                            iCounter = reader.ReadElementContentAsInt();
                         }
                         else
                         {

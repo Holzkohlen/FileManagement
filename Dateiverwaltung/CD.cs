@@ -15,8 +15,9 @@ namespace Dateiverwaltung
         public string Interpret { get { return sInterpret; } }
 
         //Konstrukor beim Erstellen
-        public CD( int iLength, string sInterpret, string sTitel , string sGenre, DateTime dtRelease)
+        public CD(int iID, string sTitel, string sInterpret, string sGenre, int iLength, DateTime dtRelease)
         {
+            this.iID = iID;
             this.iLength = iLength;
             this.sInterpret = sInterpret;
             this.sTitel = sTitel;
@@ -54,7 +55,7 @@ namespace Dateiverwaltung
             this.sKlasse = "CD";
         }
 
-        public CD(){ }
+        public CD() { }
 
         public override IDictionary<string, string> read()
         {

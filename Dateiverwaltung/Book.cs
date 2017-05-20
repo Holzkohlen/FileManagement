@@ -15,8 +15,9 @@ namespace Dateiverwaltung
         public int Seitenanzahl { get { return iPages; } }
 
         //Konstrukor beim Erstellen
-        public Book(string sTitel, string sAutor, string sGenre, int iPages, DateTime dtRelease)
+        public Book(int iID, string sTitel, string sAutor, string sGenre, int iPages, DateTime dtRelease)
         {
+            this.iID = iID;
             this.iPages = iPages;
             this.sAutor = sAutor;
             this.sTitel = sTitel;

@@ -8,31 +8,21 @@ namespace Dateiverwaltung
 {
     public class Customer
     {
-        int iID;
-        string sVorname;
-        string sNachname;
-        string sStrasse;
-        string sPLZ;
-        string sOrt;
-
-        public Customer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt)//Ohne ID für Neuerstellung
-        {
-            this.sVorname = sVorname;
-            this.sNachname = sNachname;
-            this.sStrasse = sStrasse;
-            this.sPLZ = sPLZ;
-            this.sOrt = sOrt;
-            iID = 10; //CHANGE THIS => automatische Zuweisung bei Neuerstellung
-        }
+        private int iID;
+        private string sVorname;
+        private string sNachname;
+        private string sStrasse;
+        private string sPLZ;
+        private string sOrt;
 
         public Customer(string sID, string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt)//Mit ID für Auslesen aus XML-File
         {
+            this.iID = Int32.Parse(sID);
             this.sVorname = sVorname;
             this.sNachname = sNachname;
             this.sStrasse = sStrasse;
             this.sPLZ = sPLZ;
-            this.sOrt = sOrt;
-            bool bCheck = Int32.TryParse(sID, out this.iID);
+            this.sOrt = sOrt;          
         }
 
         public Customer()
