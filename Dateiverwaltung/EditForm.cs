@@ -14,11 +14,14 @@ namespace Dateiverwaltung
     {
         Backend code;
         bool bEditMode;
-        public EditForm(Backend code)
+        Form1 mainForm;
+
+        public EditForm(Backend code, Form1 mainForm)
         {
             InitializeComponent();
             this.code = code;
             bEditMode = false;
+            this.mainForm = mainForm;
         }
 
         private void EditForm_Load(object sender, EventArgs e)
@@ -76,6 +79,7 @@ namespace Dateiverwaltung
 
                 code.addCustomer(tb_Vorname.Text, tb_Name.Text, tb_Strasse.Text, tb_PLZ.Text, tb_Ort.Text);
                 tabControl1.TabPages[tabControl1.SelectedIndex].Enabled = true;
+                mainForm.addCustomer();
             }
         }
 

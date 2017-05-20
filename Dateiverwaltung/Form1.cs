@@ -46,7 +46,7 @@ namespace Dateiverwaltung
 
         public void addCustomer()
         {
-            Customer temp = code.CustomerListe[code.CustomerListe.Count];
+            Customer temp = code.CustomerListe[code.CustomerListe.Count - 1];
             string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
             dgv_Customers.Rows.Add(row);
         }
@@ -98,7 +98,7 @@ namespace Dateiverwaltung
 
         private void btn_Edit_Click(object sender, EventArgs e) //öffnet zweite Forms zum Bearbeiten von Objekten
         {
-            edit = new EditForm(code);
+            edit = new EditForm(code, this);
             edit.Show();
         }
 

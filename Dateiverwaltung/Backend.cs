@@ -17,7 +17,6 @@ namespace Dateiverwaltung
         List<Customer> customerList;
         Customer[] customers;
 
-
         public List<Customer> CustomerListe { get { return customerList; } }
         public List<Media> MedienListe { get { return mediaList; } }
 
@@ -38,6 +37,7 @@ namespace Dateiverwaltung
             catch (IOException e)
             {
                 System.Windows.Forms.MessageBox.Show(e.ToString(), "IOException");
+                customerList = new List<Customer>();
             }
             catch (Exception e)
             {
@@ -85,8 +85,7 @@ namespace Dateiverwaltung
             }
         }
 
-        //Form übergibt an diese methode daten zum erstellen eines Kunden
-        public void addCustomer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt)
+        public void addCustomer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt) //Form übergibt an diese methode daten zum erstellen eines Kunden
         {
             customerList.Add(new Customer(sVorname, sNachname, sStrasse, sPLZ, sOrt));
         }
