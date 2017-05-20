@@ -79,7 +79,7 @@ namespace Dateiverwaltung
 
         private void tb_Search_Click(object sender, EventArgs e)
         {
-            if (tb_Search.Text.Equals("Suchen"))
+            if (tb_Search.Text.Equals("Nachname / Titel"))
             {
                 tb_Search.Text = "";
                 tb_Search.ForeColor = Color.Black;
@@ -113,8 +113,51 @@ namespace Dateiverwaltung
         #region Keep for now, Delete before abgabe
         private void button1_Click(object sender, EventArgs e)
         {
-            code.test();
+            //code.test();
         }
         #endregion
+
+        //Suchalgo
+        private void tb_Search_TextChanged(object sender, EventArgs e)
+        {
+            int iRow = -1;
+            String sSearch = tb_Search.Text.ToUpper();
+            dgv_Customers.ClearSelection();
+
+            if (sSearch != null && sSearch != "")
+            {
+                foreach (DataGridViewRow row in dgv_Customers.Rows)
+                {
+                    //search for identical art
+                    if (row.Cells[1].Value.ToString().ToUpper().Equals(sSearch))
+                    {
+                        iRow = row.Index;
+                        break;//stop searching if it's found
+                    }
+                    //search for first art that contains search value
+                    else if (row.Cells[1].Value.ToString().ToUpper().Contains(sSearch) && iRow == -1)
+                    {
+                        iRow = row.Index;
+                    }
+                }
+                //if nothing found set color red
+                if (iRow == -1)
+                {
+                    tb_Search.BackColor = Color.Red;
+                }
+                //if found set color white, select the row and go to the row
+                else
+                {
+                    tb_Search.BackColor = Color.White;
+                    dgv_Customers.Rows[iRow].Selected = true;
+                    dgv_Customers.FirstDisplayedScrollingRowIndex = iRow;
+                }
+            }
+        }
+
+        private void tb_Search_Leave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

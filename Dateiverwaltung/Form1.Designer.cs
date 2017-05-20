@@ -77,14 +77,14 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_EBooks = new System.Windows.Forms.TabPage();
             this.dgv_EBooks = new System.Windows.Forms.DataGridView();
-            this.tb_Search = new System.Windows.Forms.TextBox();
-            this.btn_Edit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tb_Search = new System.Windows.Forms.TextBox();
+            this.btn_Edit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_Customers.SuspendLayout();
@@ -524,37 +524,6 @@
             this.dgv_EBooks.Size = new System.Drawing.Size(805, 383);
             this.dgv_EBooks.TabIndex = 6;
             // 
-            // tb_Search
-            // 
-            this.tb_Search.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.tb_Search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tb_Search.Location = new System.Drawing.Point(12, 27);
-            this.tb_Search.Name = "tb_Search";
-            this.tb_Search.Size = new System.Drawing.Size(282, 20);
-            this.tb_Search.TabIndex = 2;
-            this.tb_Search.Text = "Suchen";
-            this.tb_Search.Click += new System.EventHandler(this.tb_Search_Click);
-            // 
-            // btn_Edit
-            // 
-            this.btn_Edit.Location = new System.Drawing.Point(300, 24);
-            this.btn_Edit.Name = "btn_Edit";
-            this.btn_Edit.Size = new System.Drawing.Size(171, 23);
-            this.btn_Edit.TabIndex = 3;
-            this.btn_Edit.Text = "Bearbeiten/Hinzufügen";
-            this.btn_Edit.UseVisualStyleBackColor = true;
-            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(581, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "??????";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.HeaderText = "ID";
@@ -584,6 +553,39 @@
             this.dataGridViewTextBoxColumn15.HeaderText = "Release";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // tb_Search
+            // 
+            this.tb_Search.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.tb_Search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tb_Search.Location = new System.Drawing.Point(12, 27);
+            this.tb_Search.Name = "tb_Search";
+            this.tb_Search.Size = new System.Drawing.Size(282, 20);
+            this.tb_Search.TabIndex = 2;
+            this.tb_Search.Text = "Nachname / Titel";
+            this.tb_Search.Click += new System.EventHandler(this.tb_Search_Click);
+            this.tb_Search.TextChanged += new System.EventHandler(this.tb_Search_TextChanged);
+            this.tb_Search.Leave += new System.EventHandler(this.tb_Search_Leave);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Location = new System.Drawing.Point(300, 24);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(171, 23);
+            this.btn_Edit.TabIndex = 3;
+            this.btn_Edit.Text = "Bearbeiten/Hinzufügen";
+            this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(581, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "??????";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
