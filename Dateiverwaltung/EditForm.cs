@@ -57,9 +57,9 @@ namespace Dateiverwaltung
             
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
+        private void btn_add_Click(object sender, EventArgs e) //Kunde hinzufügen
         {
-            if (btn_AddCostumer.Text != "Speichern")
+            if (btn_AddCostumer.Text != "Speichern") //Hinzufügen
             {
                 btn_AddCostumer.Text = "Speichern";
                 offWrite(false);
@@ -67,7 +67,7 @@ namespace Dateiverwaltung
                 bEditMode = true;           
 
             }
-            else
+            else  //Speichern
             {
                 btn_AddCostumer.Text = "Hinzufügen";
                 offWrite(true);

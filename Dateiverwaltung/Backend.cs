@@ -88,7 +88,7 @@ namespace Dateiverwaltung
         //Form übergibt an diese methode daten zum erstellen eines Kunden
         public void addCustomer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt)
         {
-            //Kunde hinzufügen
+            customerList.Add(new Customer(sVorname, sNachname, sStrasse, sPLZ, sOrt));
         }
 
         public void addMedia(string[] sArray, int iArt)

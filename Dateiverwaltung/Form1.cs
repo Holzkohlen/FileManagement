@@ -44,6 +44,13 @@ namespace Dateiverwaltung
             }
         }
 
+        public void addCustomer()
+        {
+            Customer temp = code.CustomerListe[code.CustomerListe.Count];
+            string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
+            dgv_Customers.Rows.Add(row);
+        }
+
         private void printMedia() //Gibt Medien-Objekte in der jeweiligen DataGridView aus
         {
             string[] row;
@@ -172,6 +179,8 @@ namespace Dateiverwaltung
             }
         }
 
+
+
         private void tb_Search_Leave(object sender, EventArgs e)
         {
 
@@ -181,7 +190,6 @@ namespace Dateiverwaltung
         {
 
         }
-
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
