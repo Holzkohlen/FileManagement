@@ -22,6 +22,7 @@ namespace Dateiverwaltung
             this.sTitel = sTitel;
             this.sGenre = sGenre;
             this.dtRelease = dtRelease;
+            this.sKlasse = "CD";
         }
 
         //Konstruktor für Aulesen XMLDatei
@@ -35,6 +36,7 @@ namespace Dateiverwaltung
             this.dtLent = dtLent;
             this.bLent = bLent;
             this.iIDCustomer = iIDCustomer;
+            this.sKlasse = "CD";
         }
 
         public CD(string sID, string sTitel, string sGenre, string sdtRelease, string sbLent, string sIDCustomer, string sdtLent, string sLength, string sInterpret)
@@ -49,6 +51,7 @@ namespace Dateiverwaltung
             this.dtLent = DateTime.Parse(sdtLent);
             this.iLength = Int32.Parse(sLength);
             this.sInterpret = sInterpret;
+            this.sKlasse = "CD";
         }
 
         public CD(){ }
@@ -56,7 +59,7 @@ namespace Dateiverwaltung
         public override IDictionary<string, string> read()
         {
             IDictionary<string, string> Dictionary = new Dictionary<string, string>();
-            Dictionary["Klasse"] = "CD";
+            Dictionary["Klasse"] = sKlasse;
             Dictionary["ID"] = Convert.ToString(iID);
             Dictionary["Titel"] = sTitel;
             Dictionary["Genre"] = sGenre;

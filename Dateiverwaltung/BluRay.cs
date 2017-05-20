@@ -27,6 +27,7 @@ namespace Dateiverwaltung
             this.dtLent = DateTime.Parse(dtLent);
             this.bLent = (bLent == "True") ? true : false;
             this.iIDCustomer = Int32.Parse(iIDCustomer);
+            this.sKlasse = "BluRay";
         }
 
         public BluRay() { }

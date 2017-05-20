@@ -29,11 +29,15 @@ namespace Dateiverwaltung
         //Konstruktor für Aulesen XMLDatei
         public Book(int iID, string sTitel, string sGenre, DateTime dtRelease, bool bLent, int iIDCustomer, DateTime dtLent, int iPages, string sAutor)
         {
+            this.iID = iID;
             this.iPages = iPages;
             this.sAutor = sAutor;
             this.sTitel = sTitel;
             this.sGenre = sGenre;
             this.dtRelease = dtRelease;
+            this.bLent = bLent;
+            this.iIDCustomer = iIDCustomer;
+            this.dtLent = dtLent;
             this.sKlasse = "Book";
         }
 

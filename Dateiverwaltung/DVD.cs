@@ -26,19 +26,23 @@ namespace Dateiverwaltung
             this.sTitel = sTitel;
             this.sGenre = sGenre;
             this.dtRelease = dtRelease;
+            this.sKlasse = "DVD";
         }
 
         //Konstruktor für Aulesen XMLDatei
         public DVD(int iID, int iLength, string sDirector, byte byAge, string sTitel, string sGenre, DateTime dtRelease, DateTime dtLent, bool bLent, int iIDCustomer)
         {
+            this.iID = iID;
             this.iLength = iLength;
             this.sDirector = sDirector;
             this.byAge = byAge;
             this.sTitel = sTitel;
             this.sGenre = sGenre;
             this.dtRelease = dtRelease;
+            this.dtLent = dtLent;
             this.bLent = bLent;
             this.iIDCustomer = iIDCustomer;
+            this.sKlasse = "DVD";
         }
 
         public DVD(string iID, string sTitel, string sGenre, string dtRelease, string bLent, string iIDCustomer, string dtLent, string iLength, string sDirector, string byAge)
@@ -53,6 +57,7 @@ namespace Dateiverwaltung
             this.dtLent = DateTime.Parse(dtLent);
             this.bLent = (bLent == "True") ? true : false;
             this.iIDCustomer = Int32.Parse(iIDCustomer);
+            this.sKlasse = "DVD";
         }
 
         public DVD(){ }
@@ -60,7 +65,7 @@ namespace Dateiverwaltung
         public override IDictionary<string, string> read()
         {
             IDictionary<string, string> Dictionary = new Dictionary<string, string>();
-            Dictionary["Klasse"] = "DVD";
+            Dictionary["Klasse"] = sKlasse;
             Dictionary["ID"] = Convert.ToString(iID);
             Dictionary["Titel"] = sTitel;
             Dictionary["Genre"] = sGenre;
