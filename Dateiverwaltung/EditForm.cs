@@ -40,11 +40,18 @@ namespace Dateiverwaltung
 
         private void fillComboBox() //Befüllt die Vorschläge der ComboBox mit dem Namen der Kunden
         {
-            cb_Search.Items.Clear();
-            foreach (Customer temp in code.CustomerListe)
+            try
             {
-                string s = temp.Nachname + ", " + temp.Vorname;
-                cb_Search.Items.Add(s);
+                cb_Search.Items.Clear();
+                foreach (Customer temp in code.CustomerListe)
+                {
+                    string s = temp.Nachname + ", " + temp.Vorname;
+                    cb_Search.Items.Add(s);
+                }
+            }
+            catch(NullReferenceException e)
+            {
+                //Keine Kunden oder keine customer.xml Datei vorhanden
             }
         }
 

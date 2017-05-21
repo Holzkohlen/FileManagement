@@ -40,22 +40,36 @@ namespace Dateiverwaltung
 
         private void tbSearch_AutoComplete()
         {
-            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
-            foreach(Customer temp in code.CustomerListe)
+            try
             {
-                string s = temp.Vorname + " " + temp.Nachname;
-                col.Add(s);
+                AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+                foreach (Customer temp in code.CustomerListe)
+                {
+                    string s = temp.Vorname + " " + temp.Nachname;
+                    col.Add(s);
+                }
+                tb_Search.AutoCompleteCustomSource = col;
             }
-            tb_Search.AutoCompleteCustomSource = col;
+            catch(NullReferenceException e)
+            {
+                //Keine Kunden oder keine customer.xml Datei vorhanden
+            }
         }
 
         public void printCustomers() //Gibt Kunden in Liste aus
         {
             dgv_Customers.Rows.Clear();
-            foreach (Customer temp in code.CustomerListe)
+            try
             {
-                string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
-                dgv_Customers.Rows.Add(row);
+                foreach (Customer temp in code.CustomerListe)
+                {
+                    string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
+                    dgv_Customers.Rows.Add(row);
+                }
+            }
+            catch(Exception e)
+            {
+
             }
         }
 

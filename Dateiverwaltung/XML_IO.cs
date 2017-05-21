@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,7 +70,10 @@ namespace Dateiverwaltung
         public DataSet readMedia() //Liest Media-XML-Datei in DataSet ein
         {
             DataSet ds_Media = new DataSet();
-            ds_Media.ReadXml(MEDIA, XmlReadMode.InferSchema);
+            if (File.Exists(MEDIA))
+            {
+                ds_Media.ReadXml(MEDIA, XmlReadMode.InferSchema);
+            }
             return ds_Media;
         }
 
@@ -98,64 +102,69 @@ namespace Dateiverwaltung
         public DataSet readCustomers() //Liest Customer-XML-Datei in DataSet ein
         {
             DataSet ds_Customer = new DataSet();
-            ds_Customer.ReadXml(CUSTOMERS, XmlReadMode.InferSchema);
+            if (File.Exists(CUSTOMERS))
+            {
+                ds_Customer.ReadXml(CUSTOMERS, XmlReadMode.InferSchema);
+            }
             return ds_Customer;
         }
 
-        public void readCustomers(out Customer[] customers, ref int iCounter) //Kundendaten auslesen aus XML-Datei!
+        public void readCustomers(ref Customer[] customers, ref int iCounter) //Kundendaten auslesen aus XML-Datei!
         {
-            customers = new Customer[countElement(CUSTOMERS, "Customer")];
-            for (int j = 0; j < customers.Length; j++)
+            if (File.Exists(CUSTOMERS))
             {
-                customers[j] = new Customer();
-            }
-            int i = -1;
-
-            // Create an XML reader for this file.
-            using (XmlReader reader = XmlReader.Create(CUSTOMERS))
-            {
-                while (!reader.EOF)
+                customers = new Customer[countElement(CUSTOMERS, "Customer")];
+                for (int j = 0; j < customers.Length; j++)
                 {
-                    if (reader.IsStartElement())
+                    customers[j] = new Customer();
+                }
+                int i = -1;
+
+                using (XmlReader reader = XmlReader.Create(CUSTOMERS))
+                {
+                    while (!reader.EOF)
                     {
-                        if (reader.Name == "Customer")
+                        if (reader.IsStartElement())
                         {
-                            i++;
-                            reader.Read();
-                        }
-                        else if(reader.Name == "Count")
-                        {
-                            iCounter = reader.ReadElementContentAsInt();
-                        }
-                        else
-                        {
-                            switch (reader.Name)
+                            if (reader.Name == "Customer")
                             {
-                                case "ID":
-                                    customers[i].ID = Convert.ToInt32(reader.ReadElementContentAsString());
-                                    break;
-                                case "Nachname":
-                                    customers[i].Nachname = reader.ReadElementContentAsString();
-                                    break;
-                                case "Vorname":
-                                    customers[i].Vorname = reader.ReadElementContentAsString();
-                                    break;
-                                case "Strasse":
-                                    customers[i].Strasse = reader.ReadElementContentAsString();
-                                    break;
-                                case "PLZ":
-                                    customers[i].PLZ = reader.ReadElementContentAsString();
-                                    break;
-                                case "Ort":
-                                    customers[i].Ort = reader.ReadElementContentAsString();
-                                    break;
-                                default:
-                                    reader.Read();
-                                    break;
+                                i++;
+                                reader.Read();
+                            }
+                            else if (reader.Name == "Count")
+                            {
+                                iCounter = reader.ReadElementContentAsInt();
+                            }
+                            else
+                            {
+                                switch (reader.Name)
+                                {
+                                    case "ID":
+                                        customers[i].ID = Convert.ToInt32(reader.ReadElementContentAsString());
+                                        break;
+                                    case "Nachname":
+                                        customers[i].Nachname = reader.ReadElementContentAsString();
+                                        break;
+                                    case "Vorname":
+                                        customers[i].Vorname = reader.ReadElementContentAsString();
+                                        break;
+                                    case "Strasse":
+                                        customers[i].Strasse = reader.ReadElementContentAsString();
+                                        break;
+                                    case "PLZ":
+                                        customers[i].PLZ = reader.ReadElementContentAsString();
+                                        break;
+                                    case "Ort":
+                                        customers[i].Ort = reader.ReadElementContentAsString();
+                                        break;
+                                    default:
+                                        reader.Read();
+                                        break;
+                                }
                             }
                         }
+                        else { reader.Read(); }
                     }
-                    else { reader.Read(); }
                 }
             }
         }
