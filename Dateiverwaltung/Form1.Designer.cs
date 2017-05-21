@@ -562,9 +562,10 @@
             this.tb_Search.Name = "tb_Search";
             this.tb_Search.Size = new System.Drawing.Size(282, 20);
             this.tb_Search.TabIndex = 2;
-            this.tb_Search.Text = "Nachname...";
+            this.tb_Search.Text = "Suchen...";
             this.tb_Search.Click += new System.EventHandler(this.tb_Search_Click);
             this.tb_Search.TextChanged += new System.EventHandler(this.tb_Search_TextChanged);
+            this.tb_Search.Leave += new System.EventHandler(this.tb_Search_Leave);
             // 
             // btn_Edit
             // 

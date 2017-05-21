@@ -16,12 +16,14 @@ namespace Dateiverwaltung
         EditForm edit;
         string sDatumsformat;
         DataGridView[] aDataGrids;
+        string sSearchText;
 
         public Form1()
         {
             try
             {
                 InitializeComponent();
+                sSearchText = "Suchen...";
                 sDatumsformat = "dd. MMMM yyyy";
                 code = new Backend();
                 printCustomers();
@@ -35,7 +37,7 @@ namespace Dateiverwaltung
             }
         }
 
-        private void printCustomers()
+        private void printCustomers() //Gibt Kunden in Liste aus
         {
             foreach (Customer temp in code.CustomerListe)
             {
@@ -123,7 +125,7 @@ namespace Dateiverwaltung
 
         private void tb_Search_Click(object sender, EventArgs e)
         {
-            if (tb_Search.Text.Equals("Nachname...") || tb_Search.Text.Equals("Titel..."))
+            if (tb_Search.Text.Equals(sSearchText))
             {
                 tb_Search.Text = "";
                 tb_Search.ForeColor = Color.Black;
@@ -176,7 +178,7 @@ namespace Dateiverwaltung
 
                 aDataGrids[iTabIndex].ClearSelection();
 
-                if (sSearch != null && sSearch != "" && tb_Search.Text != "Titel..." && tb_Search.Text != "Nachname...")
+                if ((sSearch != null) && (sSearch != "") && (tb_Search.Text != sSearchText))
                 {
                     foreach (DataGridViewRow row in aDataGrids[iTabIndex].Rows)
                     {
@@ -213,11 +215,19 @@ namespace Dateiverwaltung
             }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) //Reset Search-Feld bei Tab-Wechsel
         {
-            if (tabControl1.SelectedTab.Name == "tab_Customers") { tb_Search.Text = "Nachname..."; }
-            else { tb_Search.Text = "Titel..."; }
+            tb_Search.Text = sSearchText;
             tb_Search.ForeColor = Color.DimGray;
+        }
+
+        private void tb_Search_Leave(object sender, EventArgs e) //Wenn Searchbox nicht mehr aktives Element is => RESET
+        {
+            if(tb_Search.Text.Equals(""))
+            {
+                tb_Search.Text = sSearchText;
+                tb_Search.ForeColor = Color.DimGray;
+            }
         }
     }
 }

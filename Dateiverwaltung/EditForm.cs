@@ -129,7 +129,6 @@ namespace Dateiverwaltung
             
         }
 
-
         #region Medien hinzufügen ButtonClick Handler
         private void btn_Add_Book_Click(object sender, EventArgs e)
         {
