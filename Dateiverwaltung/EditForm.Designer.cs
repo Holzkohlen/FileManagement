@@ -31,7 +31,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tab_Customers = new System.Windows.Forms.TabPage();
             this.btn_AddCostumer = new System.Windows.Forms.Button();
-            this.cb_BorrowSearch = new System.Windows.Forms.ComboBox();
+            this.cb_LendSearch = new System.Windows.Forms.ComboBox();
             this.cb_WichMedia = new System.Windows.Forms.ComboBox();
             this.btn_Borrow = new System.Windows.Forms.Button();
             this.btn_return = new System.Windows.Forms.Button();
@@ -54,7 +54,6 @@
             this.cb_Search = new System.Windows.Forms.ComboBox();
             this.tab_Books = new System.Windows.Forms.TabPage();
             this.Daten = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Add_Book = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -76,7 +75,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tab_Ebooks = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_Add_EBook = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -98,7 +96,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.DVD = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_Add_DVD = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
@@ -122,7 +119,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btn_Add_BluRay = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -146,7 +142,6 @@
             this.label38 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btn_Add_CD = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -166,24 +161,29 @@
             this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tabControl.SuspendLayout();
             this.tab_Customers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Borrowed)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tab_Books.SuspendLayout();
             this.Daten.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tab_Ebooks.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.DVD.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -205,7 +205,7 @@
             // tab_Customers
             // 
             this.tab_Customers.Controls.Add(this.btn_AddCostumer);
-            this.tab_Customers.Controls.Add(this.cb_BorrowSearch);
+            this.tab_Customers.Controls.Add(this.cb_LendSearch);
             this.tab_Customers.Controls.Add(this.cb_WichMedia);
             this.tab_Customers.Controls.Add(this.btn_Borrow);
             this.tab_Customers.Controls.Add(this.btn_return);
@@ -231,28 +231,35 @@
             this.btn_AddCostumer.UseVisualStyleBackColor = true;
             this.btn_AddCostumer.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // cb_BorrowSearch
+            // cb_LendSearch
             // 
-            this.cb_BorrowSearch.FormattingEnabled = true;
-            this.cb_BorrowSearch.Items.AddRange(new object[] {
-            "Minecraft 2",
-            "Minecraft 4 the Revenge"});
-            this.cb_BorrowSearch.Location = new System.Drawing.Point(519, 166);
-            this.cb_BorrowSearch.Name = "cb_BorrowSearch";
-            this.cb_BorrowSearch.Size = new System.Drawing.Size(339, 21);
-            this.cb_BorrowSearch.TabIndex = 7;
+            this.cb_LendSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_LendSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_LendSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.cb_LendSearch.FormattingEnabled = true;
+            this.cb_LendSearch.Location = new System.Drawing.Point(519, 166);
+            this.cb_LendSearch.Name = "cb_LendSearch";
+            this.cb_LendSearch.Size = new System.Drawing.Size(339, 21);
+            this.cb_LendSearch.TabIndex = 7;
+            this.cb_LendSearch.Text = "Suchen...";
+            this.cb_LendSearch.SelectedValueChanged += new System.EventHandler(this.cb_LendSearch_SelectedValueChanged);
+            this.cb_LendSearch.Click += new System.EventHandler(this.cb_LendSearch_Click);
             // 
             // cb_WichMedia
             // 
+            this.cb_WichMedia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_WichMedia.FormattingEnabled = true;
             this.cb_WichMedia.Items.AddRange(new object[] {
             "Buch",
-            "COD",
-            "Minecraft"});
+            "EBook",
+            "CD",
+            "DVD",
+            "BluRay"});
             this.cb_WichMedia.Location = new System.Drawing.Point(391, 166);
             this.cb_WichMedia.Name = "cb_WichMedia";
             this.cb_WichMedia.Size = new System.Drawing.Size(121, 21);
             this.cb_WichMedia.TabIndex = 6;
+            this.cb_WichMedia.SelectedIndexChanged += new System.EventHandler(this.cb_WichMedia_SelectedIndexChanged);
             // 
             // btn_Borrow
             // 
@@ -262,6 +269,7 @@
             this.btn_Borrow.TabIndex = 5;
             this.btn_Borrow.Text = "Ausleihen";
             this.btn_Borrow.UseVisualStyleBackColor = true;
+            this.btn_Borrow.Click += new System.EventHandler(this.btn_Borrow_Click);
             // 
             // btn_return
             // 
@@ -419,11 +427,14 @@
             // 
             // cb_Search
             // 
+            this.cb_Search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_Search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_Search.FormattingEnabled = true;
             this.cb_Search.Location = new System.Drawing.Point(3, 6);
             this.cb_Search.Name = "cb_Search";
             this.cb_Search.Size = new System.Drawing.Size(369, 21);
             this.cb_Search.TabIndex = 0;
+            this.cb_Search.SelectedValueChanged += new System.EventHandler(this.cb_Search_SelectedValueChanged);
             this.cb_Search.TextChanged += new System.EventHandler(this.cb_Search_TextChanged);
             // 
             // tab_Books
@@ -465,14 +476,6 @@
             this.Daten.TabIndex = 5;
             this.Daten.TabStop = false;
             this.Daten.Text = " Daten";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(758, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 117);
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
             // 
             // btn_Add_Book
             // 
@@ -676,14 +679,6 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Daten";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(758, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(95, 117);
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
             // 
             // btn_Add_EBook
             // 
@@ -889,14 +884,6 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = " Daten";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(758, 19);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(95, 118);
-            this.pictureBox3.TabIndex = 24;
-            this.pictureBox3.TabStop = false;
             // 
             // btn_Add_DVD
             // 
@@ -1119,14 +1106,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = " Daten";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(758, 19);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(95, 118);
-            this.pictureBox4.TabIndex = 25;
-            this.pictureBox4.TabStop = false;
-            // 
             // btn_Add_BluRay
             // 
             this.btn_Add_BluRay.Location = new System.Drawing.Point(375, 113);
@@ -1346,14 +1325,6 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = " Daten";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(758, 19);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(95, 118);
-            this.pictureBox5.TabIndex = 25;
-            this.pictureBox5.TabStop = false;
-            // 
             // btn_Add_CD
             // 
             this.btn_Add_CD.Location = new System.Drawing.Point(375, 113);
@@ -1517,6 +1488,46 @@
             this.label55.TabIndex = 6;
             this.label55.Text = "Ausleihdatum:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(758, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(95, 117);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(758, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(95, 117);
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(758, 19);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(95, 118);
+            this.pictureBox3.TabIndex = 24;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(758, 19);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(95, 118);
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(758, 19);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(95, 118);
+            this.pictureBox5.TabIndex = 25;
+            this.pictureBox5.TabStop = false;
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1528,7 +1539,6 @@
             this.Name = "EditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditForm";
-            this.Load += new System.EventHandler(this.EditForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tab_Customers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Borrowed)).EndInit();
@@ -1537,22 +1547,22 @@
             this.tab_Books.ResumeLayout(false);
             this.Daten.ResumeLayout(false);
             this.Daten.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tab_Ebooks.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.DVD.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
@@ -1567,7 +1577,7 @@
         private System.Windows.Forms.TabPage tab_Ebooks;
         private System.Windows.Forms.Button btn_EditCostumer;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cb_BorrowSearch;
+        private System.Windows.Forms.ComboBox cb_LendSearch;
         private System.Windows.Forms.ComboBox cb_WichMedia;
         private System.Windows.Forms.Button btn_Borrow;
         private System.Windows.Forms.Button btn_return;

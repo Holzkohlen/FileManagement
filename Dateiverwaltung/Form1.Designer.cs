@@ -122,15 +122,19 @@
             // 
             // speichernToolStripMenuItem
             // 
+            this.speichernToolStripMenuItem.Image = global::Dateiverwaltung.Properties.Resources.Diskette;
             this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
-            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.speichernToolStripMenuItem.Text = "Speichern";
+            this.speichernToolStripMenuItem.Click += new System.EventHandler(this.speichernToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
+            this.beendenToolStripMenuItem.Image = global::Dateiverwaltung.Properties.Resources.door_exit;
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
+            this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
             // hilfeToolStripMenuItem
             // 
@@ -143,8 +147,9 @@
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.überToolStripMenuItem.Text = "Über";
+            this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -556,6 +561,8 @@
             // 
             // tb_Search
             // 
+            this.tb_Search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tb_Search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tb_Search.ForeColor = System.Drawing.Color.DimGray;
             this.tb_Search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tb_Search.Location = new System.Drawing.Point(12, 27);

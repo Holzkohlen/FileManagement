@@ -49,7 +49,7 @@ namespace Dateiverwaltung
             }
         }
 
-        private void ds_CustomersAuslesen()
+        private void ds_CustomersAuslesen() //Liest Kunden aus Dataset aus (NOT WORKING PROPERLY ATM)
         {
             int i = 0;
             for (int j = 0; j < ds_Media.Tables[i].Rows.Count; j++) //Looped durch alle Reihen einer Tabelle
@@ -89,13 +89,13 @@ namespace Dateiverwaltung
             }
         }
 
-        public void addCustomer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt) //Form übergibt an diese methode daten zum erstellen eines Kunden
+        public void addCustomer(string sVorname, string sNachname, string sStrasse, string sPLZ, string sOrt) //Form übergibt an diese Methode zum Erstellen eines Kunden
         {
             customerList.Add(new Customer(Convert.ToString(iCustomerCounter), sVorname, sNachname, sStrasse, sPLZ, sOrt));
             iCustomerCounter++;
         }
 
-        public bool addMedia(string[] sArray, int iArt)
+        public bool addMedia(string[] sArray, int iArt) //Form übergibt an diese Methode zum Erstellen eines Media-Objektes
         {
             try
             {
@@ -123,7 +123,7 @@ namespace Dateiverwaltung
             catch(Exception e) { System.Windows.Forms.MessageBox.Show(e.ToString(), "ERROR"); return false; }
         }
 
-        public void editCustomer()
+        public void editCustomer() //Daten eines Kunden bearbeiten
         {
             //Here there be dragons!
         }

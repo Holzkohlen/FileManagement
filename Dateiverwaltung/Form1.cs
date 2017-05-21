@@ -14,6 +14,7 @@ namespace Dateiverwaltung
     {
         Backend code;
         EditForm edit;
+        AboutForm about;
         string sDatumsformat;
         DataGridView[] aDataGrids;
         string sSearchText;
@@ -29,7 +30,7 @@ namespace Dateiverwaltung
                 printCustomers();
                 printMedia();
                 aDataGrids = new DataGridView[] { dgv_Customers, dgv_Books, dgv_CDs, dgv_DVDs, dgv_BluRays, dgv_EBooks };
-
+                tbSearch_AutoComplete();
             }
             catch (Exception e)
             {
@@ -37,8 +38,20 @@ namespace Dateiverwaltung
             }
         }
 
-        private void printCustomers() //Gibt Kunden in Liste aus
+        private void tbSearch_AutoComplete()
         {
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+            foreach(Customer temp in code.CustomerListe)
+            {
+                string s = temp.Vorname + " " + temp.Nachname;
+                col.Add(s);
+            }
+            tb_Search.AutoCompleteCustomSource = col;
+        }
+
+        public void printCustomers() //Gibt Kunden in Liste aus
+        {
+            dgv_Customers.Rows.Clear();
             foreach (Customer temp in code.CustomerListe)
             {
                 string[] row = { temp.ID.ToString(), temp.Nachname, temp.Vorname, temp.Strasse, temp.PLZ, temp.Ort };
@@ -228,6 +241,22 @@ namespace Dateiverwaltung
                 tb_Search.Text = sSearchText;
                 tb_Search.ForeColor = Color.DimGray;
             }
+        }
+
+        private void speichernToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            code.saveAll();
+        }
+
+        private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void überToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            about = new AboutForm();
+            about.Show();
         }
     }
 }

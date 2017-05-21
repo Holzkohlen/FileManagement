@@ -15,28 +15,36 @@ namespace Dateiverwaltung
         Backend code;
         bool bEditMode;
         Form1 mainForm;
+        string sSearchtext;
+        int iCustomerIndex;
 
         public EditForm(Backend code, Form1 mainForm)
         {
             try
             {
                 InitializeComponent();
+                sSearchtext = "Suchen...";
                 this.code = code;
                 bEditMode = false;
                 this.mainForm = mainForm;
                 fillComboBox();
+
+                btn_EditCostumer.Enabled = false; //Erst muss Kunde gewählt werden
+                cb_LendSearch.Enabled = false; //Erst muss Klasse gewählt werden
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString(), "ERROR");
             }
         }
 
-        private void fillComboBox() //Befüllt die Vorschläge der ComboBox mit dem Nachnamen der Kunden
+        private void fillComboBox() //Befüllt die Vorschläge der ComboBox mit dem Namen der Kunden
         {
-            foreach(Customer temp in code.CustomerListe)
+            cb_Search.Items.Clear();
+            foreach (Customer temp in code.CustomerListe)
             {
-                cb_Search.Items.Add(temp.Nachname);
+                string s = temp.Nachname + ", " + temp.Vorname;
+                cb_Search.Items.Add(s);
             }
         }
 
@@ -51,11 +59,20 @@ namespace Dateiverwaltung
             //}
         }
 
+        private void clearTextboxen() //Löscht Inhalt der Kunden-Textboxen
+        {
+            TextBox[] tbs = { tb_Name, tb_Vorname, tb_PLZ, tb_Strasse, tb_Ort };
+            for(int i = 0; i < tbs.Length; i++)
+            {
+                tbs[i].Text = "";
+            }
+        }
+
         private void btn_Edit_Click(object sender, EventArgs e) //Kunde bearbeiten
         {
-            if (btn_EditCostumer.Text != "Speichern")
+            if (btn_EditCostumer.Text != "Übernehmen")
             {
-                btn_EditCostumer.Text = "Speichern";
+                btn_EditCostumer.Text = "Übernehmen";
                 offWrite(false);
                 btn_AddCostumer.Enabled = false;
                 bEditMode = true;
@@ -67,18 +84,26 @@ namespace Dateiverwaltung
                 btn_AddCostumer.Enabled = true;
                 bEditMode = false;
                 tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
+
+                code.CustomerListe[iCustomerIndex].Nachname = tb_Name.Text;
+                code.CustomerListe[iCustomerIndex].Vorname = tb_Vorname.Text;
+                code.CustomerListe[iCustomerIndex].Ort = tb_Ort.Text;
+                code.CustomerListe[iCustomerIndex].PLZ = tb_PLZ.Text;
+                code.CustomerListe[iCustomerIndex].Strasse = tb_Strasse.Text;
+                mainForm.printCustomers();
             }
-            
         }
 
         private void btn_add_Click(object sender, EventArgs e) //Kunde hinzufügen
         {
             if (btn_AddCostumer.Text != "Speichern") //Hinzufügen
             {
+                clearTextboxen();
+                cb_Search.Text = sSearchtext;
                 btn_AddCostumer.Text = "Speichern";
                 offWrite(false);
                 btn_EditCostumer.Enabled = false;
-                bEditMode = true;           
+                bEditMode = true;
 
             }
             else  //Speichern
@@ -89,8 +114,10 @@ namespace Dateiverwaltung
                 bEditMode = false;
 
                 code.addCustomer(tb_Vorname.Text, tb_Name.Text, tb_Strasse.Text, tb_PLZ.Text, tb_Ort.Text);
+                clearTextboxen();
                 tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
                 mainForm.addCustomer();
+                fillComboBox();
             }
         }
 
@@ -103,14 +130,14 @@ namespace Dateiverwaltung
             tb_PLZ.ReadOnly = bModus;
             btn_Borrow.Enabled = bModus;
             btn_return.Enabled = bModus;
-            cb_BorrowSearch.Enabled = bModus;
+            cb_LendSearch.Enabled = bModus;
             cb_Search.Enabled = bModus;
             cb_WichMedia.Enabled = bModus;
             dgv_Borrowed.Enabled = bModus;
-            
-            
-            
-            
+
+
+
+
             //Ganzer Tab geht dann nicht
             foreach (TabPage tab in tabControl.TabPages)
             {
@@ -126,13 +153,13 @@ namespace Dateiverwaltung
 
         static void Rezise()
         {
-            
+
         }
 
         #region Medien hinzufügen ButtonClick Handler
         private void btn_Add_Book_Click(object sender, EventArgs e)
         {
-            string[] sArray = { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, tb_Book_Seiten.Text, tb_Book_Release.Text};
+            string[] sArray = { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, tb_Book_Seiten.Text, tb_Book_Release.Text };
             if (code.addMedia(sArray, 1))
             {
                 mainForm.updateMedienAnzeige();
@@ -206,9 +233,107 @@ namespace Dateiverwaltung
             }
         }
 
-        private void EditForm_Load(object sender, EventArgs e)
+        private void cb_WichMedia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            ComboBox cb = (ComboBox)sender;
+            string type = (string)cb.SelectedItem;
+            cb_LendSearch.Enabled = true;
+            cb_LendSearch.Items.Clear();
+            switch(type)
+            {
+                case "Buch":
+                    foreach(Media temp in code.MedienListe)
+                    {
+                        if(temp.Klasse.Equals("Book"))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+                case "EBook":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("EBook"))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+                case "CD":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("CD"))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+                case "DVD":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("DVD"))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+                case "BluRay":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("BluRay"))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void cb_LendSearch_Click(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            if(cb.Text.Equals(sSearchtext))
+            {
+                cb.Text = "";
+                cb.ForeColor = Color.Black;
+            }
+        }
+
+        private void cb_Search_SelectedValueChanged(object sender, EventArgs e) //Kunde ausgewählt zum Bearbeiten
+        {
+            ComboBox cb = (ComboBox)sender;
+            string name = (string)cb.SelectedItem;
+            string[] s = name.Split(',');
+            s[1] = s[1].Trim();
+            for(int i = 0; i < code.CustomerListe.Count; i++)
+            {
+                Customer temp = code.CustomerListe[i];
+                if((temp.Nachname.Equals(s[0]))&&(temp.Vorname.Equals(s[1]))) //Problem wenn >1 Kunde mit dem gleichen Namen!!!!
+                {
+                    iCustomerIndex = i;
+                    tb_Name.Text = temp.Nachname;
+                    tb_Vorname.Text = temp.Vorname;
+                    tb_Strasse.Text = temp.Strasse;
+                    tb_PLZ.Text = temp.PLZ;
+                    tb_Ort.Text = temp.Ort;
+                    btn_EditCostumer.Enabled = true;
+                }
+            }
+        }
+
+        private void btn_Borrow_Click(object sender, EventArgs e)
+        {
+            string[] sArray = { "Buch", "EBook", "CD", "DVD", "BluRay" };
+            if((tb_Name.Equals(code.CustomerListe[iCustomerIndex].Nachname)) && (sArray.Contains(cb_WichMedia.Text)))
+            {
+                //LEih shit aus
+            }
+        }
+
+        private void cb_LendSearch_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+
         }
     }
 }
