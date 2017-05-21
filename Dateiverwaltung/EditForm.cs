@@ -13,10 +13,11 @@ namespace Dateiverwaltung
     public partial class EditForm : Form
     {
         Backend code;
-        bool bEditMode;
+        bool bEditMode;  // <<== LÖSCHEN?!?
         Form1 mainForm;
         string sSearchtext;
         int iCustomerIndex;
+        int iMedienIndex;
 
         public EditForm(Backend code, Form1 mainForm)
         {
@@ -38,7 +39,7 @@ namespace Dateiverwaltung
             }
         }
 
-        private void fillComboBox() //Befüllt die Vorschläge der ComboBox mit dem Namen der Kunden
+        private void fillComboBox() //Befüllt die Vorschläge der ComboBoxen
         {
             try
             {
@@ -48,8 +49,34 @@ namespace Dateiverwaltung
                     string s = temp.Nachname + ", " + temp.Vorname;
                     cb_Search.Items.Add(s);
                 }
+                cb_Search_Book.Items.Clear();
+                cb_Search_EBook.Items.Clear();
+                cb_Search_CD.Items.Clear();
+                cb_Search_DVD.Items.Clear();
+                cb_Search_BluRay.Items.Clear();
+                foreach (Media temp in code.MedienListe)
+                {
+                    switch (temp.Klasse)
+                    {
+                        case "Book":
+                            cb_Search_Book.Items.Add(temp.Titel);
+                            break;
+                        case "EBook":
+                            cb_Search_EBook.Items.Add(temp.Titel);
+                            break;
+                        case "CD":
+                            cb_Search_CD.Items.Add(temp.Titel);
+                            break;
+                        case "DVD":
+                            cb_Search_DVD.Items.Add(temp.Titel);
+                            break;
+                        case "BluRay":
+                            cb_Search_BluRay.Items.Add(temp.Titel);
+                            break;
+                    }
+                }
             }
-            catch(NullReferenceException e)
+            catch (NullReferenceException e)
             {
                 //Keine Kunden oder keine customer.xml Datei vorhanden
             }
@@ -64,15 +91,16 @@ namespace Dateiverwaltung
             //    cb_Search.Text = temp;
 
             //}
-        }
+        } // <<== LÖSCHEN
 
-        private void clearTextboxen() //Löscht Inhalt der Kunden-Textboxen
+        private void clearTextboxen() //Löscht Inhalt aller Textboxen
         {
-            TextBox[] tbs = { tb_Name, tb_Vorname, tb_PLZ, tb_Strasse, tb_Ort };
-            for(int i = 0; i < tbs.Length; i++)
+            TextBox[] tbs = { tb_Name, tb_Vorname, tb_PLZ, tb_Strasse, tb_Ort, tb_Book_Autor, tb_BluRay_Titel, tb_Book_Genre, tb_EBook_Autor, tb_EBook_Genre, tb_EBook_Titel, tb_CD_Genre, tb_CD_Interpret, tb_CD_Titel, tb_DVD_Director, tb_DVD_Genre, tb_DVD_Titel, tb_BluRay_Director, tb_BluRay_Genre, tb_BluRay_Titel };
+            for (int i = 0; i < tbs.Length; i++)
             {
                 tbs[i].Text = "";
             }
+            fillComboBox(); //Nach Erstellung eines neuen Objektes, sollen die ComboBoxen Vorschläge neu eingelesen werden
         }
 
         private void btn_Edit_Click(object sender, EventArgs e) //Kunde bearbeiten
@@ -156,75 +184,115 @@ namespace Dateiverwaltung
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
+        } // <<== LÖSCHEN
 
         static void Rezise()
         {
 
+        } // <<== LÖSCHEN
+
+        private void btn_Add_Media_Click(object sender, EventArgs e) //Medien hinzufügen Button Event Handler
+        {
+            string[] sArray;
+            bool bCheck = false;
+            switch (tabControl.SelectedIndex)
+            {
+                case 1: //BOOK
+                    sArray = new string[5] { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, num_Book_Pages.Text, dtp_Book_Release.Value.ToString() };
+                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                    break;
+                case 2: //EBOOK
+                    sArray = new string[5] { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, num_EBook_Pages.Value.ToString(), dtp_EBook_Release.Value.ToString() };
+                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                    break;
+                case 3: //CD
+                    sArray = new string[5] { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, num_CD_Length.Value.ToString(), dtp_CD_Release.Value.ToString() };
+                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                    break;
+                case 4: //DVD
+                    sArray = new string[6] { tb_DVD_Titel.Text, tb_DVD_Director.Text, tb_DVD_Genre.Text, num_DVD_Length.Text, cb_DVD_FSK.Text, dtp_DVD_Release.Value.ToString() };
+                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                    break;
+                case 5: //BLURAY
+                    sArray = new string[6] { tb_BluRay_Titel.Text, tb_BluRay_Director.Text, tb_BluRay_Genre.Text, num_BluRay_Length.Value.ToString(), cb_BluRay_FSK.Text, dtp_BluRay_Release.Text };
+                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                    break;
+            }
+            if (bCheck)
+            {
+                clearTextboxen();
+                mainForm.printMedia();
+            }
+            else
+            {
+                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
+            }
         }
 
-        #region Medien hinzufügen ButtonClick Handler
-        private void btn_Add_Book_Click(object sender, EventArgs e)
+        private void btn_Edit_Media_Click(object sender, EventArgs e) //EventHandler fürs Bearbeiten von Medien-Objekten
         {
-            string[] sArray = { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, nud_CD_Length.Text, dtp_CD_Release.Text };
-            if (code.addMedia(sArray, 1))
+            try
             {
-                mainForm.updateMedienAnzeige();
+                Button b = (Button)sender;
+                if (b.Text == "Bearbeiten")
+                {
+                    b.Text = "Übernehmen";
+                    //Input-Boxen entsperren oder nicht ReadOnly machen
+                }
+                else //Übernehmen
+                {
+                    b.Text = "Bearbeiten";
+                    switch (tabControl.SelectedIndex)
+                    {
+                        case 1: //Book
+                            Book tempBook = (Book)code.MedienListe[iMedienIndex];
+                            tempBook.Titel = tb_Book_Titel.Text;
+                            tempBook.Autor = tb_Book_Autor.Text;
+                            tempBook.Genre = tb_Book_Genre.Text;
+                            tempBook.Seitenanzahl = Int32.Parse(num_Book_Pages.Text);
+                            tempBook.Release = dtp_Book_Release.Value;
+                            break;
+                        case 2: //EBook
+                            EBook tempEBook = (EBook)code.MedienListe[iMedienIndex];
+                            tempEBook.Titel = tb_EBook_Titel.Text;
+                            tempEBook.Autor = tb_EBook_Autor.Text;
+                            tempEBook.Genre = tb_EBook_Genre.Text;
+                            tempEBook.Seitenanzahl = Int32.Parse(num_EBook_Pages.Text);
+                            tempEBook.Release = dtp_EBook_Release.Value;
+                            break;
+                        case 3: //CD
+                            CD tempCD = (CD)code.MedienListe[iMedienIndex];
+                            tempCD.Titel = tb_CD_Titel.Text;
+                            tempCD.Genre = tb_CD_Genre.Text;
+                            tempCD.Interpret = tb_CD_Interpret.Text;
+                            tempCD.Length = Int32.Parse(num_CD_Length.Text);
+                            tempCD.Release = dtp_CD_Release.Value;
+                            break;
+                        case 4: //DVD
+                            DVD tempDVD = (DVD)code.MedienListe[iMedienIndex];
+                            tempDVD.Titel = tb_DVD_Titel.Text;
+                            tempDVD.Director = tb_DVD_Director.Text;
+                            tempDVD.Genre = tb_DVD_Genre.Text;
+                            tempDVD.Age = Byte.Parse(cb_DVD_FSK.Text);
+                            tempDVD.Length = Int32.Parse(num_DVD_Length.Text);
+                            tempDVD.Release = dtp_DVD_Release.Value;
+                            break;
+                        case 5: //BluRay
+                            BluRay tempBluRay = (BluRay)code.MedienListe[iMedienIndex];
+                            tempBluRay.Titel = tb_BluRay_Titel.Text;
+                            tempBluRay.Director = tb_BluRay_Director.Text;
+                            tempBluRay.Genre = tb_BluRay_Genre.Text;
+                            tempBluRay.Age = Byte.Parse(cb_BluRay_FSK.Text);
+                            tempBluRay.Length = Int32.Parse(num_BluRay_Length.Text);
+                            tempBluRay.Release = dtp_BluRay_Release.Value;
+                            break;
+                    }
+                    mainForm.printMedia(); //Hauptform DataGridView aktualisieren
+                    fillComboBox(); //ComboBox-Vorschläge aktualisieren
+                }
             }
-            else
-            {
-                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
-            }
+            catch(Exception ex) { MessageBox.Show(ex.ToString(), "ERROR"); }
         }
-        private void btn_Add_EBook_Click(object sender, EventArgs e)
-        {
-            string[] sArray = { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, nud_EBook_Seiten.Text, dtp_EBook_Release.Text };
-            if (code.addMedia(sArray, 2))
-            {
-                mainForm.updateMedienAnzeige();
-            }
-            else
-            {
-                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
-            }
-        }
-        private void btn_Add_DVD_Click(object sender, EventArgs e)
-        {
-            string[] sArray = { tb_DVD_Titel.Text, tb_DVD_Regisseur.Text, tb_DVD_Genre.Text, nud_EBook_Seiten.Text, tb_DVD_FSK.Text, dtp_EBook_Release.Text };
-            if (code.addMedia(sArray, 4))
-            {
-                mainForm.updateMedienAnzeige();
-            }
-            else
-            {
-                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
-            }
-        }
-        private void btn_Add_CD_Click(object sender, EventArgs e)
-        {
-            string[] sArray = { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, nud_CD_Length.Text, dtp_CD_Release.Text };
-            if (code.addMedia(sArray, 3))
-            {
-                mainForm.updateMedienAnzeige();
-            }
-            else
-            {
-                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
-            }
-        }
-        private void btn_Add_BluRay_Click(object sender, EventArgs e)
-        {
-            string[] sArray = { tb_BluRay_Titel.Text, tb_BluRay_Regisseur.Text, tb_BluRay_Genre.Text, nud_BluRay_Length.Text, tb_BluRay_FSK.Text, dtp_BluRay_Release.Text };
-            if (code.addMedia(sArray, 5))
-            {
-                mainForm.updateMedienAnzeige();
-            }
-            else
-            {
-                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
-            }
-        }
-        #endregion
 
         private void tabControl_Selected(object sender, TabControlEventArgs e)
         {
@@ -237,7 +305,7 @@ namespace Dateiverwaltung
             {
                 tabControl.Height = 174;
                 this.Size = new System.Drawing.Size(this.Width, 174);
-            } 
+            }
         }
 
         private void cb_WichMedia_SelectedIndexChanged(object sender, EventArgs e)
@@ -246,12 +314,12 @@ namespace Dateiverwaltung
             string type = (string)cb.SelectedItem;
             cb_LendSearch.Enabled = true;
             cb_LendSearch.Items.Clear();
-            switch(type)
+            switch (type)
             {
                 case "Buch":
-                    foreach(Media temp in code.MedienListe)
+                    foreach (Media temp in code.MedienListe)
                     {
-                        if(temp.Klasse.Equals("Book"))
+                        if (temp.Klasse.Equals("Book"))
                         {
                             cb_LendSearch.Items.Add(temp.Titel);
                         }
@@ -299,7 +367,7 @@ namespace Dateiverwaltung
         private void cb_LendSearch_Click(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
-            if(cb.Text.Equals(sSearchtext))
+            if (cb.Text.Equals(sSearchtext))
             {
                 cb.Text = "";
                 cb.ForeColor = Color.Black;
@@ -312,10 +380,10 @@ namespace Dateiverwaltung
             string name = (string)cb.SelectedItem;
             string[] s = name.Split(',');
             s[1] = s[1].Trim();
-            for(int i = 0; i < code.CustomerListe.Count; i++)
+            for (int i = 0; i < code.CustomerListe.Count; i++)
             {
                 Customer temp = code.CustomerListe[i];
-                if((temp.Nachname.Equals(s[0]))&&(temp.Vorname.Equals(s[1]))) //Problem wenn >1 Kunde mit dem gleichen Namen!!!!
+                if ((temp.Nachname.Equals(s[0])) && (temp.Vorname.Equals(s[1]))) //Problem wenn >1 Kunde mit dem gleichen Namen!!!!
                 {
                     iCustomerIndex = i;
                     tb_Name.Text = temp.Nachname;
@@ -328,12 +396,73 @@ namespace Dateiverwaltung
             }
         }
 
+        private void searchComboBoxen_SelectedValueChanged(object sender, EventArgs e) //Füllt Textboxen zum Bearbeiten von Objekten
+        {
+            try
+            {
+                ComboBox cb = (ComboBox)sender;
+                for (int i = 0; i < code.MedienListe.Count; i++)
+                {
+                    if (code.MedienListe[i].Titel.Equals(cb.Text))
+                    {
+                        iMedienIndex = i;
+                        switch (code.MedienListe[i].Klasse)
+                        {
+                            case "Book":
+                                Book tempB = (Book)code.MedienListe[i];
+                                tb_Book_Titel.Text = tempB.Titel;
+                                tb_Book_Autor.Text = tempB.Autor;
+                                tb_Book_Genre.Text = tempB.Genre;
+                                num_Book_Pages.Value = tempB.Seitenanzahl;
+                                dtp_Book_Release.Value = tempB.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!
+                                break;
+                            case "EBook":
+                                EBook tempE = (EBook)code.MedienListe[i];
+                                tb_EBook_Titel.Text = tempE.Titel;
+                                tb_EBook_Autor.Text = tempE.Autor;
+                                tb_EBook_Genre.Text = tempE.Genre;
+                                num_EBook_Pages.Value = tempE.Seitenanzahl;
+                                dtp_EBook_Release.Value = tempE.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!
+                                break;
+                            case "CD":
+                                CD tempC = (CD)code.MedienListe[i];
+                                tb_CD_Titel.Text = tempC.Titel;
+                                tb_CD_Interpret.Text = tempC.Interpret;
+                                tb_CD_Genre.Text = tempC.Interpret;
+                                num_CD_Length.Value = tempC.Length;
+                                dtp_CD_Release.Value = tempC.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!
+                                break;
+                            case "DVD":
+                                DVD tempD = (DVD)code.MedienListe[i];
+                                tb_DVD_Titel.Text = tempD.Titel;
+                                tb_DVD_Director.Text = tempD.Director;
+                                tb_DVD_Genre.Text = tempD.Genre;
+                                num_DVD_Length.Value = tempD.Length;
+                                cb_DVD_FSK.Text = tempD.Age.ToString();
+                                dtp_DVD_Release.Value = tempD.Release;
+                                break;
+                            case "BluRay":
+                                BluRay tempBlu = (BluRay)code.MedienListe[i];
+                                tb_BluRay_Titel.Text = tempBlu.Titel;
+                                tb_BluRay_Director.Text = tempBlu.Director;
+                                tb_BluRay_Genre.Text = tempBlu.Genre;
+                                num_BluRay_Length.Value = tempBlu.Length;
+                                cb_BluRay_FSK.Text = tempBlu.Age.ToString();
+                                dtp_BluRay_Release.Value = tempBlu.Release;
+                                break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString(), "ERROR"); }
+        }
+
         private void btn_Borrow_Click(object sender, EventArgs e)
         {
             string[] sArray = { "Buch", "EBook", "CD", "DVD", "BluRay" };
-            for(int i = 0; i < code.MedienListe.Count; i++)
+            for (int i = 0; i < code.MedienListe.Count; i++)
             {
-                if(code.MedienListe[i].Titel.Equals(cb_LendSearch.Text))
+                if (code.MedienListe[i].Titel.Equals(cb_LendSearch.Text))
                 {
                     if ((tb_Name.Equals(code.CustomerListe[iCustomerIndex].Nachname)) && (sArray.Contains(cb_WichMedia.Text)))
                     {
@@ -350,23 +479,25 @@ namespace Dateiverwaltung
 
         private void cb_LendSearch_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void label30_Click(object sender, EventArgs e)
         {
 
-        }
+        } // <<== LÖSCHEN
 
         private void tb_BluRay_FSK_TextChanged(object sender, EventArgs e)
         {
 
-        }
+        } // <<== LÖSCHEN
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
 
-        }
+        } // <<== LÖSCHEN
+
+
     }
 }

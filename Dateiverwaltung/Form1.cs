@@ -80,42 +80,15 @@ namespace Dateiverwaltung
             dgv_Customers.Rows.Add(row);
         }
 
-        public void updateMedienAnzeige() //Fügt das zuletzt erstellte Medium der jeweiligen Liste hinzu
-        {
-            string[] row;
-            int i = code.MedienListe.Count - 1;
-            switch (code.MedienListe[i].Klasse)
-            {
-                case "Book":
-                    Book tempBook = (Book)code.MedienListe[i];
-                    row = new string[5] { Convert.ToString(tempBook.ID), tempBook.Titel, tempBook.Autor, tempBook.Genre, tempBook.Release.ToString(sDatumsformat) };
-                    dgv_Books.Rows.Add(row);
-                    break;
-                case "EBook":
-                    EBook tempEBook = (EBook)code.MedienListe[i];
-                    row = new string[5] { Convert.ToString(tempEBook.ID), tempEBook.Titel, tempEBook.Autor, tempEBook.Genre, tempEBook.Release.ToString(sDatumsformat) };
-                    dgv_EBooks.Rows.Add(row);
-                    break;
-                case "CD": //ID Titel Interpret Genre Release
-                    CD tempCD = (CD)code.MedienListe[i];
-                    row = new string[5] { Convert.ToString(tempCD.ID), tempCD.Titel, tempCD.Interpret, tempCD.Genre, tempCD.Release.ToString(sDatumsformat) };
-                    dgv_CDs.Rows.Add(row);
-                    break;
-                case "DVD": //ID Titel Regisseur Länge Genre FSK Release
-                    DVD tempDVD = (DVD)code.MedienListe[i];
-                    row = new string[7] { Convert.ToString(tempDVD.ID), tempDVD.Titel, tempDVD.Director, Convert.ToString(tempDVD.Length), tempDVD.Genre, Convert.ToString(tempDVD.Age), tempDVD.Release.ToString(sDatumsformat) };
-                    dgv_DVDs.Rows.Add(row);
-                    break;
-                case "BluRay":
-                    BluRay tempBluRay = (BluRay)code.MedienListe[i];
-                    row = new string[7] { Convert.ToString(tempBluRay.ID), tempBluRay.Titel, tempBluRay.Director, Convert.ToString(tempBluRay.Length), tempBluRay.Genre, Convert.ToString(tempBluRay.Age), tempBluRay.Release.ToString(sDatumsformat) };
-                    dgv_BluRays.Rows.Add(row);
-                    break;
-            }
-        }
 
-        private void printMedia() //Gibt Medien-Objekte in der jeweiligen DataGridView aus
+
+        public void printMedia() //Gibt Medien-Objekte in der jeweiligen DataGridView aus
         {
+            dgv_BluRays.Rows.Clear();
+            dgv_Books.Rows.Clear();
+            dgv_EBooks.Rows.Clear();
+            dgv_DVDs.Rows.Clear();
+            dgv_CDs.Rows.Clear();
             string[] row;
             for (int i = 0; i < code.MedienListe.Count; i++)
             {

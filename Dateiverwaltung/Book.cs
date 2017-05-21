@@ -11,8 +11,8 @@ namespace Dateiverwaltung
         protected int iPages;
         protected string sAutor;
 
-        public string Autor { get { return sAutor; } }
-        public int Seitenanzahl { get { return iPages; } }
+        public string Autor { get { return sAutor; } set { sAutor = value; } }
+        public int Seitenanzahl { get { return iPages; } set { iPages = value; } }
 
         //Konstrukor beim Erstellen
         public Book(int iID, string sTitel, string sAutor, string sGenre, int iPages, DateTime dtRelease)

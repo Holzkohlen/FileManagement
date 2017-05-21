@@ -11,8 +11,8 @@ namespace Dateiverwaltung
         private int iLength;  //in Minuten
         private string sInterpret;
 
-        public int Length { get { return iLength; } }
-        public string Interpret { get { return sInterpret; } }
+        public int Length { get { return iLength; } set { iLength = value; } }
+        public string Interpret { get { return sInterpret; } set { sInterpret = value; } }
 
         //Konstrukor beim Erstellen
         public CD(int iID, string sTitel, string sInterpret, string sGenre, int iLength, DateTime dtRelease)

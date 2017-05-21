@@ -13,9 +13,9 @@ namespace Dateiverwaltung
         protected string sDirector;
         protected byte byAge;
 
-        public int Length { get { return iLength; } }
-        public string Director { get { return sDirector; } }
-        public byte Age { get { return byAge; } }
+        public int Length { get { return iLength; } set { iLength = value; } }
+        public string Director { get { return sDirector; } set { sDirector = value; } }
+        public byte Age { get { return byAge; } set { byAge = value; } }
 
         //Konstrukor beim Erstellen
         public DVD(int iID, string sTitel, string sDirector, string sGenre, int iLength, byte byAge, DateTime dtRelease)

@@ -24,13 +24,13 @@ namespace Dateiverwaltung
         }
 
         #region Getter/Setter
-        public int ID { get { return iID; } }
-        public string Titel { get { return sTitel; } }
-        public string Genre { get { return sGenre; } }
-        public DateTime Release { get { return dtRelease; } }
-        public bool Ausgeliehen { get { return bLent; } }
-        public int IDCustomer { get { return iIDCustomer; } }
-        public DateTime Ausleihdatum { get { return dtLent; } }
+        public int ID { get { return iID; } set { iID = value; } }
+        public string Titel { get { return sTitel; } set { sTitel = value; } }
+        public string Genre { get { return sGenre; } set { sGenre = value; } }
+        public DateTime Release { get { return dtRelease; } set { dtRelease = value; } }
+        public bool Ausgeliehen { get { return bLent; } set { bLent = value; } }
+        public int IDCustomer { get { return iIDCustomer; } set { iIDCustomer = value; } }
+        public DateTime Ausleihdatum { get { return dtLent; } set { dtLent = value; } }
         public string Klasse { get { return sKlasse; } }
 
         #endregion
