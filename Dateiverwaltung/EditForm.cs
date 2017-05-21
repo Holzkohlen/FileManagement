@@ -324,15 +324,26 @@ namespace Dateiverwaltung
         private void btn_Borrow_Click(object sender, EventArgs e)
         {
             string[] sArray = { "Buch", "EBook", "CD", "DVD", "BluRay" };
-            if((tb_Name.Equals(code.CustomerListe[iCustomerIndex].Nachname)) && (sArray.Contains(cb_WichMedia.Text)))
+            for(int i = 0; i < code.MedienListe.Count; i++)
             {
-                //LEih shit aus
+                if(code.MedienListe[i].Titel.Equals(cb_LendSearch.Text))
+                {
+                    if ((tb_Name.Equals(code.CustomerListe[iCustomerIndex].Nachname)) && (sArray.Contains(cb_WichMedia.Text)))
+                    {
+                        //LEih shit aus
+
+                    }
+                    else
+                    {
+                        //FEHLER
+                    }
+                }
             }
         }
 
         private void cb_LendSearch_SelectedValueChanged(object sender, EventArgs e)
         {
-            ComboBox cb = (ComboBox)sender;
+            
 
         }
     }
