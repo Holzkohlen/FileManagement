@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,30 +38,28 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_Customers = new System.Windows.Forms.TabPage();
             this.dgv_Customers = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nachname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Strasse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_Books = new System.Windows.Forms.TabPage();
             this.dgv_Books = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_CDs = new System.Windows.Forms.TabPage();
             this.dgv_CDs = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Interpret = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Release = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_DVDs = new System.Windows.Forms.TabPage();
             this.dgv_DVDs = new System.Windows.Forms.DataGridView();
-            this.tab_BluRays = new System.Windows.Forms.TabPage();
-            this.dgv_BluRays = new System.Windows.Forms.DataGridView();
-            this.tab_EBooks = new System.Windows.Forms.TabPage();
-            this.dgv_EBooks = new System.Windows.Forms.DataGridView();
-            this.tb_Search = new System.Windows.Forms.TextBox();
-            this.btn_Edit = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,22 +67,24 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Interpret = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Release = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nachname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Strasse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PLZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_BluRays = new System.Windows.Forms.TabPage();
+            this.dgv_BluRays = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_EBooks = new System.Windows.Forms.TabPage();
+            this.dgv_EBooks = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tb_Search = new System.Windows.Forms.TextBox();
+            this.btn_Edit = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_Customers.SuspendLayout();
@@ -196,6 +197,53 @@
             this.dgv_Customers.Size = new System.Drawing.Size(805, 383);
             this.dgv_Customers.TabIndex = 4;
             // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 43;
+            // 
+            // Nachname
+            // 
+            this.Nachname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Nachname.HeaderText = "Nachname";
+            this.Nachname.Name = "Nachname";
+            this.Nachname.ReadOnly = true;
+            this.Nachname.Width = 84;
+            // 
+            // Vorname
+            // 
+            this.Vorname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Vorname.HeaderText = "Vorname";
+            this.Vorname.Name = "Vorname";
+            this.Vorname.ReadOnly = true;
+            this.Vorname.Width = 74;
+            // 
+            // Strasse
+            // 
+            this.Strasse.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Strasse.HeaderText = "Straße";
+            this.Strasse.Name = "Strasse";
+            this.Strasse.ReadOnly = true;
+            // 
+            // PLZ
+            // 
+            this.PLZ.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PLZ.HeaderText = "PLZ";
+            this.PLZ.Name = "PLZ";
+            this.PLZ.ReadOnly = true;
+            this.PLZ.Width = 52;
+            // 
+            // Ort
+            // 
+            this.Ort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Ort.HeaderText = "Ort";
+            this.Ort.Name = "Ort";
+            this.Ort.ReadOnly = true;
+            this.Ort.Width = 46;
+            // 
             // tab_Books
             // 
             this.tab_Books.Controls.Add(this.dgv_Books);
@@ -226,6 +274,45 @@
             this.dgv_Books.Size = new System.Drawing.Size(805, 383);
             this.dgv_Books.TabIndex = 5;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 43;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Titel";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 61;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Release";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 71;
+            // 
             // tab_CDs
             // 
             this.tab_CDs.Controls.Add(this.dgv_CDs);
@@ -254,6 +341,45 @@
             this.dgv_CDs.ReadOnly = true;
             this.dgv_CDs.Size = new System.Drawing.Size(805, 377);
             this.dgv_CDs.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn7.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 43;
+            // 
+            // Titel
+            // 
+            this.Titel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Titel.HeaderText = "Titel";
+            this.Titel.Name = "Titel";
+            this.Titel.ReadOnly = true;
+            // 
+            // Interpret
+            // 
+            this.Interpret.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Interpret.HeaderText = "Interpret";
+            this.Interpret.Name = "Interpret";
+            this.Interpret.ReadOnly = true;
+            this.Interpret.Width = 71;
+            // 
+            // Genre
+            // 
+            this.Genre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Genre.HeaderText = "Genre";
+            this.Genre.Name = "Genre";
+            this.Genre.ReadOnly = true;
+            this.Genre.Width = 61;
+            // 
+            // Release
+            // 
+            this.Release.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Release.HeaderText = "Release";
+            this.Release.Name = "Release";
+            this.Release.ReadOnly = true;
+            this.Release.Width = 71;
             // 
             // tab_DVDs
             // 
@@ -285,186 +411,6 @@
             this.dgv_DVDs.ReadOnly = true;
             this.dgv_DVDs.Size = new System.Drawing.Size(805, 383);
             this.dgv_DVDs.TabIndex = 5;
-            // 
-            // tab_BluRays
-            // 
-            this.tab_BluRays.Controls.Add(this.dgv_BluRays);
-            this.tab_BluRays.Location = new System.Drawing.Point(4, 22);
-            this.tab_BluRays.Name = "tab_BluRays";
-            this.tab_BluRays.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_BluRays.Size = new System.Drawing.Size(817, 383);
-            this.tab_BluRays.TabIndex = 4;
-            this.tab_BluRays.Text = "BluRays";
-            this.tab_BluRays.UseVisualStyleBackColor = true;
-            // 
-            // dgv_BluRays
-            // 
-            this.dgv_BluRays.AllowUserToAddRows = false;
-            this.dgv_BluRays.AllowUserToDeleteRows = false;
-            this.dgv_BluRays.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_BluRays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_BluRays.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
-            this.dgv_BluRays.Location = new System.Drawing.Point(0, 0);
-            this.dgv_BluRays.Name = "dgv_BluRays";
-            this.dgv_BluRays.ReadOnly = true;
-            this.dgv_BluRays.Size = new System.Drawing.Size(805, 383);
-            this.dgv_BluRays.TabIndex = 6;
-            // 
-            // tab_EBooks
-            // 
-            this.tab_EBooks.Controls.Add(this.dgv_EBooks);
-            this.tab_EBooks.Location = new System.Drawing.Point(4, 22);
-            this.tab_EBooks.Name = "tab_EBooks";
-            this.tab_EBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_EBooks.Size = new System.Drawing.Size(817, 383);
-            this.tab_EBooks.TabIndex = 6;
-            this.tab_EBooks.Text = "EBooks";
-            this.tab_EBooks.UseVisualStyleBackColor = true;
-            // 
-            // dgv_EBooks
-            // 
-            this.dgv_EBooks.AllowUserToAddRows = false;
-            this.dgv_EBooks.AllowUserToDeleteRows = false;
-            this.dgv_EBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_EBooks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv_EBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_EBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn15});
-            this.dgv_EBooks.Location = new System.Drawing.Point(0, 0);
-            this.dgv_EBooks.Name = "dgv_EBooks";
-            this.dgv_EBooks.ReadOnly = true;
-            this.dgv_EBooks.Size = new System.Drawing.Size(805, 383);
-            this.dgv_EBooks.TabIndex = 6;
-            // 
-            // tb_Search
-            // 
-            this.tb_Search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.tb_Search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tb_Search.ForeColor = System.Drawing.Color.DimGray;
-            this.tb_Search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tb_Search.Location = new System.Drawing.Point(12, 27);
-            this.tb_Search.Name = "tb_Search";
-            this.tb_Search.Size = new System.Drawing.Size(282, 20);
-            this.tb_Search.TabIndex = 2;
-            this.tb_Search.Text = "Suchen...";
-            this.tb_Search.Click += new System.EventHandler(this.tb_Search_Click);
-            this.tb_Search.TextChanged += new System.EventHandler(this.tb_Search_TextChanged);
-            this.tb_Search.Leave += new System.EventHandler(this.tb_Search_Leave);
-            // 
-            // btn_Edit
-            // 
-            this.btn_Edit.Location = new System.Drawing.Point(300, 24);
-            this.btn_Edit.Name = "btn_Edit";
-            this.btn_Edit.Size = new System.Drawing.Size(171, 23);
-            this.btn_Edit.TabIndex = 3;
-            this.btn_Edit.Text = "Bearbeiten/Hinzufügen";
-            this.btn_Edit.UseVisualStyleBackColor = true;
-            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn14.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 43;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn16.HeaderText = "Titel";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn17.HeaderText = "Autor";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn18.HeaderText = "Genre";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn15.HeaderText = "Release";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 71;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn5.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 43;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Titel";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Regisseur";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 79;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn9.HeaderText = "Länge";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 62;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Genre";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn11.HeaderText = "FSK";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 52;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn12.HeaderText = "Release";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 71;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -521,130 +467,185 @@
             this.Column6.ReadOnly = true;
             this.Column6.Width = 71;
             // 
-            // dataGridViewTextBoxColumn7
+            // tab_BluRays
             // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn7.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 43;
+            this.tab_BluRays.Controls.Add(this.dgv_BluRays);
+            this.tab_BluRays.Location = new System.Drawing.Point(4, 22);
+            this.tab_BluRays.Name = "tab_BluRays";
+            this.tab_BluRays.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_BluRays.Size = new System.Drawing.Size(817, 383);
+            this.tab_BluRays.TabIndex = 4;
+            this.tab_BluRays.Text = "BluRays";
+            this.tab_BluRays.UseVisualStyleBackColor = true;
             // 
-            // Titel
+            // dgv_BluRays
             // 
-            this.Titel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Titel.HeaderText = "Titel";
-            this.Titel.Name = "Titel";
-            this.Titel.ReadOnly = true;
+            this.dgv_BluRays.AllowUserToAddRows = false;
+            this.dgv_BluRays.AllowUserToDeleteRows = false;
+            this.dgv_BluRays.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_BluRays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_BluRays.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
+            this.dgv_BluRays.Location = new System.Drawing.Point(0, 0);
+            this.dgv_BluRays.Name = "dgv_BluRays";
+            this.dgv_BluRays.ReadOnly = true;
+            this.dgv_BluRays.Size = new System.Drawing.Size(805, 383);
+            this.dgv_BluRays.TabIndex = 6;
             // 
-            // Interpret
+            // dataGridViewTextBoxColumn5
             // 
-            this.Interpret.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Interpret.HeaderText = "Interpret";
-            this.Interpret.Name = "Interpret";
-            this.Interpret.ReadOnly = true;
-            this.Interpret.Width = 71;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn5.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 43;
             // 
-            // Genre
+            // dataGridViewTextBoxColumn6
             // 
-            this.Genre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Genre.HeaderText = "Genre";
-            this.Genre.Name = "Genre";
-            this.Genre.ReadOnly = true;
-            this.Genre.Width = 61;
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Titel";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // Release
+            // dataGridViewTextBoxColumn8
             // 
-            this.Release.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Release.HeaderText = "Release";
-            this.Release.Name = "Release";
-            this.Release.ReadOnly = true;
-            this.Release.Width = 71;
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Regisseur";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 79;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 43;
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Länge";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 62;
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Titel";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn10.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 61;
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Autor";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 57;
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn11.HeaderText = "FSK";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 52;
             // 
-            // dataGridViewTextBoxColumn4
+            // dataGridViewTextBoxColumn12
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Genre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 61;
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn12.HeaderText = "Release";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 71;
             // 
-            // Column1
+            // tab_EBooks
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "Release";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 71;
+            this.tab_EBooks.Controls.Add(this.dgv_EBooks);
+            this.tab_EBooks.Location = new System.Drawing.Point(4, 22);
+            this.tab_EBooks.Name = "tab_EBooks";
+            this.tab_EBooks.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_EBooks.Size = new System.Drawing.Size(817, 383);
+            this.tab_EBooks.TabIndex = 6;
+            this.tab_EBooks.Text = "EBooks";
+            this.tab_EBooks.UseVisualStyleBackColor = true;
             // 
-            // ID
+            // dgv_EBooks
             // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 43;
+            this.dgv_EBooks.AllowUserToAddRows = false;
+            this.dgv_EBooks.AllowUserToDeleteRows = false;
+            this.dgv_EBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_EBooks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_EBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_EBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn15});
+            this.dgv_EBooks.Location = new System.Drawing.Point(0, 0);
+            this.dgv_EBooks.Name = "dgv_EBooks";
+            this.dgv_EBooks.ReadOnly = true;
+            this.dgv_EBooks.Size = new System.Drawing.Size(805, 383);
+            this.dgv_EBooks.TabIndex = 6;
             // 
-            // Nachname
+            // dataGridViewTextBoxColumn14
             // 
-            this.Nachname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Nachname.HeaderText = "Nachname";
-            this.Nachname.Name = "Nachname";
-            this.Nachname.ReadOnly = true;
-            this.Nachname.Width = 84;
+            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn14.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 43;
             // 
-            // Vorname
+            // dataGridViewTextBoxColumn16
             // 
-            this.Vorname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Vorname.HeaderText = "Vorname";
-            this.Vorname.Name = "Vorname";
-            this.Vorname.ReadOnly = true;
-            this.Vorname.Width = 74;
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn16.HeaderText = "Titel";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
-            // Strasse
+            // dataGridViewTextBoxColumn17
             // 
-            this.Strasse.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Strasse.HeaderText = "Straße";
-            this.Strasse.Name = "Strasse";
-            this.Strasse.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn17.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 57;
             // 
-            // PLZ
+            // dataGridViewTextBoxColumn18
             // 
-            this.PLZ.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PLZ.HeaderText = "PLZ";
-            this.PLZ.Name = "PLZ";
-            this.PLZ.ReadOnly = true;
-            this.PLZ.Width = 52;
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn18.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 61;
             // 
-            // Ort
+            // dataGridViewTextBoxColumn15
             // 
-            this.Ort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Ort.HeaderText = "Ort";
-            this.Ort.Name = "Ort";
-            this.Ort.ReadOnly = true;
-            this.Ort.Width = 46;
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn15.HeaderText = "Release";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 71;
+            // 
+            // tb_Search
+            // 
+            this.tb_Search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tb_Search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tb_Search.ForeColor = System.Drawing.Color.DimGray;
+            this.tb_Search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tb_Search.Location = new System.Drawing.Point(12, 27);
+            this.tb_Search.Name = "tb_Search";
+            this.tb_Search.Size = new System.Drawing.Size(282, 20);
+            this.tb_Search.TabIndex = 2;
+            this.tb_Search.Text = "Suchen...";
+            this.tb_Search.Click += new System.EventHandler(this.tb_Search_Click);
+            this.tb_Search.TextChanged += new System.EventHandler(this.tb_Search_TextChanged);
+            this.tb_Search.Leave += new System.EventHandler(this.tb_Search_Leave);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Location = new System.Drawing.Point(300, 24);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(171, 23);
+            this.btn_Edit.TabIndex = 3;
+            this.btn_Edit.Text = "Bearbeiten/Hinzufügen";
+            this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // Form1
             // 
@@ -655,11 +656,13 @@
             this.Controls.Add(this.tb_Search);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ShitsGoingDown";
+            this.Text = "Verleihmanagement";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

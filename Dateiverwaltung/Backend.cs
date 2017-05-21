@@ -30,9 +30,7 @@ namespace Dateiverwaltung
                 ds_Customers = xml.readCustomers();
                 ds_Media = xml.readMedia();
                 xml.readCustomers(ref customers, ref iCustomerCounter);
-                //customerList = new List<Customer>();
                 if (customers != null) { customerList = customers.ToList<Customer>(); }
-                //ds_CustomersAuslesen();
                 mediaList = new List<Media>();
                 if (ds_Media != null) { ds_MediaAuslesen(); }
             }
@@ -40,12 +38,16 @@ namespace Dateiverwaltung
             {
                 System.Windows.Forms.MessageBox.Show(e.ToString(), "IOException");
                 customerList = new List<Customer>();
-                iMediaCounter = 1;
-                iCustomerCounter = 1;
             }
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.ToString(), "Unknown Error");
+                customerList = new List<Customer>();
+            }
+            finally
+            {
+                if(iMediaCounter == 0) { iMediaCounter = 1; }
+                if(iCustomerCounter == 0) { iCustomerCounter = 1; }
             }
         }
 

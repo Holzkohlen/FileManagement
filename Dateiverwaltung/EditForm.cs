@@ -82,17 +82,6 @@ namespace Dateiverwaltung
             }
         }
 
-        private void cb_Search_TextChanged(object sender, EventArgs e)
-        {
-            //if (!cb_Search.DroppedDown)
-            //{
-            //    string temp = cb_Search.Text;
-            //    cb_Search.DroppedDown = true;
-            //    cb_Search.Text = temp;
-
-            //}
-        } // <<== LÖSCHEN
-
         private void clearTextboxen() //Löscht Inhalt aller Textboxen
         {
             TextBox[] tbs = { tb_Name, tb_Vorname, tb_PLZ, tb_Strasse, tb_Ort, tb_Book_Autor, tb_BluRay_Titel, tb_Book_Genre, tb_EBook_Autor, tb_EBook_Genre, tb_EBook_Titel, tb_CD_Genre, tb_CD_Interpret, tb_CD_Titel, tb_DVD_Director, tb_DVD_Genre, tb_DVD_Titel, tb_BluRay_Director, tb_BluRay_Genre, tb_BluRay_Titel };
@@ -109,11 +98,13 @@ namespace Dateiverwaltung
             {
                 btn_EditCostumer.Text = "Übernehmen";
                 offWrite(false);
-                btn_AddCostumer.Enabled = false;
+                btn_AddCostumer.Enabled = true;
+                btn_AddCostumer.Text = "Löschen";
                 bEditMode = true;
             }
             else
             {
+                btn_AddCostumer.Text = "Hinzufügen";
                 btn_EditCostumer.Text = "Bearbeiten";
                 offWrite(true);
                 btn_AddCostumer.Enabled = true;
@@ -129,9 +120,9 @@ namespace Dateiverwaltung
             }
         }
 
-        private void btn_add_Click(object sender, EventArgs e) //Kunde hinzufügen
+        private void btn_add_Click(object sender, EventArgs e) //Kunde hinzufügen/bearbeiten/löschen
         {
-            if (btn_AddCostumer.Text != "Speichern") //Hinzufügen
+            if (btn_AddCostumer.Text == "Hinzufügen") //Hinzufügen
             {
                 clearTextboxen();
                 cb_Search.Text = sSearchtext;
@@ -140,6 +131,21 @@ namespace Dateiverwaltung
                 btn_EditCostumer.Enabled = false;
                 bEditMode = true;
 
+            }
+            else if (btn_AddCostumer.Text == "Löschen")
+            {
+                var closeMsg = MessageBox.Show("Sind Sie sicher, dass Sie '" + code.CustomerListe[iCustomerIndex].Vorname + " " + code.CustomerListe[iCustomerIndex].Nachname + "' löschen wollen?", "Warnung", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (closeMsg == DialogResult.Yes) //LÖSCHEN
+                {
+                    code.CustomerListe.RemoveAt(iCustomerIndex);
+                    clearTextboxen();
+                    fillComboBox();
+                    mainForm.printCustomers();
+                    btn_AddCostumer.Text = "Hinzufügen";
+                    cb_Search.Enabled = true;
+                    cb_Search.Text = sSearchtext;
+                }
             }
             else  //Speichern
             {
@@ -171,8 +177,9 @@ namespace Dateiverwaltung
             dgv_Borrowed.Enabled = bModus;
             lockAllTabs(bModus);
         }
+
         private void lockAllTabs(bool bModus)
-        { 
+        {
 
             //Ganzer Tab geht dann nicht
             foreach (TabPage tab in tabControl.TabPages)
@@ -189,39 +196,60 @@ namespace Dateiverwaltung
 
         private void btn_Add_Media_Click(object sender, EventArgs e) //Medien hinzufügen Button Event Handler
         {
+            Button b = (Button)sender;
             string[] sArray;
             bool bCheck = false;
-            switch (tabControl.SelectedIndex)
+            if (b.Text == "Löschen")
             {
-                case 1: //BOOK
-                    sArray = new string[5] { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, num_Book_Pages.Text, dtp_Book_Release.Value.ToString() };
-                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
-                    break;
-                case 2: //EBOOK
-                    sArray = new string[5] { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, num_EBook_Pages.Value.ToString(), dtp_EBook_Release.Value.ToString() };
-                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
-                    break;
-                case 3: //CD
-                    sArray = new string[5] { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, num_CD_Length.Value.ToString(), dtp_CD_Release.Value.ToString() };
-                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
-                    break;
-                case 4: //DVD
-                    sArray = new string[6] { tb_DVD_Titel.Text, tb_DVD_Director.Text, tb_DVD_Genre.Text, num_DVD_Length.Text, cb_DVD_FSK.Text, dtp_DVD_Release.Value.ToString() };
-                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
-                    break;
-                case 5: //BLURAY
-                    sArray = new string[6] { tb_BluRay_Titel.Text, tb_BluRay_Director.Text, tb_BluRay_Genre.Text, num_BluRay_Length.Value.ToString(), cb_BluRay_FSK.Text, dtp_BluRay_Release.Text };
-                    bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
-                    break;
-            }
-            if (bCheck)
-            {
-                clearTextboxen();
-                mainForm.printMedia();
+                var closeMsg = MessageBox.Show("Sind Sie sicher, dass Sie '" + code.MedienListe[iMedienIndex] + "' löschen wollen?", "Warnung", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (closeMsg == DialogResult.Yes) //LÖSCHEN
+                {
+                    code.MedienListe.RemoveAt(iMedienIndex);
+                    clearTextboxen();
+                    fillComboBox();
+                    mainForm.printMedia();
+                    Button[] btns = { btn_Add_Book, btn_Add_EBook, btn_Add_CD, btn_Add_DVD, btn_Add_BluRay };
+                    for (int i = 0; i < btns.Length; i++)
+                    {
+                        btns[i].Text = "Hinzufügen";
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
+                switch (tabControl.SelectedIndex)
+                {
+                    case 1: //BOOK
+                        sArray = new string[5] { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, num_Book_Pages.Text, dtp_Book_Release.Value.ToString() };
+                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        break;
+                    case 2: //EBOOK
+                        sArray = new string[5] { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, num_EBook_Pages.Value.ToString(), dtp_EBook_Release.Value.ToString() };
+                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        break;
+                    case 3: //CD
+                        sArray = new string[5] { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, num_CD_Length.Value.ToString(), dtp_CD_Release.Value.ToString() };
+                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        break;
+                    case 4: //DVD
+                        sArray = new string[6] { tb_DVD_Titel.Text, tb_DVD_Director.Text, tb_DVD_Genre.Text, num_DVD_Length.Text, cb_DVD_FSK.Text, dtp_DVD_Release.Value.ToString() };
+                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        break;
+                    case 5: //BLURAY
+                        sArray = new string[6] { tb_BluRay_Titel.Text, tb_BluRay_Director.Text, tb_BluRay_Genre.Text, num_BluRay_Length.Value.ToString(), cb_BluRay_FSK.Text, dtp_BluRay_Release.Text };
+                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        break;
+                }
+                if (bCheck)
+                {
+                    clearTextboxen();
+                    mainForm.printMedia();
+                }
+                else
+                {
+                    MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
+                }
             }
         }
 
@@ -234,10 +262,20 @@ namespace Dateiverwaltung
                 {
                     b.Text = "Übernehmen";
                     lockAllTabs(false);
+                    Button[] btns = { btn_Add_Book, btn_Add_EBook, btn_Add_CD, btn_Add_DVD, btn_Add_BluRay };
+                    for (int i = 0; i < btns.Length; i++)
+                    {
+                        btns[i].Text = "Löschen";
+                    }
                     //Input-Boxen entsperren oder nicht ReadOnly machen
                 }
-                else //Übernehmen
+                else if (b.Text == "Übernehmen")//Übernehmen
                 {
+                    Button[] btns = { btn_Add_Book, btn_Add_EBook, btn_Add_CD, btn_Add_DVD, btn_Add_BluRay };
+                    for (int i = 0; i < btns.Length; i++)
+                    {
+                        btns[i].Text = "Hinzufügen";
+                    }
                     b.Text = "Bearbeiten";
                     lockAllTabs(true);
                     tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
@@ -250,7 +288,7 @@ namespace Dateiverwaltung
                             tempBook.Genre = tb_Book_Genre.Text;
                             tempBook.Seitenanzahl = Int32.Parse(num_Book_Pages.Text);
                             tempBook.Release = dtp_Book_Release.Value;
-                            btn_Edit_Book.Enabled = false;                     
+                            btn_Edit_Book.Enabled = false;
                             break;
                         case 2: //EBook
                             EBook tempEBook = (EBook)code.MedienListe[iMedienIndex];
@@ -295,7 +333,7 @@ namespace Dateiverwaltung
                     fillComboBox(); //ComboBox-Vorschläge aktualisieren
                 }
             }
-            catch(Exception ex) { MessageBox.Show(ex.ToString(), "ERROR"); }
+            catch (Exception ex) { MessageBox.Show(ex.ToString(), "ERROR"); }
         }
 
         private void tabControl_Selected(object sender, TabControlEventArgs e)
@@ -323,7 +361,7 @@ namespace Dateiverwaltung
                 case "Buch":
                     foreach (Media temp in code.MedienListe)
                     {
-                        if (temp.Klasse.Equals("Book"))
+                        if (temp.Klasse.Equals("Book") && (!temp.Ausgeliehen))
                         {
                             cb_LendSearch.Items.Add(temp.Titel);
                         }
@@ -332,7 +370,7 @@ namespace Dateiverwaltung
                 case "EBook":
                     foreach (Media temp in code.MedienListe)
                     {
-                        if (temp.Klasse.Equals("EBook"))
+                        if (temp.Klasse.Equals("EBook") && (!temp.Ausgeliehen))
                         {
                             cb_LendSearch.Items.Add(temp.Titel);
                         }
@@ -341,7 +379,7 @@ namespace Dateiverwaltung
                 case "CD":
                     foreach (Media temp in code.MedienListe)
                     {
-                        if (temp.Klasse.Equals("CD"))
+                        if (temp.Klasse.Equals("CD") && (!temp.Ausgeliehen))
                         {
                             cb_LendSearch.Items.Add(temp.Titel);
                         }
@@ -350,7 +388,7 @@ namespace Dateiverwaltung
                 case "DVD":
                     foreach (Media temp in code.MedienListe)
                     {
-                        if (temp.Klasse.Equals("DVD"))
+                        if (temp.Klasse.Equals("DVD") && (!temp.Ausgeliehen))
                         {
                             cb_LendSearch.Items.Add(temp.Titel);
                         }
@@ -359,7 +397,7 @@ namespace Dateiverwaltung
                 case "BluRay":
                     foreach (Media temp in code.MedienListe)
                     {
-                        if (temp.Klasse.Equals("BluRay"))
+                        if (temp.Klasse.Equals("BluRay") && (!temp.Ausgeliehen))
                         {
                             cb_LendSearch.Items.Add(temp.Titel);
                         }
@@ -396,6 +434,15 @@ namespace Dateiverwaltung
                     tb_PLZ.Text = temp.PLZ;
                     tb_Ort.Text = temp.Ort;
                     btn_EditCostumer.Enabled = true;
+                    foreach (Media tempMedia in code.MedienListe)
+                    {
+                        if (tempMedia.IDCustomer == temp.ID)
+                        {
+                            dgv_Borrowed.Rows.Clear();
+                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse };
+                            dgv_Borrowed.Rows.Add(sArray);
+                        }
+                    }
                 }
             }
         }
@@ -438,10 +485,10 @@ namespace Dateiverwaltung
                                 tb_CD_Genre.Text = tempC.Interpret;
                                 num_CD_Length.Value = tempC.Length;
                                 dtp_CD_Release.Value = tempC.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!
-                                
+
                                 break;
                             case "DVD":
-                                btn_Edit_DVD.Enabled=true;
+                                btn_Edit_DVD.Enabled = true;
                                 DVD tempD = (DVD)code.MedienListe[i];
                                 tb_DVD_Titel.Text = tempD.Titel;
                                 tb_DVD_Director.Text = tempD.Director;
@@ -449,7 +496,7 @@ namespace Dateiverwaltung
                                 num_DVD_Length.Value = tempD.Length;
                                 cb_DVD_FSK.Text = tempD.Age.ToString();
                                 dtp_DVD_Release.Value = tempD.Release;
-                                
+
                                 break;
                             case "BluRay":
                                 btn_Edit_BluRay.Enabled = true;
@@ -460,7 +507,7 @@ namespace Dateiverwaltung
                                 num_BluRay_Length.Value = tempBlu.Length;
                                 cb_BluRay_FSK.Text = tempBlu.Age.ToString();
                                 dtp_BluRay_Release.Value = tempBlu.Release;
-                                
+
                                 break;
                         }
                     }
@@ -471,28 +518,24 @@ namespace Dateiverwaltung
 
         private void btn_Borrow_Click(object sender, EventArgs e)
         {
-            string[] sArray = { "Buch", "EBook", "CD", "DVD", "BluRay" };
             for (int i = 0; i < code.MedienListe.Count; i++)
             {
                 if (code.MedienListe[i].Titel.Equals(cb_LendSearch.Text))
                 {
-                    if ((tb_Name.Equals(code.CustomerListe[iCustomerIndex].Nachname)) && (sArray.Contains(cb_WichMedia.Text)))
+                    code.MedienListe[i].IDCustomer = code.CustomerListe[iCustomerIndex].ID;
+                    code.MedienListe[i].Ausgeliehen = true;
+                    code.MedienListe[i].Ausleihdatum = DateTime.Today;
+                    foreach (Media tempMedia in code.MedienListe)
                     {
-                        //LEih shit aus
-
-                    }
-                    else
-                    {
-                        //FEHLER
+                        if (tempMedia.IDCustomer == code.CustomerListe[iCustomerIndex].ID)
+                        {
+                            dgv_Borrowed.Rows.Clear();
+                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse };
+                            dgv_Borrowed.Rows.Add(sArray);
+                        }
                     }
                 }
             }
         }
-
-
-        private void label30_Click(object sender, EventArgs e)
-        {
-
-        } // <<== LÖSCHEN Geht nicht
     }
 }

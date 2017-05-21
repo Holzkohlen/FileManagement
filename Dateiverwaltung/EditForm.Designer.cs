@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tab_Customers = new System.Windows.Forms.TabPage();
             this.btn_AddCostumer = new System.Windows.Forms.Button();
@@ -217,7 +218,6 @@
             this.cb_LendSearch.Size = new System.Drawing.Size(339, 21);
             this.cb_LendSearch.TabIndex = 7;
             this.cb_LendSearch.Text = "Suchen...";
-            this.cb_LendSearch.Click += new System.EventHandler(this.label30_Click);
             // 
             // cb_WichMedia
             // 
@@ -409,7 +409,6 @@
             this.cb_Search.Size = new System.Drawing.Size(369, 21);
             this.cb_Search.TabIndex = 0;
             this.cb_Search.SelectedValueChanged += new System.EventHandler(this.cb_Search_SelectedValueChanged);
-            this.cb_Search.TextChanged += new System.EventHandler(this.cb_Search_TextChanged);
             // 
             // tab_Books
             // 
@@ -779,7 +778,7 @@
             this.groupBox6.Controls.Add(this.label51);
             this.groupBox6.Controls.Add(this.label52);
             this.groupBox6.Controls.Add(this.label54);
-            this.groupBox6.Location = new System.Drawing.Point(3, 6);
+            this.groupBox6.Location = new System.Drawing.Point(0, 0);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(868, 169);
             this.groupBox6.TabIndex = 9;
@@ -1321,10 +1320,12 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(875, 248);
             this.Controls.Add(this.tabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditForm";
+            this.Text = "Daten Bearbeiten";
             this.tabControl.ResumeLayout(false);
             this.tab_Customers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Borrowed)).EndInit();

@@ -80,8 +80,6 @@ namespace Dateiverwaltung
             dgv_Customers.Rows.Add(row);
         }
 
-
-
         public void printMedia() //Gibt Medien-Objekte in der jeweiligen DataGridView aus
         {
             dgv_BluRays.Rows.Clear();
