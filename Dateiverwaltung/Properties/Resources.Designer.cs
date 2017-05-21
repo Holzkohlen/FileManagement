@@ -133,6 +133,26 @@ namespace Dateiverwaltung.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Movie {
+            get {
+                object obj = ResourceManager.GetObject("Movie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mukke {
+            get {
+                object obj = ResourceManager.GetObject("Mukke", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap orange {
             get {
                 object obj = ResourceManager.GetObject("orange", resourceCulture);
@@ -146,6 +166,16 @@ namespace Dateiverwaltung.Properties {
         internal static System.Drawing.Bitmap soft_blue {
             get {
                 object obj = ResourceManager.GetObject("soft_blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Story {
+            get {
+                object obj = ResourceManager.GetObject("Story", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -169,9 +169,10 @@ namespace Dateiverwaltung
             cb_Search.Enabled = bModus;
             cb_WichMedia.Enabled = bModus;
             dgv_Borrowed.Enabled = bModus;
-
-
-
+            lockAllTabs(bModus);
+        }
+        private void lockAllTabs(bool bModus)
+        { 
 
             //Ganzer Tab geht dann nicht
             foreach (TabPage tab in tabControl.TabPages)
@@ -180,11 +181,6 @@ namespace Dateiverwaltung
             }
             tabControl.TabPages[tabControl.SelectedIndex].Enabled = !bModus;
         }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        } // <<== LÖSCHEN
 
         static void Rezise()
         {
@@ -237,11 +233,14 @@ namespace Dateiverwaltung
                 if (b.Text == "Bearbeiten")
                 {
                     b.Text = "Übernehmen";
+                    lockAllTabs(false);
                     //Input-Boxen entsperren oder nicht ReadOnly machen
                 }
                 else //Übernehmen
                 {
                     b.Text = "Bearbeiten";
+                    lockAllTabs(true);
+                    tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
                     switch (tabControl.SelectedIndex)
                     {
                         case 1: //Book
@@ -251,6 +250,7 @@ namespace Dateiverwaltung
                             tempBook.Genre = tb_Book_Genre.Text;
                             tempBook.Seitenanzahl = Int32.Parse(num_Book_Pages.Text);
                             tempBook.Release = dtp_Book_Release.Value;
+                            btn_Edit_Book.Enabled = false;                     
                             break;
                         case 2: //EBook
                             EBook tempEBook = (EBook)code.MedienListe[iMedienIndex];
@@ -259,6 +259,7 @@ namespace Dateiverwaltung
                             tempEBook.Genre = tb_EBook_Genre.Text;
                             tempEBook.Seitenanzahl = Int32.Parse(num_EBook_Pages.Text);
                             tempEBook.Release = dtp_EBook_Release.Value;
+                            btn_Edit_EBook.Enabled = false;
                             break;
                         case 3: //CD
                             CD tempCD = (CD)code.MedienListe[iMedienIndex];
@@ -267,6 +268,7 @@ namespace Dateiverwaltung
                             tempCD.Interpret = tb_CD_Interpret.Text;
                             tempCD.Length = Int32.Parse(num_CD_Length.Text);
                             tempCD.Release = dtp_CD_Release.Value;
+                            btn_Edit_CD.Enabled = false;
                             break;
                         case 4: //DVD
                             DVD tempDVD = (DVD)code.MedienListe[iMedienIndex];
@@ -276,6 +278,7 @@ namespace Dateiverwaltung
                             tempDVD.Age = Byte.Parse(cb_DVD_FSK.Text);
                             tempDVD.Length = Int32.Parse(num_DVD_Length.Text);
                             tempDVD.Release = dtp_DVD_Release.Value;
+                            btn_Edit_DVD.Enabled = false;
                             break;
                         case 5: //BluRay
                             BluRay tempBluRay = (BluRay)code.MedienListe[iMedienIndex];
@@ -285,6 +288,7 @@ namespace Dateiverwaltung
                             tempBluRay.Age = Byte.Parse(cb_BluRay_FSK.Text);
                             tempBluRay.Length = Int32.Parse(num_BluRay_Length.Text);
                             tempBluRay.Release = dtp_BluRay_Release.Value;
+                            btn_Edit_BluRay.Enabled = false;
                             break;
                     }
                     mainForm.printMedia(); //Hauptform DataGridView aktualisieren
@@ -409,30 +413,35 @@ namespace Dateiverwaltung
                         switch (code.MedienListe[i].Klasse)
                         {
                             case "Book":
+                                btn_Edit_Book.Enabled = true;
                                 Book tempB = (Book)code.MedienListe[i];
                                 tb_Book_Titel.Text = tempB.Titel;
                                 tb_Book_Autor.Text = tempB.Autor;
                                 tb_Book_Genre.Text = tempB.Genre;
                                 num_Book_Pages.Value = tempB.Seitenanzahl;
-                                dtp_Book_Release.Value = tempB.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!
+                                dtp_Book_Release.Value = tempB.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!                               
                                 break;
                             case "EBook":
+                                btn_Edit_EBook.Enabled = true;
                                 EBook tempE = (EBook)code.MedienListe[i];
                                 tb_EBook_Titel.Text = tempE.Titel;
                                 tb_EBook_Autor.Text = tempE.Autor;
                                 tb_EBook_Genre.Text = tempE.Genre;
                                 num_EBook_Pages.Value = tempE.Seitenanzahl;
-                                dtp_EBook_Release.Value = tempE.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!
+                                dtp_EBook_Release.Value = tempE.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!                               
                                 break;
                             case "CD":
+                                btn_Edit_CD.Enabled = true;
                                 CD tempC = (CD)code.MedienListe[i];
                                 tb_CD_Titel.Text = tempC.Titel;
                                 tb_CD_Interpret.Text = tempC.Interpret;
                                 tb_CD_Genre.Text = tempC.Interpret;
                                 num_CD_Length.Value = tempC.Length;
                                 dtp_CD_Release.Value = tempC.Release; //Datum zum Schluss, da bei Fehler vorherige Werte wenigstens passen!
+                                
                                 break;
                             case "DVD":
+                                btn_Edit_DVD.Enabled=true;
                                 DVD tempD = (DVD)code.MedienListe[i];
                                 tb_DVD_Titel.Text = tempD.Titel;
                                 tb_DVD_Director.Text = tempD.Director;
@@ -440,8 +449,10 @@ namespace Dateiverwaltung
                                 num_DVD_Length.Value = tempD.Length;
                                 cb_DVD_FSK.Text = tempD.Age.ToString();
                                 dtp_DVD_Release.Value = tempD.Release;
+                                
                                 break;
                             case "BluRay":
+                                btn_Edit_BluRay.Enabled = true;
                                 BluRay tempBlu = (BluRay)code.MedienListe[i];
                                 tb_BluRay_Titel.Text = tempBlu.Titel;
                                 tb_BluRay_Director.Text = tempBlu.Director;
@@ -449,6 +460,7 @@ namespace Dateiverwaltung
                                 num_BluRay_Length.Value = tempBlu.Length;
                                 cb_BluRay_FSK.Text = tempBlu.Age.ToString();
                                 dtp_BluRay_Release.Value = tempBlu.Release;
+                                
                                 break;
                         }
                     }
@@ -477,27 +489,10 @@ namespace Dateiverwaltung
             }
         }
 
-        private void cb_LendSearch_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void label30_Click(object sender, EventArgs e)
         {
 
-        } // <<== LÖSCHEN
-
-        private void tb_BluRay_FSK_TextChanged(object sender, EventArgs e)
-        {
-
-        } // <<== LÖSCHEN
-
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
-        {
-
-        } // <<== LÖSCHEN
-
-
+        } // <<== LÖSCHEN Geht nicht
     }
 }

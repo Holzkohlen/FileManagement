@@ -58,7 +58,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Add_Book = new System.Windows.Forms.Button();
             this.cb_Search_Book = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Edit_Book = new System.Windows.Forms.Button();
             this.tb_Book_Autor = new System.Windows.Forms.TextBox();
             this.dtp_Book_Release = new System.Windows.Forms.DateTimePicker();
             this.tb_Book_Genre = new System.Windows.Forms.TextBox();
@@ -73,7 +73,7 @@
             this.num_EBook_Pages = new System.Windows.Forms.NumericUpDown();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_Add_EBook = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_Edit_EBook = new System.Windows.Forms.Button();
             this.cb_Search_EBook = new System.Windows.Forms.ComboBox();
             this.tb_EBook_Autor = new System.Windows.Forms.TextBox();
             this.dtp_EBook_Release = new System.Windows.Forms.DateTimePicker();
@@ -84,12 +84,29 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.tab_CDs = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.num_CD_Length = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btn_Add_CD = new System.Windows.Forms.Button();
+            this.btn_Edit_CD = new System.Windows.Forms.Button();
+            this.cb_Search_CD = new System.Windows.Forms.ComboBox();
+            this.tb_CD_Interpret = new System.Windows.Forms.TextBox();
+            this.dtp_CD_Release = new System.Windows.Forms.DateTimePicker();
+            this.tb_CD_Genre = new System.Windows.Forms.TextBox();
+            this.tb_CD_Titel = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
             this.tab_DVDs = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cb_DVD_FSK = new System.Windows.Forms.ComboBox();
             this.num_DVD_Length = new System.Windows.Forms.NumericUpDown();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_Add_DVD = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btn_Edit_DVD = new System.Windows.Forms.Button();
             this.cb_Search_DVD = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.tb_DVD_Director = new System.Windows.Forms.TextBox();
@@ -103,10 +120,11 @@
             this.label27 = new System.Windows.Forms.Label();
             this.tab_BluRays = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cb_BluRay_FSK = new System.Windows.Forms.ComboBox();
             this.num_BluRay_Length = new System.Windows.Forms.NumericUpDown();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btn_Add_BluRay = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btn_Edit_BluRay = new System.Windows.Forms.Button();
             this.cb_Search_BluRay = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.tb_BluRay_Director = new System.Windows.Forms.TextBox();
@@ -118,24 +136,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.tab_CDs = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.num_CD_Length = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btn_Add_CD = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.cb_Search_CD = new System.Windows.Forms.ComboBox();
-            this.tb_CD_Interpret = new System.Windows.Forms.TextBox();
-            this.dtp_CD_Release = new System.Windows.Forms.DateTimePicker();
-            this.tb_CD_Genre = new System.Windows.Forms.TextBox();
-            this.tb_CD_Titel = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.cb_DVD_FSK = new System.Windows.Forms.ComboBox();
-            this.cb_BluRay_FSK = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.tab_Customers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Borrowed)).BeginInit();
@@ -148,6 +148,10 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_EBook_Pages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tab_CDs.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_CD_Length)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tab_DVDs.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_DVD_Length)).BeginInit();
@@ -156,10 +160,6 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_BluRay_Length)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.tab_CDs.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_CD_Length)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -217,8 +217,7 @@
             this.cb_LendSearch.Size = new System.Drawing.Size(339, 21);
             this.cb_LendSearch.TabIndex = 7;
             this.cb_LendSearch.Text = "Suchen...";
-            this.cb_LendSearch.SelectedValueChanged += new System.EventHandler(this.cb_LendSearch_SelectedValueChanged);
-            this.cb_LendSearch.Click += new System.EventHandler(this.cb_LendSearch_Click);
+            this.cb_LendSearch.Click += new System.EventHandler(this.label30_Click);
             // 
             // cb_WichMedia
             // 
@@ -414,7 +413,6 @@
             // 
             // tab_Books
             // 
-            this.tab_Books.BackgroundImage = global::Dateiverwaltung.Properties.Resources.orange;
             this.tab_Books.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tab_Books.Controls.Add(this.Daten);
             this.tab_Books.Location = new System.Drawing.Point(4, 22);
@@ -431,7 +429,7 @@
             this.Daten.Controls.Add(this.pictureBox1);
             this.Daten.Controls.Add(this.btn_Add_Book);
             this.Daten.Controls.Add(this.cb_Search_Book);
-            this.Daten.Controls.Add(this.button2);
+            this.Daten.Controls.Add(this.btn_Edit_Book);
             this.Daten.Controls.Add(this.tb_Book_Autor);
             this.Daten.Controls.Add(this.dtp_Book_Release);
             this.Daten.Controls.Add(this.tb_Book_Genre);
@@ -451,15 +449,22 @@
             // num_Book_Pages
             // 
             this.num_Book_Pages.Location = new System.Drawing.Point(632, 53);
+            this.num_Book_Pages.Maximum = new decimal(new int[] {
+            80000,
+            0,
+            0,
+            0});
             this.num_Book_Pages.Name = "num_Book_Pages";
             this.num_Book_Pages.Size = new System.Drawing.Size(120, 20);
             this.num_Book_Pages.TabIndex = 21;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Dateiverwaltung.Properties.Resources.Story;
             this.pictureBox1.Location = new System.Drawing.Point(763, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(95, 117);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
@@ -490,15 +495,16 @@
             this.cb_Search_Book.TabIndex = 6;
             this.cb_Search_Book.SelectedValueChanged += new System.EventHandler(this.searchComboBoxen_SelectedValueChanged);
             // 
-            // button2
+            // btn_Edit_Book
             // 
-            this.button2.Location = new System.Drawing.Point(18, 113);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(351, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Bearbeiten";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btn_Edit_Media_Click);
+            this.btn_Edit_Book.Enabled = false;
+            this.btn_Edit_Book.Location = new System.Drawing.Point(18, 113);
+            this.btn_Edit_Book.Name = "btn_Edit_Book";
+            this.btn_Edit_Book.Size = new System.Drawing.Size(351, 23);
+            this.btn_Edit_Book.TabIndex = 9;
+            this.btn_Edit_Book.Text = "Bearbeiten";
+            this.btn_Edit_Book.UseVisualStyleBackColor = true;
+            this.btn_Edit_Book.Click += new System.EventHandler(this.btn_Edit_Media_Click);
             // 
             // tb_Book_Autor
             // 
@@ -510,9 +516,11 @@
             // dtp_Book_Release
             // 
             this.dtp_Book_Release.Location = new System.Drawing.Point(105, 87);
+            this.dtp_Book_Release.MaxDate = new System.DateTime(3100, 2, 1, 0, 0, 0, 0);
             this.dtp_Book_Release.Name = "dtp_Book_Release";
             this.dtp_Book_Release.Size = new System.Drawing.Size(200, 20);
             this.dtp_Book_Release.TabIndex = 16;
+            this.dtp_Book_Release.Value = new System.DateTime(2017, 5, 21, 0, 0, 0, 0);
             // 
             // tb_Book_Genre
             // 
@@ -586,12 +594,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackgroundImage = global::Dateiverwaltung.Properties.Resources.Light_Grey;
             this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox2.Controls.Add(this.num_EBook_Pages);
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Controls.Add(this.btn_Add_EBook);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.btn_Edit_EBook);
             this.groupBox2.Controls.Add(this.cb_Search_EBook);
             this.groupBox2.Controls.Add(this.tb_EBook_Autor);
             this.groupBox2.Controls.Add(this.dtp_EBook_Release);
@@ -612,15 +619,22 @@
             // num_EBook_Pages
             // 
             this.num_EBook_Pages.Location = new System.Drawing.Point(632, 54);
+            this.num_EBook_Pages.Maximum = new decimal(new int[] {
+            80000,
+            0,
+            0,
+            0});
             this.num_EBook_Pages.Name = "num_EBook_Pages";
             this.num_EBook_Pages.Size = new System.Drawing.Size(120, 20);
             this.num_EBook_Pages.TabIndex = 23;
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = global::Dateiverwaltung.Properties.Resources.Story;
             this.pictureBox2.Location = new System.Drawing.Point(763, 19);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(95, 117);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
@@ -634,15 +648,16 @@
             this.btn_Add_EBook.UseVisualStyleBackColor = true;
             this.btn_Add_EBook.Click += new System.EventHandler(this.btn_Add_Media_Click);
             // 
-            // button4
+            // btn_Edit_EBook
             // 
-            this.button4.Location = new System.Drawing.Point(18, 113);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(351, 23);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Bearbeiten";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.btn_Edit_Media_Click);
+            this.btn_Edit_EBook.Enabled = false;
+            this.btn_Edit_EBook.Location = new System.Drawing.Point(18, 113);
+            this.btn_Edit_EBook.Name = "btn_Edit_EBook";
+            this.btn_Edit_EBook.Size = new System.Drawing.Size(351, 23);
+            this.btn_Edit_EBook.TabIndex = 20;
+            this.btn_Edit_EBook.Text = "Bearbeiten";
+            this.btn_Edit_EBook.UseVisualStyleBackColor = true;
+            this.btn_Edit_EBook.Click += new System.EventHandler(this.btn_Edit_Media_Click);
             // 
             // cb_Search_EBook
             // 
@@ -671,9 +686,11 @@
             // dtp_EBook_Release
             // 
             this.dtp_EBook_Release.Location = new System.Drawing.Point(105, 87);
+            this.dtp_EBook_Release.MaxDate = new System.DateTime(3100, 2, 1, 0, 0, 0, 0);
             this.dtp_EBook_Release.Name = "dtp_EBook_Release";
             this.dtp_EBook_Release.Size = new System.Drawing.Size(200, 20);
             this.dtp_EBook_Release.TabIndex = 16;
+            this.dtp_EBook_Release.Value = new System.DateTime(2017, 5, 21, 0, 0, 0, 0);
             // 
             // tb_EBook_Genre
             // 
@@ -734,10 +751,179 @@
             this.label19.TabIndex = 8;
             this.label19.Text = "Genre:";
             // 
+            // tab_CDs
+            // 
+            this.tab_CDs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tab_CDs.Controls.Add(this.groupBox6);
+            this.tab_CDs.Location = new System.Drawing.Point(4, 22);
+            this.tab_CDs.Name = "tab_CDs";
+            this.tab_CDs.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_CDs.Size = new System.Drawing.Size(871, 222);
+            this.tab_CDs.TabIndex = 8;
+            this.tab_CDs.Text = "CD";
+            this.tab_CDs.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.num_CD_Length);
+            this.groupBox6.Controls.Add(this.pictureBox5);
+            this.groupBox6.Controls.Add(this.btn_Add_CD);
+            this.groupBox6.Controls.Add(this.btn_Edit_CD);
+            this.groupBox6.Controls.Add(this.cb_Search_CD);
+            this.groupBox6.Controls.Add(this.tb_CD_Interpret);
+            this.groupBox6.Controls.Add(this.dtp_CD_Release);
+            this.groupBox6.Controls.Add(this.tb_CD_Genre);
+            this.groupBox6.Controls.Add(this.tb_CD_Titel);
+            this.groupBox6.Controls.Add(this.label48);
+            this.groupBox6.Controls.Add(this.label50);
+            this.groupBox6.Controls.Add(this.label51);
+            this.groupBox6.Controls.Add(this.label52);
+            this.groupBox6.Controls.Add(this.label54);
+            this.groupBox6.Location = new System.Drawing.Point(3, 6);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(868, 169);
+            this.groupBox6.TabIndex = 9;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = " Daten";
+            // 
+            // num_CD_Length
+            // 
+            this.num_CD_Length.Location = new System.Drawing.Point(652, 53);
+            this.num_CD_Length.Maximum = new decimal(new int[] {
+            80000,
+            0,
+            0,
+            0});
+            this.num_CD_Length.Name = "num_CD_Length";
+            this.num_CD_Length.Size = new System.Drawing.Size(100, 20);
+            this.num_CD_Length.TabIndex = 26;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Dateiverwaltung.Properties.Resources.Mukke;
+            this.pictureBox5.Location = new System.Drawing.Point(763, 19);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(95, 118);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 25;
+            this.pictureBox5.TabStop = false;
+            // 
+            // btn_Add_CD
+            // 
+            this.btn_Add_CD.Location = new System.Drawing.Point(375, 113);
+            this.btn_Add_CD.Name = "btn_Add_CD";
+            this.btn_Add_CD.Size = new System.Drawing.Size(377, 23);
+            this.btn_Add_CD.TabIndex = 23;
+            this.btn_Add_CD.Text = "Hinzufügen";
+            this.btn_Add_CD.UseVisualStyleBackColor = true;
+            this.btn_Add_CD.Click += new System.EventHandler(this.btn_Add_Media_Click);
+            // 
+            // btn_Edit_CD
+            // 
+            this.btn_Edit_CD.Enabled = false;
+            this.btn_Edit_CD.Location = new System.Drawing.Point(18, 113);
+            this.btn_Edit_CD.Name = "btn_Edit_CD";
+            this.btn_Edit_CD.Size = new System.Drawing.Size(351, 23);
+            this.btn_Edit_CD.TabIndex = 22;
+            this.btn_Edit_CD.Text = "Bearbeiten";
+            this.btn_Edit_CD.UseVisualStyleBackColor = true;
+            this.btn_Edit_CD.Click += new System.EventHandler(this.btn_Edit_Media_Click);
+            // 
+            // cb_Search_CD
+            // 
+            this.cb_Search_CD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_Search_CD.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_Search_CD.FormattingEnabled = true;
+            this.cb_Search_CD.Items.AddRange(new object[] {
+            "Hans",
+            "Hänsel",
+            "Peter",
+            "Robert",
+            "Herbert"});
+            this.cb_Search_CD.Location = new System.Drawing.Point(18, 19);
+            this.cb_Search_CD.Name = "cb_Search_CD";
+            this.cb_Search_CD.Size = new System.Drawing.Size(734, 21);
+            this.cb_Search_CD.TabIndex = 8;
+            this.cb_Search_CD.SelectedValueChanged += new System.EventHandler(this.searchComboBoxen_SelectedValueChanged);
+            // 
+            // tb_CD_Interpret
+            // 
+            this.tb_CD_Interpret.Location = new System.Drawing.Point(406, 53);
+            this.tb_CD_Interpret.Name = "tb_CD_Interpret";
+            this.tb_CD_Interpret.Size = new System.Drawing.Size(194, 20);
+            this.tb_CD_Interpret.TabIndex = 17;
+            // 
+            // dtp_CD_Release
+            // 
+            this.dtp_CD_Release.Location = new System.Drawing.Point(105, 87);
+            this.dtp_CD_Release.MaxDate = new System.DateTime(3100, 2, 1, 0, 0, 0, 0);
+            this.dtp_CD_Release.Name = "dtp_CD_Release";
+            this.dtp_CD_Release.Size = new System.Drawing.Size(200, 20);
+            this.dtp_CD_Release.TabIndex = 16;
+            this.dtp_CD_Release.Value = new System.DateTime(2017, 5, 21, 0, 0, 0, 0);
+            // 
+            // tb_CD_Genre
+            // 
+            this.tb_CD_Genre.Location = new System.Drawing.Point(236, 53);
+            this.tb_CD_Genre.Name = "tb_CD_Genre";
+            this.tb_CD_Genre.Size = new System.Drawing.Size(109, 20);
+            this.tb_CD_Genre.TabIndex = 14;
+            // 
+            // tb_CD_Titel
+            // 
+            this.tb_CD_Titel.Location = new System.Drawing.Point(51, 53);
+            this.tb_CD_Titel.Name = "tb_CD_Titel";
+            this.tb_CD_Titel.Size = new System.Drawing.Size(134, 20);
+            this.tb_CD_Titel.TabIndex = 13;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(15, 56);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(30, 13);
+            this.label48.TabIndex = 0;
+            this.label48.Text = "Titel:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(606, 56);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(40, 13);
+            this.label50.TabIndex = 4;
+            this.label50.Text = "Länge:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(15, 89);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(84, 13);
+            this.label51.TabIndex = 10;
+            this.label51.Text = "Veröfentlichung:";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(351, 56);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(49, 13);
+            this.label52.TabIndex = 1;
+            this.label52.Text = "Interpret:";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(191, 56);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(39, 13);
+            this.label54.TabIndex = 8;
+            this.label54.Text = "Genre:";
+            // 
             // tab_DVDs
             // 
             this.tab_DVDs.BackColor = System.Drawing.Color.Transparent;
-            this.tab_DVDs.BackgroundImage = global::Dateiverwaltung.Properties.Resources.Gray;
             this.tab_DVDs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tab_DVDs.Controls.Add(this.groupBox3);
             this.tab_DVDs.Location = new System.Drawing.Point(4, 22);
@@ -754,7 +940,7 @@
             this.groupBox3.Controls.Add(this.num_DVD_Length);
             this.groupBox3.Controls.Add(this.pictureBox3);
             this.groupBox3.Controls.Add(this.btn_Add_DVD);
-            this.groupBox3.Controls.Add(this.button6);
+            this.groupBox3.Controls.Add(this.btn_Edit_DVD);
             this.groupBox3.Controls.Add(this.cb_Search_DVD);
             this.groupBox3.Controls.Add(this.label29);
             this.groupBox3.Controls.Add(this.tb_DVD_Director);
@@ -773,19 +959,40 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = " Daten";
             // 
+            // cb_DVD_FSK
+            // 
+            this.cb_DVD_FSK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_DVD_FSK.FormattingEnabled = true;
+            this.cb_DVD_FSK.Items.AddRange(new object[] {
+            "0",
+            "6",
+            "12",
+            "16",
+            "18"});
+            this.cb_DVD_FSK.Location = new System.Drawing.Point(360, 87);
+            this.cb_DVD_FSK.Name = "cb_DVD_FSK";
+            this.cb_DVD_FSK.Size = new System.Drawing.Size(121, 21);
+            this.cb_DVD_FSK.TabIndex = 26;
+            // 
             // num_DVD_Length
             // 
             this.num_DVD_Length.Location = new System.Drawing.Point(654, 53);
+            this.num_DVD_Length.Maximum = new decimal(new int[] {
+            80000,
+            0,
+            0,
+            0});
             this.num_DVD_Length.Name = "num_DVD_Length";
             this.num_DVD_Length.Size = new System.Drawing.Size(98, 20);
             this.num_DVD_Length.TabIndex = 25;
-            this.num_DVD_Length.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = global::Dateiverwaltung.Properties.Resources.Movie;
             this.pictureBox3.Location = new System.Drawing.Point(763, 19);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(95, 118);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
             // 
@@ -799,15 +1006,16 @@
             this.btn_Add_DVD.UseVisualStyleBackColor = true;
             this.btn_Add_DVD.Click += new System.EventHandler(this.btn_Add_Media_Click);
             // 
-            // button6
+            // btn_Edit_DVD
             // 
-            this.button6.Location = new System.Drawing.Point(18, 113);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(351, 23);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "Bearbeiten";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.btn_Edit_Media_Click);
+            this.btn_Edit_DVD.Enabled = false;
+            this.btn_Edit_DVD.Location = new System.Drawing.Point(18, 113);
+            this.btn_Edit_DVD.Name = "btn_Edit_DVD";
+            this.btn_Edit_DVD.Size = new System.Drawing.Size(351, 23);
+            this.btn_Edit_DVD.TabIndex = 22;
+            this.btn_Edit_DVD.Text = "Bearbeiten";
+            this.btn_Edit_DVD.UseVisualStyleBackColor = true;
+            this.btn_Edit_DVD.Click += new System.EventHandler(this.btn_Edit_Media_Click);
             // 
             // cb_Search_DVD
             // 
@@ -845,9 +1053,11 @@
             // dtp_DVD_Release
             // 
             this.dtp_DVD_Release.Location = new System.Drawing.Point(105, 87);
+            this.dtp_DVD_Release.MaxDate = new System.DateTime(3100, 2, 1, 0, 0, 0, 0);
             this.dtp_DVD_Release.Name = "dtp_DVD_Release";
             this.dtp_DVD_Release.Size = new System.Drawing.Size(200, 20);
             this.dtp_DVD_Release.TabIndex = 16;
+            this.dtp_DVD_Release.Value = new System.DateTime(2017, 5, 21, 0, 0, 0, 0);
             // 
             // tb_DVD_Genre
             // 
@@ -910,7 +1120,6 @@
             // 
             // tab_BluRays
             // 
-            this.tab_BluRays.BackgroundImage = global::Dateiverwaltung.Properties.Resources.soft_blue;
             this.tab_BluRays.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tab_BluRays.Controls.Add(this.groupBox4);
             this.tab_BluRays.Location = new System.Drawing.Point(4, 22);
@@ -927,7 +1136,7 @@
             this.groupBox4.Controls.Add(this.num_BluRay_Length);
             this.groupBox4.Controls.Add(this.pictureBox4);
             this.groupBox4.Controls.Add(this.btn_Add_BluRay);
-            this.groupBox4.Controls.Add(this.button8);
+            this.groupBox4.Controls.Add(this.btn_Edit_BluRay);
             this.groupBox4.Controls.Add(this.cb_Search_BluRay);
             this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.tb_BluRay_Director);
@@ -946,9 +1155,29 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = " Daten";
             // 
+            // cb_BluRay_FSK
+            // 
+            this.cb_BluRay_FSK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_BluRay_FSK.FormattingEnabled = true;
+            this.cb_BluRay_FSK.Items.AddRange(new object[] {
+            "0",
+            "6",
+            "12",
+            "16",
+            "18"});
+            this.cb_BluRay_FSK.Location = new System.Drawing.Point(360, 86);
+            this.cb_BluRay_FSK.Name = "cb_BluRay_FSK";
+            this.cb_BluRay_FSK.Size = new System.Drawing.Size(121, 21);
+            this.cb_BluRay_FSK.TabIndex = 27;
+            // 
             // num_BluRay_Length
             // 
             this.num_BluRay_Length.Location = new System.Drawing.Point(654, 53);
+            this.num_BluRay_Length.Maximum = new decimal(new int[] {
+            80000,
+            0,
+            0,
+            0});
             this.num_BluRay_Length.Name = "num_BluRay_Length";
             this.num_BluRay_Length.Size = new System.Drawing.Size(98, 20);
             this.num_BluRay_Length.TabIndex = 26;
@@ -956,9 +1185,11 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Image = global::Dateiverwaltung.Properties.Resources.Movie;
             this.pictureBox4.Location = new System.Drawing.Point(763, 19);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(95, 118);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 25;
             this.pictureBox4.TabStop = false;
             // 
@@ -972,15 +1203,16 @@
             this.btn_Add_BluRay.UseVisualStyleBackColor = true;
             this.btn_Add_BluRay.Click += new System.EventHandler(this.btn_Add_Media_Click);
             // 
-            // button8
+            // btn_Edit_BluRay
             // 
-            this.button8.Location = new System.Drawing.Point(18, 113);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(351, 23);
-            this.button8.TabIndex = 22;
-            this.button8.Text = "Bearbeiten";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.btn_Edit_Media_Click);
+            this.btn_Edit_BluRay.Enabled = false;
+            this.btn_Edit_BluRay.Location = new System.Drawing.Point(18, 113);
+            this.btn_Edit_BluRay.Name = "btn_Edit_BluRay";
+            this.btn_Edit_BluRay.Size = new System.Drawing.Size(351, 23);
+            this.btn_Edit_BluRay.TabIndex = 22;
+            this.btn_Edit_BluRay.Text = "Bearbeiten";
+            this.btn_Edit_BluRay.UseVisualStyleBackColor = true;
+            this.btn_Edit_BluRay.Click += new System.EventHandler(this.btn_Edit_Media_Click);
             // 
             // cb_Search_BluRay
             // 
@@ -1007,7 +1239,6 @@
             this.label30.Size = new System.Drawing.Size(30, 13);
             this.label30.TabIndex = 20;
             this.label30.Text = "FSK:";
-            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // tb_BluRay_Director
             // 
@@ -1019,6 +1250,7 @@
             // dtp_BluRay_Release
             // 
             this.dtp_BluRay_Release.Location = new System.Drawing.Point(105, 87);
+            this.dtp_BluRay_Release.MaxDate = new System.DateTime(3100, 2, 1, 0, 0, 0, 0);
             this.dtp_BluRay_Release.Name = "dtp_BluRay_Release";
             this.dtp_BluRay_Release.Size = new System.Drawing.Size(200, 20);
             this.dtp_BluRay_Release.TabIndex = 16;
@@ -1082,197 +1314,6 @@
             this.label37.TabIndex = 8;
             this.label37.Text = "Genre:";
             // 
-            // tab_CDs
-            // 
-            this.tab_CDs.BackgroundImage = global::Dateiverwaltung.Properties.Resources.green;
-            this.tab_CDs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tab_CDs.Controls.Add(this.groupBox6);
-            this.tab_CDs.Location = new System.Drawing.Point(4, 22);
-            this.tab_CDs.Name = "tab_CDs";
-            this.tab_CDs.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_CDs.Size = new System.Drawing.Size(871, 222);
-            this.tab_CDs.TabIndex = 8;
-            this.tab_CDs.Text = "CD";
-            this.tab_CDs.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.num_CD_Length);
-            this.groupBox6.Controls.Add(this.pictureBox5);
-            this.groupBox6.Controls.Add(this.btn_Add_CD);
-            this.groupBox6.Controls.Add(this.button10);
-            this.groupBox6.Controls.Add(this.cb_Search_CD);
-            this.groupBox6.Controls.Add(this.tb_CD_Interpret);
-            this.groupBox6.Controls.Add(this.dtp_CD_Release);
-            this.groupBox6.Controls.Add(this.tb_CD_Genre);
-            this.groupBox6.Controls.Add(this.tb_CD_Titel);
-            this.groupBox6.Controls.Add(this.label48);
-            this.groupBox6.Controls.Add(this.label50);
-            this.groupBox6.Controls.Add(this.label51);
-            this.groupBox6.Controls.Add(this.label52);
-            this.groupBox6.Controls.Add(this.label54);
-            this.groupBox6.Location = new System.Drawing.Point(3, 6);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(868, 169);
-            this.groupBox6.TabIndex = 9;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = " Daten";
-            // 
-            // num_CD_Length
-            // 
-            this.num_CD_Length.Location = new System.Drawing.Point(652, 53);
-            this.num_CD_Length.Name = "num_CD_Length";
-            this.num_CD_Length.Size = new System.Drawing.Size(100, 20);
-            this.num_CD_Length.TabIndex = 26;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(763, 19);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(95, 118);
-            this.pictureBox5.TabIndex = 25;
-            this.pictureBox5.TabStop = false;
-            // 
-            // btn_Add_CD
-            // 
-            this.btn_Add_CD.Location = new System.Drawing.Point(375, 113);
-            this.btn_Add_CD.Name = "btn_Add_CD";
-            this.btn_Add_CD.Size = new System.Drawing.Size(377, 23);
-            this.btn_Add_CD.TabIndex = 23;
-            this.btn_Add_CD.Text = "Hinzufügen";
-            this.btn_Add_CD.UseVisualStyleBackColor = true;
-            this.btn_Add_CD.Click += new System.EventHandler(this.btn_Add_Media_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(18, 113);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(351, 23);
-            this.button10.TabIndex = 22;
-            this.button10.Text = "Bearbeiten";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.btn_Edit_Media_Click);
-            // 
-            // cb_Search_CD
-            // 
-            this.cb_Search_CD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cb_Search_CD.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_Search_CD.FormattingEnabled = true;
-            this.cb_Search_CD.Items.AddRange(new object[] {
-            "Hans",
-            "Hänsel",
-            "Peter",
-            "Robert",
-            "Herbert"});
-            this.cb_Search_CD.Location = new System.Drawing.Point(18, 19);
-            this.cb_Search_CD.Name = "cb_Search_CD";
-            this.cb_Search_CD.Size = new System.Drawing.Size(734, 21);
-            this.cb_Search_CD.TabIndex = 8;
-            this.cb_Search_CD.SelectedValueChanged += new System.EventHandler(this.searchComboBoxen_SelectedValueChanged);
-            // 
-            // tb_CD_Interpret
-            // 
-            this.tb_CD_Interpret.Location = new System.Drawing.Point(406, 53);
-            this.tb_CD_Interpret.Name = "tb_CD_Interpret";
-            this.tb_CD_Interpret.Size = new System.Drawing.Size(194, 20);
-            this.tb_CD_Interpret.TabIndex = 17;
-            // 
-            // dtp_CD_Release
-            // 
-            this.dtp_CD_Release.Location = new System.Drawing.Point(105, 87);
-            this.dtp_CD_Release.Name = "dtp_CD_Release";
-            this.dtp_CD_Release.Size = new System.Drawing.Size(200, 20);
-            this.dtp_CD_Release.TabIndex = 16;
-            // 
-            // tb_CD_Genre
-            // 
-            this.tb_CD_Genre.Location = new System.Drawing.Point(236, 53);
-            this.tb_CD_Genre.Name = "tb_CD_Genre";
-            this.tb_CD_Genre.Size = new System.Drawing.Size(109, 20);
-            this.tb_CD_Genre.TabIndex = 14;
-            // 
-            // tb_CD_Titel
-            // 
-            this.tb_CD_Titel.Location = new System.Drawing.Point(51, 53);
-            this.tb_CD_Titel.Name = "tb_CD_Titel";
-            this.tb_CD_Titel.Size = new System.Drawing.Size(134, 20);
-            this.tb_CD_Titel.TabIndex = 13;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(15, 56);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(30, 13);
-            this.label48.TabIndex = 0;
-            this.label48.Text = "Titel:";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(606, 56);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(40, 13);
-            this.label50.TabIndex = 4;
-            this.label50.Text = "Länge:";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(15, 89);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(84, 13);
-            this.label51.TabIndex = 10;
-            this.label51.Text = "Veröfentlichung:";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(351, 56);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(49, 13);
-            this.label52.TabIndex = 1;
-            this.label52.Text = "Interpret:";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(191, 56);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(39, 13);
-            this.label54.TabIndex = 8;
-            this.label54.Text = "Genre:";
-            // 
-            // cb_DVD_FSK
-            // 
-            this.cb_DVD_FSK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_DVD_FSK.FormattingEnabled = true;
-            this.cb_DVD_FSK.Items.AddRange(new object[] {
-            "0",
-            "6",
-            "12",
-            "16",
-            "18"});
-            this.cb_DVD_FSK.Location = new System.Drawing.Point(360, 87);
-            this.cb_DVD_FSK.Name = "cb_DVD_FSK";
-            this.cb_DVD_FSK.Size = new System.Drawing.Size(121, 21);
-            this.cb_DVD_FSK.TabIndex = 26;
-            // 
-            // cb_BluRay_FSK
-            // 
-            this.cb_BluRay_FSK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_BluRay_FSK.FormattingEnabled = true;
-            this.cb_BluRay_FSK.Items.AddRange(new object[] {
-            "0",
-            "6",
-            "12",
-            "16",
-            "18"});
-            this.cb_BluRay_FSK.Location = new System.Drawing.Point(360, 86);
-            this.cb_BluRay_FSK.Name = "cb_BluRay_FSK";
-            this.cb_BluRay_FSK.Size = new System.Drawing.Size(121, 21);
-            this.cb_BluRay_FSK.TabIndex = 27;
-            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1299,6 +1340,11 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_EBook_Pages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tab_CDs.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_CD_Length)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tab_DVDs.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -1309,11 +1355,6 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_BluRay_Length)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.tab_CDs.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_CD_Length)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1384,14 +1425,14 @@
         private System.Windows.Forms.ComboBox cb_Search_DVD;
         private System.Windows.Forms.Button btn_AddCostumer;
         private System.Windows.Forms.Button btn_Add_Book;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Edit_Book;
         private System.Windows.Forms.Button btn_Add_EBook;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_Edit_EBook;
         private System.Windows.Forms.Button btn_Add_DVD;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_Edit_DVD;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btn_Add_BluRay;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btn_Edit_BluRay;
         private System.Windows.Forms.ComboBox cb_Search_BluRay;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox tb_BluRay_Director;
@@ -1405,7 +1446,7 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btn_Add_CD;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btn_Edit_CD;
         private System.Windows.Forms.ComboBox cb_Search_CD;
         private System.Windows.Forms.TextBox tb_CD_Interpret;
         private System.Windows.Forms.DateTimePicker dtp_CD_Release;
