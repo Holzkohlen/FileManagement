@@ -159,7 +159,7 @@ namespace Dateiverwaltung
         #region Medien hinzufügen ButtonClick Handler
         private void btn_Add_Book_Click(object sender, EventArgs e)
         {
-            string[] sArray = { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, tb_Book_Seiten.Text, tb_Book_Release.Text };
+            string[] sArray = { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, nud_CD_Length.Text, dtp_CD_Release.Text };
             if (code.addMedia(sArray, 1))
             {
                 mainForm.updateMedienAnzeige();
@@ -171,7 +171,7 @@ namespace Dateiverwaltung
         }
         private void btn_Add_EBook_Click(object sender, EventArgs e)
         {
-            string[] sArray = { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, tb_EBook_Seiten.Text, tb_EBook_Release.Text };
+            string[] sArray = { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, nud_EBook_Seiten.Text, dtp_EBook_Release.Text };
             if (code.addMedia(sArray, 2))
             {
                 mainForm.updateMedienAnzeige();
@@ -183,7 +183,7 @@ namespace Dateiverwaltung
         }
         private void btn_Add_DVD_Click(object sender, EventArgs e)
         {
-            string[] sArray = { tb_DVD_Titel.Text, tb_DVD_Regisseur.Text, tb_DVD_Genre.Text, tb_DVD_Length.Text, tb_DVD_FSK.Text, tb_DVD_Release.Text };
+            string[] sArray = { tb_DVD_Titel.Text, tb_DVD_Regisseur.Text, tb_DVD_Genre.Text, nud_EBook_Seiten.Text, tb_DVD_FSK.Text, dtp_EBook_Release.Text };
             if (code.addMedia(sArray, 4))
             {
                 mainForm.updateMedienAnzeige();
@@ -195,7 +195,7 @@ namespace Dateiverwaltung
         }
         private void btn_Add_CD_Click(object sender, EventArgs e)
         {
-            string[] sArray = { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, tb_CD_Length.Text, tb_CD_Release.Text };
+            string[] sArray = { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, nud_CD_Length.Text, dtp_CD_Release.Text };
             if (code.addMedia(sArray, 3))
             {
                 mainForm.updateMedienAnzeige();
@@ -207,7 +207,7 @@ namespace Dateiverwaltung
         }
         private void btn_Add_BluRay_Click(object sender, EventArgs e)
         {
-            string[] sArray = { tb_BluRay_Titel.Text, tb_BluRay_Regisseur.Text, tb_BluRay_Genre.Text, tb_BluRay_Length.Text, tb_BluRay_FSK.Text, tb_BluRay_Release.Text };
+            string[] sArray = { tb_BluRay_Titel.Text, tb_BluRay_Regisseur.Text, tb_BluRay_Genre.Text, nud_BluRay_Length.Text, tb_BluRay_FSK.Text, dtp_BluRay_Release.Text };
             if (code.addMedia(sArray, 5))
             {
                 mainForm.updateMedienAnzeige();
@@ -228,9 +228,9 @@ namespace Dateiverwaltung
             }
             else
             {
-                this.Size = new System.Drawing.Size(this.Width, 174);
                 tabControl.Height = 174;
-            }
+                this.Size = new System.Drawing.Size(this.Width, 174);
+            } 
         }
 
         private void cb_WichMedia_SelectedIndexChanged(object sender, EventArgs e)
@@ -344,6 +344,21 @@ namespace Dateiverwaltung
         private void cb_LendSearch_SelectedValueChanged(object sender, EventArgs e)
         {
             
+
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_BluRay_FSK_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

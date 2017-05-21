@@ -113,6 +113,27 @@
   <ItemGroup>
     <None Include="Resources\door-exit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Light-Grey.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Books.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Books.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gray.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soft-blue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
