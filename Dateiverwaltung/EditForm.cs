@@ -150,7 +150,7 @@ namespace Dateiverwaltung
                 else
                 {
                     bool bTest = false;
-                    if (code.CustomerListe.Count != 0)
+                    if ((code.CustomerListe != null) && (code.CustomerListe.Count > 0))
                     {
                         foreach (Customer custtemp in code.CustomerListe) //Prüfung ob Kunde mit selbem Namen bereits existiert
                         {
