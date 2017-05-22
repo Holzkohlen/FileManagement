@@ -37,6 +37,10 @@
             this.btn_Borrow = new System.Windows.Forms.Button();
             this.btn_return = new System.Windows.Forms.Button();
             this.dgv_Borrowed = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medium = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tb_Ort = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -134,10 +138,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medium = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tab_Customers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Borrowed)).BeginInit();
@@ -268,6 +268,33 @@
             this.dgv_Borrowed.Name = "dgv_Borrowed";
             this.dgv_Borrowed.Size = new System.Drawing.Size(467, 124);
             this.dgv_Borrowed.TabIndex = 3;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 43;
+            // 
+            // Titel
+            // 
+            this.Titel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Titel.HeaderText = "Titel";
+            this.Titel.Name = "Titel";
+            // 
+            // Medium
+            // 
+            this.Medium.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Medium.HeaderText = "Medium";
+            this.Medium.Name = "Medium";
+            this.Medium.Width = 69;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.HeaderText = "Ausgeliehen";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 90;
             // 
             // groupBox1
             // 
@@ -542,9 +569,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(15, 89);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 13);
+            this.label11.Size = new System.Drawing.Size(87, 13);
             this.label11.TabIndex = 10;
-            this.label11.Text = "Veröfentlichung:";
+            this.label11.Text = "Veröffentlichung:";
             // 
             // label9
             // 
@@ -712,9 +739,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(15, 89);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(84, 13);
+            this.label16.Size = new System.Drawing.Size(87, 13);
             this.label16.TabIndex = 10;
-            this.label16.Text = "Veröfentlichung:";
+            this.label16.Text = "Veröffentlichung:";
             // 
             // label17
             // 
@@ -882,9 +909,9 @@
             this.label51.AutoSize = true;
             this.label51.Location = new System.Drawing.Point(15, 89);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(84, 13);
+            this.label51.Size = new System.Drawing.Size(87, 13);
             this.label51.TabIndex = 10;
-            this.label51.Text = "Veröfentlichung:";
+            this.label51.Text = "Veröffentlichung:";
             // 
             // label52
             // 
@@ -1079,9 +1106,9 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(15, 89);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(84, 13);
+            this.label24.Size = new System.Drawing.Size(87, 13);
             this.label24.TabIndex = 10;
-            this.label24.Text = "Veröfentlichung:";
+            this.label24.Text = "Veröffentlichung:";
             // 
             // label25
             // 
@@ -1275,9 +1302,9 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(15, 89);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(84, 13);
+            this.label34.Size = new System.Drawing.Size(87, 13);
             this.label34.TabIndex = 10;
-            this.label34.Text = "Veröfentlichung:";
+            this.label34.Text = "Veröffentlichung:";
             // 
             // label35
             // 
@@ -1296,33 +1323,6 @@
             this.label37.Size = new System.Drawing.Size(39, 13);
             this.label37.TabIndex = 8;
             this.label37.Text = "Genre:";
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 43;
-            // 
-            // Titel
-            // 
-            this.Titel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Titel.HeaderText = "Titel";
-            this.Titel.Name = "Titel";
-            // 
-            // Medium
-            // 
-            this.Medium.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Medium.HeaderText = "Medium";
-            this.Medium.Name = "Medium";
-            this.Medium.Width = 69;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column4.HeaderText = "Ausgeliehen";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 90;
             // 
             // EditForm
             // 

@@ -13,7 +13,6 @@ namespace Dateiverwaltung
     public partial class EditForm : Form
     {
         Backend code;
-        bool bEditMode;  // <<== LÖSCHEN?!?
         Form1 mainForm;
         string sSearchtext;
         int iCustomerIndex;
@@ -26,7 +25,6 @@ namespace Dateiverwaltung
                 InitializeComponent();
                 sSearchtext = "Suchen...";
                 this.code = code;
-                bEditMode = false;
                 this.mainForm = mainForm;
                 fillComboBox();
 
@@ -100,7 +98,6 @@ namespace Dateiverwaltung
                 offWrite(false);
                 btn_AddCostumer.Enabled = true;
                 btn_AddCostumer.Text = "Löschen";
-                bEditMode = true;
             }
             else
             {
@@ -108,7 +105,6 @@ namespace Dateiverwaltung
                 btn_EditCostumer.Text = "Bearbeiten";
                 offWrite(true);
                 btn_AddCostumer.Enabled = true;
-                bEditMode = false;
                 tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
 
                 code.CustomerListe[iCustomerIndex].Nachname = tb_Name.Text;
@@ -129,8 +125,6 @@ namespace Dateiverwaltung
                 btn_AddCostumer.Text = "Speichern";
                 offWrite(false);
                 btn_EditCostumer.Enabled = false;
-                bEditMode = true;
-
             }
             else if (btn_AddCostumer.Text == "Löschen")
             {
@@ -156,11 +150,14 @@ namespace Dateiverwaltung
                 else
                 {
                     bool bTest = false;
-                    foreach(Customer custtemp in code.CustomerListe) //Prüfung ob Kunde mit selbem Namen bereits existiert
+                    if (code.CustomerListe.Count != 0)
                     {
-                        if((custtemp.Nachname == tb_Name.Text) && (custtemp.Vorname == tb_Vorname.Text))
+                        foreach (Customer custtemp in code.CustomerListe) //Prüfung ob Kunde mit selbem Namen bereits existiert
                         {
-                            bTest = true;
+                            if ((custtemp.Nachname == tb_Name.Text) && (custtemp.Vorname == tb_Vorname.Text))
+                            {
+                                bTest = true;
+                            }
                         }
                     }
                     if (bTest)
@@ -172,7 +169,6 @@ namespace Dateiverwaltung
                         btn_AddCostumer.Text = "Hinzufügen";
                         offWrite(true);
                         btn_EditCostumer.Enabled = true;
-                        bEditMode = false;
                         code.addCustomer(tb_Vorname.Text, tb_Name.Text, tb_Strasse.Text, tb_PLZ.Text, tb_Ort.Text);
                         clearTextboxen();
                         tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
