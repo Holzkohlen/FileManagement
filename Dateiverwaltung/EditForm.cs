@@ -84,7 +84,7 @@ namespace Dateiverwaltung
 
         private void clearTextboxen() //Löscht Inhalt aller Textboxen
         {
-            TextBox[] tbs = { tb_Name, tb_Vorname, tb_PLZ, tb_Strasse, tb_Ort, tb_Book_Autor, tb_BluRay_Titel, tb_Book_Genre, tb_EBook_Autor, tb_EBook_Genre, tb_EBook_Titel, tb_CD_Genre, tb_CD_Interpret, tb_CD_Titel, tb_DVD_Director, tb_DVD_Genre, tb_DVD_Titel, tb_BluRay_Director, tb_BluRay_Genre, tb_BluRay_Titel };
+            TextBox[] tbs = { tb_Name, tb_Vorname, tb_PLZ, tb_Strasse, tb_Ort, tb_Book_Autor, tb_Book_Titel, tb_Book_Genre, tb_EBook_Autor, tb_EBook_Genre, tb_EBook_Titel, tb_CD_Genre, tb_CD_Interpret, tb_CD_Titel, tb_DVD_Director, tb_DVD_Genre, tb_DVD_Titel, tb_BluRay_Director, tb_BluRay_Genre, tb_BluRay_Titel };
             for (int i = 0; i < tbs.Length; i++)
             {
                 tbs[i].Text = "";
@@ -180,7 +180,6 @@ namespace Dateiverwaltung
 
         private void lockAllTabs(bool bModus)
         {
-
             //Ganzer Tab geht dann nicht
             foreach (TabPage tab in tabControl.TabPages)
             {
@@ -189,11 +188,6 @@ namespace Dateiverwaltung
             tabControl.TabPages[tabControl.SelectedIndex].Enabled = !bModus;
         }
 
-        static void Rezise()
-        {
-
-        } // <<== LÖSCHEN
-
         private void btn_Add_Media_Click(object sender, EventArgs e) //Medien hinzufügen Button Event Handler
         {
             Button b = (Button)sender;
@@ -201,7 +195,7 @@ namespace Dateiverwaltung
             bool bCheck = false;
             if (b.Text == "Löschen")
             {
-                var closeMsg = MessageBox.Show("Sind Sie sicher, dass Sie '" + code.MedienListe[iMedienIndex] + "' löschen wollen?", "Warnung", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var closeMsg = MessageBox.Show("Sind Sie sicher, dass Sie '" + code.MedienListe[iMedienIndex].Titel + "' löschen wollen?", "Warnung", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (closeMsg == DialogResult.Yes) //LÖSCHEN
                 {
@@ -214,6 +208,8 @@ namespace Dateiverwaltung
                     {
                         btns[i].Text = "Hinzufügen";
                     }
+                    lockAllTabs(true);
+                    tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
                 }
             }
             else
