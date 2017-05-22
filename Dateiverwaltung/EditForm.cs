@@ -142,7 +142,7 @@ namespace Dateiverwaltung
                 }
             }
             else  //Speichern
-            {                
+            {
                 if ((tb_Vorname.Text == "") || (tb_Name.Text == "")) //Namensfelder sind Pflicht
                 {
                     MessageBox.Show("Bitte Namen ausfüllen", "Fehler");
@@ -234,7 +234,7 @@ namespace Dateiverwaltung
                 switch (tabControl.SelectedIndex)
                 {
                     case 1: //BOOK
-                        if ((tb_Book_Titel.Text == "") && (checkForExistingMedia(tb_Book_Titel.Text))) { bCheck = false; }
+                        if ((tb_Book_Titel.Text == "") || (checkForExistingMedia(tb_Book_Titel.Text))) { bCheck = false; }
                         else
                         {
                             sArray = new string[5] { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, num_Book_Pages.Text, dtp_Book_Release.Value.ToString() };
@@ -242,7 +242,7 @@ namespace Dateiverwaltung
                         }
                         break;
                     case 2: //EBOOK
-                        if ((tb_EBook_Titel.Text == "") && (checkForExistingMedia(tb_EBook_Titel.Text))) { bCheck = false; }
+                        if ((tb_EBook_Titel.Text == "") || (checkForExistingMedia(tb_EBook_Titel.Text))) { bCheck = false; }
                         else
                         {
                             sArray = new string[5] { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, num_EBook_Pages.Value.ToString(), dtp_EBook_Release.Value.ToString() };
@@ -250,7 +250,7 @@ namespace Dateiverwaltung
                         }
                         break;
                     case 3: //CD
-                        if ((tb_CD_Titel.Text == "") && (checkForExistingMedia(tb_CD_Titel.Text))) { bCheck = false; }
+                        if ((tb_CD_Titel.Text == "") || (checkForExistingMedia(tb_CD_Titel.Text))) { bCheck = false; }
                         else
                         {
                             sArray = new string[5] { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, num_CD_Length.Value.ToString(), dtp_CD_Release.Value.ToString() };
@@ -258,7 +258,7 @@ namespace Dateiverwaltung
                         }
                         break;
                     case 4: //DVD
-                        if ((tb_DVD_Titel.Text == "") && (checkForExistingMedia(tb_DVD_Titel.Text))){ bCheck = false; }
+                        if ((tb_DVD_Titel.Text == "") || (checkForExistingMedia(tb_DVD_Titel.Text))) { bCheck = false; }
                         else
                         {
                             sArray = new string[6] { tb_DVD_Titel.Text, tb_DVD_Director.Text, tb_DVD_Genre.Text, num_DVD_Length.Text, cb_DVD_FSK.Text, dtp_DVD_Release.Value.ToString() };
@@ -266,7 +266,7 @@ namespace Dateiverwaltung
                         }
                         break;
                     case 5: //BLURAY
-                        if ((tb_BluRay_Titel.Text == "") && (checkForExistingMedia(tb_BluRay_Titel.Text))){ bCheck = false; }
+                        if ((tb_BluRay_Titel.Text == "") || (checkForExistingMedia(tb_BluRay_Titel.Text))) { bCheck = false; }
                         else
                         {
                             sArray = new string[6] { tb_BluRay_Titel.Text, tb_BluRay_Director.Text, tb_BluRay_Genre.Text, num_BluRay_Length.Value.ToString(), cb_BluRay_FSK.Text, dtp_BluRay_Release.Text };
@@ -288,9 +288,9 @@ namespace Dateiverwaltung
 
         private bool checkForExistingMedia(string sTitel)
         {
-            foreach(Media temp in code.MedienListe)
+            foreach (Media temp in code.MedienListe)
             {
-                if(temp.Titel == sTitel)
+                if (temp.Titel == sTitel)
                 {
                     return true;
                 }
@@ -397,58 +397,7 @@ namespace Dateiverwaltung
 
         private void cb_WichMedia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cb = (ComboBox)sender;
-            string type = (string)cb.SelectedItem;
-            cb_LendSearch.Enabled = true;
-            cb_LendSearch.Items.Clear();
-            switch (type)
-            {
-                case "Buch":
-                    foreach (Media temp in code.MedienListe)
-                    {
-                        if (temp.Klasse.Equals("Book") && (!temp.Ausgeliehen))
-                        {
-                            cb_LendSearch.Items.Add(temp.Titel);
-                        }
-                    }
-                    break;
-                case "EBook":
-                    foreach (Media temp in code.MedienListe)
-                    {
-                        if (temp.Klasse.Equals("EBook") && (!temp.Ausgeliehen))
-                        {
-                            cb_LendSearch.Items.Add(temp.Titel);
-                        }
-                    }
-                    break;
-                case "CD":
-                    foreach (Media temp in code.MedienListe)
-                    {
-                        if (temp.Klasse.Equals("CD") && (!temp.Ausgeliehen))
-                        {
-                            cb_LendSearch.Items.Add(temp.Titel);
-                        }
-                    }
-                    break;
-                case "DVD":
-                    foreach (Media temp in code.MedienListe)
-                    {
-                        if (temp.Klasse.Equals("DVD") && (!temp.Ausgeliehen))
-                        {
-                            cb_LendSearch.Items.Add(temp.Titel);
-                        }
-                    }
-                    break;
-                case "BluRay":
-                    foreach (Media temp in code.MedienListe)
-                    {
-                        if (temp.Klasse.Equals("BluRay") && (!temp.Ausgeliehen))
-                        {
-                            cb_LendSearch.Items.Add(temp.Titel);
-                        }
-                    }
-                    break;
-            }
+            fillLendComboBox();
         }
 
         private void cb_LendSearch_Click(object sender, EventArgs e)
@@ -470,7 +419,7 @@ namespace Dateiverwaltung
             for (int i = 0; i < code.CustomerListe.Count; i++)
             {
                 Customer temp = code.CustomerListe[i];
-                if ((temp.Nachname.Equals(s[0])) && (temp.Vorname.Equals(s[1]))) //Problem wenn >1 Kunde mit dem gleichen Namen!!!!
+                if ((temp.Nachname.Equals(s[0])) && (temp.Vorname.Equals(s[1])))
                 {
                     iCustomerIndex = i;
                     tb_Name.Text = temp.Nachname;
@@ -561,57 +510,115 @@ namespace Dateiverwaltung
             catch (Exception ex) { MessageBox.Show(ex.ToString(), "ERROR"); }
         }
 
+        private void fillLendComboBox()
+        {
+            cb_LendSearch.Enabled = true;
+            cb_LendSearch.Items.Clear();
+            string type = (string)cb_WichMedia.SelectedItem;
+            switch (type)
+            {
+                case "Buch":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("Book") && (!temp.Ausgeliehen))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+                case "EBook":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("EBook") && (!temp.Ausgeliehen))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+                case "CD":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("CD") && (!temp.Ausgeliehen))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+                case "DVD":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("DVD") && (!temp.Ausgeliehen))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+                case "BluRay":
+                    foreach (Media temp in code.MedienListe)
+                    {
+                        if (temp.Klasse.Equals("BluRay") && (!temp.Ausgeliehen))
+                        {
+                            cb_LendSearch.Items.Add(temp.Titel);
+                        }
+                    }
+                    break;
+            }
+        }
+
         private void btn_Borrow_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < code.MedienListe.Count; i++)
+            if (dgv_Borrowed.Rows.Count >= 5)
             {
-                if (code.MedienListe[i].Titel.Equals(cb_LendSearch.Text))
+                MessageBox.Show("Ein Kunde darf max. 5 Medien gleichzeitig ausleihen!", "Fehler");
+            }
+            else
+            {
+                dgv_Borrowed.Rows.Clear();
+                for (int i = 0; i < code.MedienListe.Count; i++)
                 {
-                    code.MedienListe[i].IDCustomer = code.CustomerListe[iCustomerIndex].ID;
-                    code.MedienListe[i].Ausgeliehen = true;
-                    code.MedienListe[i].Ausleihdatum = DateTime.Today;
-                    dgv_Borrowed.Rows.Clear();
-                    foreach (Media tempMedia in code.MedienListe)
+                    if (code.MedienListe[i].Titel.Equals(cb_LendSearch.Text))
                     {
-                        if (tempMedia.IDCustomer == code.CustomerListe[iCustomerIndex].ID)
+                        code.MedienListe[i].IDCustomer = code.CustomerListe[iCustomerIndex].ID;
+                        code.MedienListe[i].Ausgeliehen = true;
+                        code.MedienListe[i].Ausleihdatum = DateTime.Today;
+                        foreach (Media tempMedia in code.MedienListe)
                         {
-                            dgv_Borrowed.Rows.Clear();
-                                    string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse, tempMedia.Release.ToString("dd. MMMM yyyy") };
-                                    dgv_Borrowed.Rows.Add(sArray);
-
+                            if (tempMedia.IDCustomer == code.CustomerListe[iCustomerIndex].ID)
+                            {
+                                string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse, tempMedia.Release.ToString("dd. MMMM yyyy") };
+                                dgv_Borrowed.Rows.Add(sArray);
                             }
                             mainForm.printMedia();
                         }
+                        fillLendComboBox();
                     }
                 }
-            
+            }
         }
 
         private void btn_return_Click(object sender, EventArgs e)
         {
             int iRow = dgv_Borrowed.CurrentCell.RowIndex;
             int iMediaID = Int32.Parse(dgv_Borrowed.Rows[iRow].Cells[0].Value.ToString());
-            foreach(Media temp in code.MedienListe)
+            foreach (Media temp in code.MedienListe)
             {
-                if(temp.ID == iMediaID)
+                if (temp.ID == iMediaID)
                 {
                     temp.IDCustomer = 0;
                     temp.Ausgeliehen = false;
                     temp.Ausleihdatum = DateTime.Today;
-
-                    dgv_Borrowed.Rows.Clear();
-                    foreach (Media tempMedia in code.MedienListe)
-                    {                        
-                        if (tempMedia.IDCustomer == temp.ID)
-                        {
-                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse, tempMedia.Release.ToString("dd. MMMM yyyy") };
-                            dgv_Borrowed.Rows.Add(sArray);
-                            mainForm.printMedia();
-                        }
-                    }
                 }
             }
-            
+            dgv_Borrowed.Rows.Clear();
+            foreach (Media tempMedia in code.MedienListe)
+            {
+                if (tempMedia.IDCustomer == code.CustomerListe[iCustomerIndex].ID)
+                {
+                    string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse, tempMedia.Release.ToString("dd. MMMM yyyy") };
+                    dgv_Borrowed.Rows.Add(sArray);
+                    mainForm.printMedia();
+                }
+            }
         }
     }
 }

@@ -258,6 +258,8 @@
             // 
             // dgv_Borrowed
             // 
+            this.dgv_Borrowed.AllowUserToAddRows = false;
+            this.dgv_Borrowed.AllowUserToDeleteRows = false;
             this.dgv_Borrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Borrowed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
