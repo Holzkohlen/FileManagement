@@ -37,9 +37,6 @@
             this.btn_Borrow = new System.Windows.Forms.Button();
             this.btn_return = new System.Windows.Forms.Button();
             this.dgv_Borrowed = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medium = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tb_Ort = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -137,6 +134,10 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medium = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tab_Customers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Borrowed)).BeginInit();
@@ -253,6 +254,7 @@
             this.btn_return.TabIndex = 4;
             this.btn_return.Text = "Zurückgeben";
             this.btn_return.UseVisualStyleBackColor = true;
+            this.btn_return.Click += new System.EventHandler(this.btn_return_Click);
             // 
             // dgv_Borrowed
             // 
@@ -260,30 +262,12 @@
             this.dgv_Borrowed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Titel,
-            this.Medium});
+            this.Medium,
+            this.Column4});
             this.dgv_Borrowed.Location = new System.Drawing.Point(391, 35);
             this.dgv_Borrowed.Name = "dgv_Borrowed";
             this.dgv_Borrowed.Size = new System.Drawing.Size(467, 124);
             this.dgv_Borrowed.TabIndex = 3;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 43;
-            // 
-            // Titel
-            // 
-            this.Titel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Titel.HeaderText = "Titel";
-            this.Titel.Name = "Titel";
-            // 
-            // Medium
-            // 
-            this.Medium.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Medium.HeaderText = "Medium";
-            this.Medium.Name = "Medium";
             // 
             // groupBox1
             // 
@@ -1313,6 +1297,33 @@
             this.label37.TabIndex = 8;
             this.label37.Text = "Genre:";
             // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 43;
+            // 
+            // Titel
+            // 
+            this.Titel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Titel.HeaderText = "Titel";
+            this.Titel.Name = "Titel";
+            // 
+            // Medium
+            // 
+            this.Medium.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Medium.HeaderText = "Medium";
+            this.Medium.Name = "Medium";
+            this.Medium.Width = 69;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.HeaderText = "Ausgeliehen";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 90;
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1384,9 +1395,6 @@
         private System.Windows.Forms.TextBox tb_Name;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Titel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Medium;
         private System.Windows.Forms.GroupBox Daten;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
@@ -1470,5 +1478,9 @@
         private System.Windows.Forms.NumericUpDown num_CD_Length;
         private System.Windows.Forms.ComboBox cb_DVD_FSK;
         private System.Windows.Forms.ComboBox cb_BluRay_FSK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Titel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Medium;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

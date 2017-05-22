@@ -430,11 +430,11 @@ namespace Dateiverwaltung
                     tb_PLZ.Text = temp.PLZ;
                     tb_Ort.Text = temp.Ort;
                     btn_EditCostumer.Enabled = true;
+                    dgv_Borrowed.Rows.Clear();
                     foreach (Media tempMedia in code.MedienListe)
                     {
                         if (tempMedia.IDCustomer == temp.ID)
                         {
-                            dgv_Borrowed.Rows.Clear();
                             string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse };
                             dgv_Borrowed.Rows.Add(sArray);
                         }
@@ -532,6 +532,32 @@ namespace Dateiverwaltung
                     }
                 }
             }
+        }
+
+        private void btn_return_Click(object sender, EventArgs e)
+        {
+            int iRow = dgv_Borrowed.CurrentCell.RowIndex;
+            int iMediaID = Int32.Parse(dgv_Borrowed.Rows[iRow].Cells[0].Value.ToString());
+            foreach(Media temp in code.MedienListe)
+            {
+                if(temp.ID == iMediaID)
+                {
+                    temp.IDCustomer = 0;
+                    temp.Ausgeliehen = false;
+                    temp.Ausleihdatum = DateTime.Today;
+
+                    dgv_Borrowed.Rows.Clear();
+                    foreach (Media tempMedia in code.MedienListe)
+                    {                        
+                        if (tempMedia.IDCustomer == temp.ID)
+                        {
+                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse };
+                            dgv_Borrowed.Rows.Add(sArray);
+                        }
+                    }
+                }
+            }
+            
         }
     }
 }
