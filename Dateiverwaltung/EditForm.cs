@@ -168,7 +168,7 @@ namespace Dateiverwaltung
                     {
                         btn_AddCostumer.Text = "Hinzufügen";
                         offWrite(true);
-                        btn_EditCostumer.Enabled = true;
+                        //btn_EditCostumer.Enabled = true;
                         code.addCustomer(tb_Vorname.Text, tb_Name.Text, tb_Strasse.Text, tb_PLZ.Text, tb_Ort.Text);
                         clearTextboxen();
                         tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
