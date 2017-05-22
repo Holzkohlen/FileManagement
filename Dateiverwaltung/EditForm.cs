@@ -120,7 +120,7 @@ namespace Dateiverwaltung
             }
         }
 
-        private void btn_add_Click(object sender, EventArgs e) //Kunde hinzufügen/bearbeiten/löschen
+        private void btn_add_Click(object sender, EventArgs e) //Kunde hinzufügen/bearbeiten/löschend
         {
             if (btn_AddCostumer.Text == "Hinzufügen") //Hinzufügen
             {
@@ -148,17 +148,38 @@ namespace Dateiverwaltung
                 }
             }
             else  //Speichern
-            {
-                btn_AddCostumer.Text = "Hinzufügen";
-                offWrite(true);
-                btn_EditCostumer.Enabled = true;
-                bEditMode = false;
-
-                code.addCustomer(tb_Vorname.Text, tb_Name.Text, tb_Strasse.Text, tb_PLZ.Text, tb_Ort.Text);
-                clearTextboxen();
-                tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
-                mainForm.addCustomer();
-                fillComboBox();
+            {                
+                if ((tb_Vorname.Text == "") || (tb_Name.Text == "")) //Namensfelder sind Pflicht
+                {
+                    MessageBox.Show("Bitte Namen ausfüllen", "Fehler");
+                }
+                else
+                {
+                    bool bTest = false;
+                    foreach(Customer custtemp in code.CustomerListe) //Prüfung ob Kunde mit selbem Namen bereits existiert
+                    {
+                        if((custtemp.Nachname == tb_Name.Text) && (custtemp.Vorname == tb_Vorname.Text))
+                        {
+                            bTest = true;
+                        }
+                    }
+                    if (bTest)
+                    {
+                        MessageBox.Show("Kunde mit dem selben Namen existiert bereits", "Fehler");
+                    }
+                    else
+                    {
+                        btn_AddCostumer.Text = "Hinzufügen";
+                        offWrite(true);
+                        btn_EditCostumer.Enabled = true;
+                        bEditMode = false;
+                        code.addCustomer(tb_Vorname.Text, tb_Name.Text, tb_Strasse.Text, tb_PLZ.Text, tb_Ort.Text);
+                        clearTextboxen();
+                        tabControl.TabPages[tabControl.SelectedIndex].Enabled = true;
+                        mainForm.addCustomer();
+                        fillComboBox();
+                    }
+                }
             }
         }
 
@@ -217,24 +238,44 @@ namespace Dateiverwaltung
                 switch (tabControl.SelectedIndex)
                 {
                     case 1: //BOOK
-                        sArray = new string[5] { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, num_Book_Pages.Text, dtp_Book_Release.Value.ToString() };
-                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        if ((tb_Book_Titel.Text == "") && (checkForExistingMedia(tb_Book_Titel.Text))) { bCheck = false; }
+                        else
+                        {
+                            sArray = new string[5] { tb_Book_Titel.Text, tb_Book_Autor.Text, tb_Book_Genre.Text, num_Book_Pages.Text, dtp_Book_Release.Value.ToString() };
+                            bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        }
                         break;
                     case 2: //EBOOK
-                        sArray = new string[5] { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, num_EBook_Pages.Value.ToString(), dtp_EBook_Release.Value.ToString() };
-                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        if ((tb_EBook_Titel.Text == "") && (checkForExistingMedia(tb_EBook_Titel.Text))) { bCheck = false; }
+                        else
+                        {
+                            sArray = new string[5] { tb_EBook_Titel.Text, tb_EBook_Autor.Text, tb_EBook_Genre.Text, num_EBook_Pages.Value.ToString(), dtp_EBook_Release.Value.ToString() };
+                            bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        }
                         break;
                     case 3: //CD
-                        sArray = new string[5] { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, num_CD_Length.Value.ToString(), dtp_CD_Release.Value.ToString() };
-                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        if ((tb_CD_Titel.Text == "") && (checkForExistingMedia(tb_CD_Titel.Text))) { bCheck = false; }
+                        else
+                        {
+                            sArray = new string[5] { tb_CD_Titel.Text, tb_CD_Interpret.Text, tb_CD_Genre.Text, num_CD_Length.Value.ToString(), dtp_CD_Release.Value.ToString() };
+                            bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        }
                         break;
                     case 4: //DVD
-                        sArray = new string[6] { tb_DVD_Titel.Text, tb_DVD_Director.Text, tb_DVD_Genre.Text, num_DVD_Length.Text, cb_DVD_FSK.Text, dtp_DVD_Release.Value.ToString() };
-                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        if ((tb_DVD_Titel.Text == "") && (checkForExistingMedia(tb_DVD_Titel.Text))){ bCheck = false; }
+                        else
+                        {
+                            sArray = new string[6] { tb_DVD_Titel.Text, tb_DVD_Director.Text, tb_DVD_Genre.Text, num_DVD_Length.Text, cb_DVD_FSK.Text, dtp_DVD_Release.Value.ToString() };
+                            bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        }
                         break;
                     case 5: //BLURAY
-                        sArray = new string[6] { tb_BluRay_Titel.Text, tb_BluRay_Director.Text, tb_BluRay_Genre.Text, num_BluRay_Length.Value.ToString(), cb_BluRay_FSK.Text, dtp_BluRay_Release.Text };
-                        bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        if ((tb_BluRay_Titel.Text == "") && (checkForExistingMedia(tb_BluRay_Titel.Text))){ bCheck = false; }
+                        else
+                        {
+                            sArray = new string[6] { tb_BluRay_Titel.Text, tb_BluRay_Director.Text, tb_BluRay_Genre.Text, num_BluRay_Length.Value.ToString(), cb_BluRay_FSK.Text, dtp_BluRay_Release.Text };
+                            bCheck = code.addMedia(sArray, tabControl.SelectedIndex);
+                        }
                         break;
                 }
                 if (bCheck)
@@ -247,6 +288,18 @@ namespace Dateiverwaltung
                     MessageBox.Show("Medium konnte nicht erfolgreich erstellt werden.\n Bitte überprüfen Sie Ihre Angaben", "Fehler");
                 }
             }
+        }
+
+        private bool checkForExistingMedia(string sTitel)
+        {
+            foreach(Media temp in code.MedienListe)
+            {
+                if(temp.Titel == sTitel)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void btn_Edit_Media_Click(object sender, EventArgs e) //EventHandler fürs Bearbeiten von Medien-Objekten
@@ -435,7 +488,7 @@ namespace Dateiverwaltung
                     {
                         if (tempMedia.IDCustomer == temp.ID)
                         {
-                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse };
+                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse, tempMedia.Release.ToString("dd. MMMM yyyy") };
                             dgv_Borrowed.Rows.Add(sArray);
                         }
                     }
@@ -521,17 +574,21 @@ namespace Dateiverwaltung
                     code.MedienListe[i].IDCustomer = code.CustomerListe[iCustomerIndex].ID;
                     code.MedienListe[i].Ausgeliehen = true;
                     code.MedienListe[i].Ausleihdatum = DateTime.Today;
+                    dgv_Borrowed.Rows.Clear();
                     foreach (Media tempMedia in code.MedienListe)
                     {
                         if (tempMedia.IDCustomer == code.CustomerListe[iCustomerIndex].ID)
                         {
                             dgv_Borrowed.Rows.Clear();
-                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse };
-                            dgv_Borrowed.Rows.Add(sArray);
+                                    string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse, tempMedia.Release.ToString("dd. MMMM yyyy") };
+                                    dgv_Borrowed.Rows.Add(sArray);
+
+                            }
+                            mainForm.printMedia();
                         }
                     }
                 }
-            }
+            
         }
 
         private void btn_return_Click(object sender, EventArgs e)
@@ -551,8 +608,9 @@ namespace Dateiverwaltung
                     {                        
                         if (tempMedia.IDCustomer == temp.ID)
                         {
-                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse };
+                            string[] sArray = { tempMedia.ID.ToString(), tempMedia.Titel, tempMedia.Klasse, tempMedia.Release.ToString("dd. MMMM yyyy") };
                             dgv_Borrowed.Rows.Add(sArray);
+                            mainForm.printMedia();
                         }
                     }
                 }

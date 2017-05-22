@@ -88,33 +88,39 @@ namespace Dateiverwaltung
             dgv_DVDs.Rows.Clear();
             dgv_CDs.Rows.Clear();
             string[] row;
+            string sVerfuegbar = "Ja";
             for (int i = 0; i < code.MedienListe.Count; i++)
             {
                 switch (code.MedienListe[i].Klasse)
                 {
                     case "Book":
                         Book tempBook = (Book)code.MedienListe[i];
-                        row = new string[5] { Convert.ToString(tempBook.ID), tempBook.Titel, tempBook.Autor, tempBook.Genre, tempBook.Release.ToString(sDatumsformat) };
+                        sVerfuegbar = (tempBook.Ausgeliehen == true) ? "Nein" : "Ja";
+                        row = new string[6] { Convert.ToString(tempBook.ID), tempBook.Titel, tempBook.Autor, tempBook.Genre, tempBook.Release.ToString(sDatumsformat), sVerfuegbar };
                         dgv_Books.Rows.Add(row);
                         break;
                     case "EBook":
                         EBook tempEBook = (EBook)code.MedienListe[i];
-                        row = new string[5] { Convert.ToString(tempEBook.ID), tempEBook.Titel, tempEBook.Autor, tempEBook.Genre, tempEBook.Release.ToString(sDatumsformat) };
+                        sVerfuegbar = (tempEBook.Ausgeliehen == true) ? "Nein" : "Ja";
+                        row = new string[6] { Convert.ToString(tempEBook.ID), tempEBook.Titel, tempEBook.Autor, tempEBook.Genre, tempEBook.Release.ToString(sDatumsformat), sVerfuegbar };
                         dgv_EBooks.Rows.Add(row);
                         break;
                     case "CD": //ID Titel Interpret Genre Release
                         CD tempCD = (CD)code.MedienListe[i];
-                        row = new string[5] { Convert.ToString(tempCD.ID), tempCD.Titel, tempCD.Interpret, tempCD.Genre, tempCD.Release.ToString(sDatumsformat) };
+                        sVerfuegbar = (tempCD.Ausgeliehen == true) ? "Nein" : "Ja";
+                        row = new string[6] { Convert.ToString(tempCD.ID), tempCD.Titel, tempCD.Interpret, tempCD.Genre, tempCD.Release.ToString(sDatumsformat), sVerfuegbar };
                         dgv_CDs.Rows.Add(row);
                         break;
                     case "DVD": //ID Titel Regisseur Länge Genre FSK Release
                         DVD tempDVD = (DVD)code.MedienListe[i];
-                        row = new string[7] { Convert.ToString(tempDVD.ID), tempDVD.Titel, tempDVD.Director, Convert.ToString(tempDVD.Length), tempDVD.Genre, Convert.ToString(tempDVD.Age), tempDVD.Release.ToString(sDatumsformat) };
+                        sVerfuegbar = (tempDVD.Ausgeliehen == true) ? "Nein" : "Ja";
+                        row = new string[8] { Convert.ToString(tempDVD.ID), tempDVD.Titel, tempDVD.Director, Convert.ToString(tempDVD.Length), tempDVD.Genre, Convert.ToString(tempDVD.Age), tempDVD.Release.ToString(sDatumsformat), sVerfuegbar };
                         dgv_DVDs.Rows.Add(row);
                         break;
                     case "BluRay":
                         BluRay tempBluRay = (BluRay)code.MedienListe[i];
-                        row = new string[7] { Convert.ToString(tempBluRay.ID), tempBluRay.Titel, tempBluRay.Director, Convert.ToString(tempBluRay.Length), tempBluRay.Genre, Convert.ToString(tempBluRay.Age), tempBluRay.Release.ToString(sDatumsformat) };
+                        sVerfuegbar = (tempBluRay.Ausgeliehen == true) ? "Nein" : "Ja";
+                        row = new string[8] { Convert.ToString(tempBluRay.ID), tempBluRay.Titel, tempBluRay.Director, Convert.ToString(tempBluRay.Length), tempBluRay.Genre, Convert.ToString(tempBluRay.Age), tempBluRay.Release.ToString(sDatumsformat), sVerfuegbar };
                         dgv_BluRays.Rows.Add(row);
                         break;
                 }
